@@ -26,12 +26,6 @@ Porting to VRChat of Unity Localization package.
 
 ## Basic Usage
 
-## Credits
-
-Sardinject is inspired by:
-
-- [VContainer](https://github.com/hadashiA/VContainer)
-
 ## Author
 
 [@ikuko](https://twitter.com/magi_ikuko)
