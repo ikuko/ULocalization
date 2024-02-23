@@ -11,6 +11,10 @@ Porting to VRChat of Unity Localization package.
 
 ## Documentation
 
+~~View on [GitHub Pages](https://localization.github.io)~~
+
+## Installation
+
 *Unity 2022.3+ が必要です*
 
 ### VCC を利用したインストール
