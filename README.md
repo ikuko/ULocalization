@@ -1,7 +1,7 @@
 # Localization
 
 ![](https://img.shields.io/badge/unity-2022.3+-000.svg)
-[![Releases](https://img.shields.io/github/release/hoshinolabs-vrchat/Sardinject.svg)](https://github.com/hoshinolabs-vrchat/Sardinject/releases)
+[![Releases](https://img.shields.io/github/release/hoshinolabs-vrchat/Localization.svg)](https://github.com/hoshinolabs-vrchat/Localization/releases)
 
 Porting to VRChat of Unity Localization package.
 
