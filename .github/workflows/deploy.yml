@@ -1,0 +1,48 @@
+name: Deploy to GitHub Pages
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    # Review gh actions docs if you want to further define triggers, paths, etc
+    # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#on
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    name: Deploy to GitHub Pages
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./docs
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: yarn
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+      - name: Build website
+        run: yarn build
+
+      # Prepare for GitHub Pages deployment
+      - name: Setup Pages
+        uses: actions/configure-pages@f156874f8191504dae5b037505266ed5dda6c382
+      
+      # Upload the VPM Listing Website to GitHub Pages artifacts
+      - name: Upload Pages Artifact
+        uses: actions/upload-pages-artifact@a753861a5debcf57bf8b404356158c8e1e33150c
+        with:
+          path: build
+      
+      # Deploy the uploaded VPM Listing Website to GitHub Pages
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@9dbe3824824f8a1377b8e298bafde1a50ede43e5
