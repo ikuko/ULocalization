@@ -180,8 +180,8 @@ namespace HoshinoLabs.Localization {
                         case DoubleVariable:
                         case ObjectVariable:
                         case LocalizedString:
-                        case CurrentTime:
-                        case DateTimeVariable:
+                        //case CurrentTime:
+                        //case DateTimeVariable:
                         case UdonVariable: {
                                 return true;
                             }

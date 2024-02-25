@@ -78,13 +78,13 @@ namespace HoshinoLabs.Localization {
             return new Variable(VariableType.LocalizedString, assetId);
         }
 
-        public static Variable ToVariable(this CurrentTime self) {
-            return new Variable(VariableType.CurrentTime, null);
-        }
+        //public static Variable ToVariable(this CurrentTime self) {
+        //    return new Variable(VariableType.CurrentTime, null);
+        //}
 
-        public static Variable ToVariable(this DateTimeVariable self) {
-            return new Variable(VariableType.DateTime, self.GetSourceValue(null));
-        }
+        //public static Variable ToVariable(this DateTimeVariable self) {
+        //    return new Variable(VariableType.DateTime, self.GetSourceValue(null));
+        //}
 
         public static Variable ToVariable(this UdonVariable self) {
             var udon = UdonSharpEditorUtility.GetBackingUdonBehaviour(self.Value);
@@ -135,12 +135,12 @@ namespace HoshinoLabs.Localization {
                 case LocalizedString localizedString: {
                         return localizedString.ToVariable();
                     }
-                case CurrentTime currentTime: {
-                        return currentTime.ToVariable();
-                    }
-                case DateTimeVariable dateTimeVariable: {
-                        return dateTimeVariable.ToVariable();
-                    }
+                //case CurrentTime currentTime: {
+                //        return currentTime.ToVariable();
+                //    }
+                //case DateTimeVariable dateTimeVariable: {
+                //        return dateTimeVariable.ToVariable();
+                //    }
                 case UdonVariable udonVariable: {
                         return udonVariable.ToVariable();
                     }
