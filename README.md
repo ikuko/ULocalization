@@ -11,7 +11,7 @@ Porting to VRChat of Unity Localization package.
 
 ## Documentation
 
-~~View on [GitHub Pages](https://localization.github.io)~~
+View on [GitHub Pages](https://hoshinolabs-vrchat.github.io/Localization/)
 
 ## Installation
 
@@ -22,13 +22,13 @@ Porting to VRChat of Unity Localization package.
 1. 次のページを開き、「Add to VCC」を押します。  
   [HoshinoLabs VPM Repository](https://vpm.hoshinolabs.com/)
 2. VCCの「Manage Project」を押す。
-3. `Localization` の横の「+」ボタンを押す。
+3. `HoshinoLabs - Localization` の横の「+」ボタンを押す。
 
 ## Basic Usage
 
 ## Author
 
-[@ikuko](https://twitter.com/magi_ikuko)
+[@ikuko](https://x.com/magi_ikuko)
 
 ## License
 
