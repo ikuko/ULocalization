@@ -10,7 +10,8 @@
     "email": "magi.ikuko@gmail.com",
     "url": "https://hoshinolabs.com"
   },
-  "dependencies": {
+  "dependencies": {,
+    "com.unity.localization": "1.4.5"
   },
   "vpmDependencies": {
     "com.vrchat.worlds": ">=3.5.1",
