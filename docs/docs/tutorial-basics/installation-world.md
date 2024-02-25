@@ -23,4 +23,5 @@ Udon などを用いてより複雑な制御を行いたい場合は Tutorial-Ex
 ![](img/initialization-world-language-setting-menu-01.png)
 
 ワールドをビルドして確認してみましょう。  
-ドロップダウンから言語を選択するとテキストが連動して切り替わりました。
+ドロップダウンから言語を選択するとテキストが連動して切り替わりました。  
+![](img/initialization-world-language-setting-menu-02.gif)
