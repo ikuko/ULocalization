@@ -11,13 +11,15 @@ on:
 permissions:
   contents: write
 
+defaults:
+  run:
+    shell: bash
+    working-directory: ./docs
+
 jobs:
   deploy:
     name: Deploy to GitHub Pages
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: docs
     steps:
       - uses: actions/checkout@v4
         with:
@@ -26,6 +28,7 @@ jobs:
         with:
           node-version: 18
           cache: yarn
+          cache-dependency-path: ./docs/yarn.lock
 
       - name: Install dependencies
         run: yarn install --frozen-lockfile
@@ -40,7 +43,7 @@ jobs:
       - name: Upload Pages Artifact
         uses: actions/upload-pages-artifact@a753861a5debcf57bf8b404356158c8e1e33150c
         with:
-          path: build
+          path: ./docs/build
       
       # Deploy the uploaded VPM Listing Website to GitHub Pages
       - name: Deploy to GitHub Pages
