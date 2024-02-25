@@ -97,7 +97,7 @@ namespace HoshinoLabs.Localization.Udon {
             startupSelectors = null;
         }
 
-        public void RefreshString(int groupId) {
+        public override void RefreshString(int groupId) {
             var assetId = groups_2[groupId];
             listenerString = currentStringDatabase[assetId];
             var args = groups_3[groupId];
@@ -113,7 +113,19 @@ namespace HoshinoLabs.Localization.Udon {
             }
         }
 
-        public string GetLocalizedString(int groupId, string locale) {
+        public override void RefreshAsset(int groupId) {
+            var assetId = groups_2[groupId];
+            listenerAsset = currentAssetDatabase[assetId];
+            var listenerLength = groups_4_0[groupId];
+            listenerHash = groups_4_1[groupId];
+            listenerTarget = groups_4_2[groupId];
+            listenerArgument = groups_4_3[groupId];
+            for (listenerIdx = 0; listenerIdx < listenerLength; listenerIdx++) {
+                SendCustomEvent(listenerHash[listenerIdx]);
+            }
+        }
+
+        public override string GetLocalizedString(int groupId, string locale) {
             var localeId = Array.IndexOf(availableLocales, locale);
             if (localeId < 0) {
                 return null;
@@ -127,7 +139,7 @@ namespace HoshinoLabs.Localization.Udon {
             return listenerString;
         }
 
-        public object GetLocalizedAsset(int groupId, string locale) {
+        public override object GetLocalizedAsset(int groupId, string locale) {
             var localeId = Array.IndexOf(availableLocales, locale);
             var assetId = groups_2[groupId];
             return localeId < 0 ? null : assetDatabase[localeId][assetId];

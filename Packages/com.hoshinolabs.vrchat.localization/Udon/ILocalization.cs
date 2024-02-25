@@ -11,5 +11,11 @@ namespace HoshinoLabs.Localization.Udon {
         public virtual string ProjectLocale { get; }
 
         public virtual string SelectedLocale { get; set; }
+
+        public virtual void RefreshString(int groupId) { }
+        public virtual void RefreshAsset(int groupId) { }
+
+        public virtual string GetLocalizedString(int groupId, string locale) => null;
+        public virtual object GetLocalizedAsset(int groupId, string locale) => null;
     }
 }
