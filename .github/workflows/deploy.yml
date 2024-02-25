@@ -9,7 +9,9 @@ on:
     # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#on
 
 permissions:
-  contents: write
+  contents: read
+  pages: write
+  id-token: write
 
 defaults:
   run:
