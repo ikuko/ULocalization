@@ -12,6 +12,18 @@ namespace HoshinoLabs.Localization {
 				["CompleteOffMeshLink"] = "UnityEngineAINavMeshAgent.__CompleteOffMeshLink__SystemVoid",
 				["ResetPath"] = "UnityEngineAINavMeshAgent.__ResetPath__SystemVoid",
 			},
+			[typeof(global::UnityEngine.Behaviour)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
+			},
+			[typeof(global::UnityEngine.Component)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
+			},
+			[typeof(global::UnityEngine.Object)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineObject.__get_name__SystemString",
+				["set_name"] = "UnityEngineObject.__set_name__SystemString__SystemVoid",
+			},
 			[typeof(global::UnityEngine.AI.NavMeshObstacle)] = new Dictionary<string, string> {
 				["get_name"] = "UnityEngineAINavMeshObstacle.__get_name__SystemString",
 				["set_name"] = "UnityEngineAINavMeshObstacle.__set_name__SystemString__SystemVoid",
@@ -71,6 +83,10 @@ namespace HoshinoLabs.Localization {
 				["Pause"] = "UnityEngineAudioSource.__Pause__SystemVoid",
 				["UnPause"] = "UnityEngineAudioSource.__UnPause__SystemVoid",
 			},
+			[typeof(global::UnityEngine.AudioBehaviour)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
+			},
 			[typeof(global::UnityEngine.AudioLowPassFilter)] = new Dictionary<string, string> {
 				["get_name"] = "UnityEngineAudioLowPassFilter.__get_name__SystemString",
 				["set_name"] = "UnityEngineAudioLowPassFilter.__set_name__SystemString__SystemVoid",
@@ -84,6 +100,8 @@ namespace HoshinoLabs.Localization {
 				["set_name"] = "UnityEngineAudioReverbFilter.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::UnityEngine.AudioListener)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::UnityEngine.AudioReverbZone)] = new Dictionary<string, string> {
 				["get_name"] = "UnityEngineAudioReverbZone.__get_name__SystemString",
@@ -102,6 +120,8 @@ namespace HoshinoLabs.Localization {
 				["set_name"] = "UnityEngineAudioChorusFilter.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::UnityEngine.Cloth)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::UnityEngine.Camera)] = new Dictionary<string, string> {
 				["get_name"] = "UnityEngineCamera.__get_name__SystemString",
@@ -119,6 +139,8 @@ namespace HoshinoLabs.Localization {
 				["RenderDontRestore"] = "UnityEngineCamera.__RenderDontRestore__SystemVoid",
 			},
 			[typeof(global::UnityEngine.FlareLayer)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::UnityEngine.ReflectionProbe)] = new Dictionary<string, string> {
 				["get_bakedTexture"] = "UnityEngineReflectionProbe.__get_bakedTexture__UnityEngineTexture",
@@ -147,6 +169,8 @@ namespace HoshinoLabs.Localization {
 				["ResetLocalBounds"] = "UnityEngineRenderer.__ResetLocalBounds__SystemVoid",
 			},
 			[typeof(global::UnityEngine.Projector)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::UnityEngine.TrailRenderer)] = new Dictionary<string, string> {
 				["get_sortingLayerName"] = "UnityEngineTrailRenderer.__get_sortingLayerName__SystemString",
@@ -170,8 +194,12 @@ namespace HoshinoLabs.Localization {
 				["set_name"] = "UnityEngineOcclusionPortal.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::UnityEngine.OcclusionArea)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::UnityEngine.LensFlare)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::UnityEngine.Light)] = new Dictionary<string, string> {
 				["get_cookie"] = "UnityEngineLight.__get_cookie__UnityEngineTexture",
@@ -181,12 +209,16 @@ namespace HoshinoLabs.Localization {
 				["Reset"] = "UnityEngineLight.__Reset__SystemVoid",
 			},
 			[typeof(global::UnityEngine.Skybox)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::UnityEngine.MeshFilter)] = new Dictionary<string, string> {
 				["get_name"] = "UnityEngineMeshFilter.__get_name__SystemString",
 				["set_name"] = "UnityEngineMeshFilter.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::UnityEngine.LightProbeProxyVolume)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::UnityEngine.SkinnedMeshRenderer)] = new Dictionary<string, string> {
 				["get_sortingLayerName"] = "UnityEngineSkinnedMeshRenderer.__get_sortingLayerName__SystemString",
@@ -205,8 +237,12 @@ namespace HoshinoLabs.Localization {
 				["ResetLocalBounds"] = "UnityEngineMeshRenderer.__ResetLocalBounds__SystemVoid",
 			},
 			[typeof(global::UnityEngine.LightProbeGroup)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::UnityEngine.LODGroup)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::UnityEngine.RectTransform)] = new Dictionary<string, string> {
 				["get_name"] = "UnityEngineRectTransform.__get_name__SystemString",
@@ -234,6 +270,8 @@ namespace HoshinoLabs.Localization {
 				["ResetLocalBounds"] = "UnityEngineSpriteRenderer.__ResetLocalBounds__SystemVoid",
 			},
 			[typeof(global::UnityEngine.Rendering.SortingGroup)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::UnityEngine.Playables.PlayableDirector)] = new Dictionary<string, string> {
 				["get_name"] = "UnityEnginePlayablesPlayableDirector.__get_name__SystemString",
@@ -246,8 +284,12 @@ namespace HoshinoLabs.Localization {
 				["Resume"] = "UnityEnginePlayablesPlayableDirector.__Resume__SystemVoid",
 			},
 			[typeof(global::UnityEngine.Grid)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::UnityEngine.GridLayout)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::UnityEngine.ParticleSystem)] = new Dictionary<string, string> {
 				["get_name"] = "UnityEngineParticleSystem.__get_name__SystemString",
@@ -268,6 +310,8 @@ namespace HoshinoLabs.Localization {
 				["ResetLocalBounds"] = "UnityEngineParticleSystemRenderer.__ResetLocalBounds__SystemVoid",
 			},
 			[typeof(global::UnityEngine.ParticleSystemForceField)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::UnityEngine.Rigidbody)] = new Dictionary<string, string> {
 				["get_name"] = "UnityEngineRigidbody.__get_name__SystemString",
@@ -322,6 +366,8 @@ namespace HoshinoLabs.Localization {
 				["set_name"] = "UnityEngineFixedJoint.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::UnityEngine.CharacterJoint)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineJoint.__get_name__SystemString",
+				["set_name"] = "UnityEngineJoint.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::UnityEngine.ConfigurableJoint)] = new Dictionary<string, string> {
 				["get_name"] = "UnityEngineConfigurableJoint.__get_name__SystemString",
@@ -370,6 +416,10 @@ namespace HoshinoLabs.Localization {
 			[typeof(global::UnityEngine.DistanceJoint2D)] = new Dictionary<string, string> {
 				["get_name"] = "UnityEngineDistanceJoint2D.__get_name__SystemString",
 				["set_name"] = "UnityEngineDistanceJoint2D.__set_name__SystemString__SystemVoid",
+			},
+			[typeof(global::UnityEngine.AnchoredJoint2D)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineJoint2D.__get_name__SystemString",
+				["set_name"] = "UnityEngineJoint2D.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::UnityEngine.FrictionJoint2D)] = new Dictionary<string, string> {
 				["get_name"] = "UnityEngineFrictionJoint2D.__get_name__SystemString",
@@ -423,19 +473,45 @@ namespace HoshinoLabs.Localization {
 				["get_name"] = "UnityEngineConstantForce2D.__get_name__SystemString",
 				["set_name"] = "UnityEngineConstantForce2D.__set_name__SystemString__SystemVoid",
 			},
+			[typeof(global::UnityEngine.PhysicsUpdateBehaviour2D)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
+			},
 			[typeof(global::UnityEngine.SpriteMask)] = new Dictionary<string, string> {
+				["get_sortingLayerName"] = "UnityEngineRenderer.__get_sortingLayerName__SystemString",
+				["set_sortingLayerName"] = "UnityEngineRenderer.__set_sortingLayerName__SystemString__SystemVoid",
+				["get_name"] = "UnityEngineRenderer.__get_name__SystemString",
+				["set_name"] = "UnityEngineRenderer.__set_name__SystemString__SystemVoid",
+				["ResetBounds"] = "UnityEngineRenderer.__ResetBounds__SystemVoid",
+				["ResetLocalBounds"] = "UnityEngineRenderer.__ResetLocalBounds__SystemVoid",
 			},
 			[typeof(global::UnityEngine.Terrain)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::UnityEngine.Tree)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::UnityEngine.TerrainCollider)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineCollider.__get_name__SystemString",
+				["set_name"] = "UnityEngineCollider.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::UnityEngine.TextMesh)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::UnityEngine.Tilemaps.Tilemap)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::UnityEngine.Tilemaps.TilemapRenderer)] = new Dictionary<string, string> {
+				["get_sortingLayerName"] = "UnityEngineRenderer.__get_sortingLayerName__SystemString",
+				["set_sortingLayerName"] = "UnityEngineRenderer.__set_sortingLayerName__SystemString__SystemVoid",
+				["get_name"] = "UnityEngineRenderer.__get_name__SystemString",
+				["set_name"] = "UnityEngineRenderer.__set_name__SystemString__SystemVoid",
+				["ResetBounds"] = "UnityEngineRenderer.__ResetBounds__SystemVoid",
+				["ResetLocalBounds"] = "UnityEngineRenderer.__ResetLocalBounds__SystemVoid",
 			},
 			[typeof(global::UnityEngine.CanvasGroup)] = new Dictionary<string, string> {
 				["get_name"] = "UnityEngineCanvasGroup.__get_name__SystemString",
@@ -461,16 +537,32 @@ namespace HoshinoLabs.Localization {
 				["ResetSprungMasses"] = "UnityEngineWheelCollider.__ResetSprungMasses__SystemVoid",
 			},
 			[typeof(global::UnityEngine.WindZone)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::UnityEngine.Rendering.PostProcessing.PostProcessDebug)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
+			},
+			[typeof(global::UnityEngine.MonoBehaviour)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::UnityEngine.Rendering.PostProcessing.PostProcessLayer)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::UnityEngine.Rendering.PostProcessing.PostProcessVolume)] = new Dictionary<string, string> {
 				["get_name"] = "UnityEngineRenderingPostProcessingPostProcessVolume.__get_name__SystemString",
 				["set_name"] = "UnityEngineRenderingPostProcessingPostProcessVolume.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::TMPro.TextContainer)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
+			},
+			[typeof(global::UnityEngine.EventSystems.UIBehaviour)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::TMPro.TextMeshPro)] = new Dictionary<string, string> {
 				["get_text"] = "TMProTextMeshPro.__get_text__SystemString",
@@ -478,45 +570,49 @@ namespace HoshinoLabs.Localization {
 				["get_mainTexture"] = "TMProTextMeshPro.__get_mainTexture__UnityEngineTexture",
 				["get_name"] = "TMProTextMeshPro.__get_name__SystemString",
 				["set_name"] = "TMProTextMeshPro.__set_name__SystemString__SystemVoid",
-			},
-			[typeof(global::TMPro.TextMeshProUGUI)] = new Dictionary<string, string> {
-				["get_text"] = "TMProTextMeshProUGUI.__get_text__SystemString",
-				["set_text"] = "TMProTextMeshProUGUI.__set_text__SystemString__SystemVoid",
-				["get_mainTexture"] = "TMProTextMeshProUGUI.__get_mainTexture__UnityEngineTexture",
-				["get_name"] = "TMProTextMeshProUGUI.__get_name__SystemString",
-				["set_name"] = "TMProTextMeshProUGUI.__set_name__SystemString__SystemVoid",
-			},
-			[typeof(global::TMPro.TMP_Dropdown)] = new Dictionary<string, string> {
-			},
-			[typeof(global::TMPro.TMP_InputField)] = new Dictionary<string, string> {
-			},
-			[typeof(global::TMPro.TMP_ScrollbarEventHandler)] = new Dictionary<string, string> {
-			},
-			[typeof(global::TMPro.TMP_SelectionCaret)] = new Dictionary<string, string> {
-			},
-			[typeof(global::TMPro.TMP_SpriteAnimator)] = new Dictionary<string, string> {
-			},
-			[typeof(global::TMPro.TMP_SubMesh)] = new Dictionary<string, string> {
-			},
-			[typeof(global::TMPro.TMP_SubMeshUI)] = new Dictionary<string, string> {
+				["RecalculateClipping"] = "UnityEngineUIMaskableGraphic.__RecalculateClipping__SystemVoid",
+				["RecalculateMasking"] = "UnityEngineUIMaskableGraphic.__RecalculateMasking__SystemVoid",
+				["SetAllDirty"] = "UnityEngineUIMaskableGraphic.__SetAllDirty__SystemVoid",
+				["SetLayoutDirty"] = "UnityEngineUIMaskableGraphic.__SetLayoutDirty__SystemVoid",
+				["SetVerticesDirty"] = "UnityEngineUIMaskableGraphic.__SetVerticesDirty__SystemVoid",
+				["SetMaterialDirty"] = "UnityEngineUIMaskableGraphic.__SetMaterialDirty__SystemVoid",
+				["SetRaycastDirty"] = "UnityEngineUIMaskableGraphic.__SetRaycastDirty__SystemVoid",
+				["OnCullingChanged"] = "UnityEngineUIMaskableGraphic.__OnCullingChanged__SystemVoid",
+				["LayoutComplete"] = "UnityEngineUIMaskableGraphic.__LayoutComplete__SystemVoid",
+				["GraphicUpdateComplete"] = "UnityEngineUIMaskableGraphic.__GraphicUpdateComplete__SystemVoid",
+				["SetNativeSize"] = "UnityEngineUIMaskableGraphic.__SetNativeSize__SystemVoid",
 			},
 			[typeof(global::TMPro.TMP_Text)] = new Dictionary<string, string> {
+				["get_mainTexture"] = "UnityEngineUIMaskableGraphic.__get_mainTexture__UnityEngineTexture",
+				["get_name"] = "UnityEngineUIMaskableGraphic.__get_name__SystemString",
+				["set_name"] = "UnityEngineUIMaskableGraphic.__set_name__SystemString__SystemVoid",
+				["RecalculateClipping"] = "UnityEngineUIMaskableGraphic.__RecalculateClipping__SystemVoid",
+				["RecalculateMasking"] = "UnityEngineUIMaskableGraphic.__RecalculateMasking__SystemVoid",
+				["SetAllDirty"] = "UnityEngineUIMaskableGraphic.__SetAllDirty__SystemVoid",
+				["SetLayoutDirty"] = "UnityEngineUIMaskableGraphic.__SetLayoutDirty__SystemVoid",
+				["SetVerticesDirty"] = "UnityEngineUIMaskableGraphic.__SetVerticesDirty__SystemVoid",
+				["SetMaterialDirty"] = "UnityEngineUIMaskableGraphic.__SetMaterialDirty__SystemVoid",
+				["SetRaycastDirty"] = "UnityEngineUIMaskableGraphic.__SetRaycastDirty__SystemVoid",
+				["OnCullingChanged"] = "UnityEngineUIMaskableGraphic.__OnCullingChanged__SystemVoid",
+				["LayoutComplete"] = "UnityEngineUIMaskableGraphic.__LayoutComplete__SystemVoid",
+				["GraphicUpdateComplete"] = "UnityEngineUIMaskableGraphic.__GraphicUpdateComplete__SystemVoid",
+				["SetNativeSize"] = "UnityEngineUIMaskableGraphic.__SetNativeSize__SystemVoid",
 			},
-			[typeof(global::VRC.Udon.UdonBehaviour)] = new Dictionary<string, string> {
-			},
-			[typeof(global::UnityEngine.UI.Button)] = new Dictionary<string, string> {
-				["get_name"] = "UnityEngineUIButton.__get_name__SystemString",
-				["set_name"] = "UnityEngineUIButton.__set_name__SystemString__SystemVoid",
-				["Select"] = "UnityEngineUIButton.__Select__SystemVoid",
-			},
-			[typeof(global::UnityEngine.UI.Dropdown)] = new Dictionary<string, string> {
-				["get_name"] = "UnityEngineUIDropdown.__get_name__SystemString",
-				["set_name"] = "UnityEngineUIDropdown.__set_name__SystemString__SystemVoid",
-				["RefreshShownValue"] = "UnityEngineUIDropdown.__RefreshShownValue__SystemVoid",
-				["ClearOptions"] = "UnityEngineUIDropdown.__ClearOptions__SystemVoid",
-				["Show"] = "UnityEngineUIDropdown.__Show__SystemVoid",
-				["Hide"] = "UnityEngineUIDropdown.__Hide__SystemVoid",
-				["Select"] = "UnityEngineUIDropdown.__Select__SystemVoid",
+			[typeof(global::UnityEngine.UI.MaskableGraphic)] = new Dictionary<string, string> {
+				["get_mainTexture"] = "UnityEngineUIMaskableGraphic.__get_mainTexture__UnityEngineTexture",
+				["get_name"] = "UnityEngineUIMaskableGraphic.__get_name__SystemString",
+				["set_name"] = "UnityEngineUIMaskableGraphic.__set_name__SystemString__SystemVoid",
+				["RecalculateClipping"] = "UnityEngineUIMaskableGraphic.__RecalculateClipping__SystemVoid",
+				["RecalculateMasking"] = "UnityEngineUIMaskableGraphic.__RecalculateMasking__SystemVoid",
+				["SetAllDirty"] = "UnityEngineUIMaskableGraphic.__SetAllDirty__SystemVoid",
+				["SetLayoutDirty"] = "UnityEngineUIMaskableGraphic.__SetLayoutDirty__SystemVoid",
+				["SetVerticesDirty"] = "UnityEngineUIMaskableGraphic.__SetVerticesDirty__SystemVoid",
+				["SetMaterialDirty"] = "UnityEngineUIMaskableGraphic.__SetMaterialDirty__SystemVoid",
+				["SetRaycastDirty"] = "UnityEngineUIMaskableGraphic.__SetRaycastDirty__SystemVoid",
+				["OnCullingChanged"] = "UnityEngineUIMaskableGraphic.__OnCullingChanged__SystemVoid",
+				["LayoutComplete"] = "UnityEngineUIMaskableGraphic.__LayoutComplete__SystemVoid",
+				["GraphicUpdateComplete"] = "UnityEngineUIMaskableGraphic.__GraphicUpdateComplete__SystemVoid",
+				["SetNativeSize"] = "UnityEngineUIMaskableGraphic.__SetNativeSize__SystemVoid",
 			},
 			[typeof(global::UnityEngine.UI.Graphic)] = new Dictionary<string, string> {
 				["get_mainTexture"] = "UnityEngineUIGraphic.__get_mainTexture__UnityEngineTexture",
@@ -532,9 +628,136 @@ namespace HoshinoLabs.Localization {
 				["GraphicUpdateComplete"] = "UnityEngineUIGraphic.__GraphicUpdateComplete__SystemVoid",
 				["SetNativeSize"] = "UnityEngineUIGraphic.__SetNativeSize__SystemVoid",
 			},
+			[typeof(global::TMPro.TextMeshProUGUI)] = new Dictionary<string, string> {
+				["get_text"] = "TMProTextMeshProUGUI.__get_text__SystemString",
+				["set_text"] = "TMProTextMeshProUGUI.__set_text__SystemString__SystemVoid",
+				["get_mainTexture"] = "TMProTextMeshProUGUI.__get_mainTexture__UnityEngineTexture",
+				["get_name"] = "TMProTextMeshProUGUI.__get_name__SystemString",
+				["set_name"] = "TMProTextMeshProUGUI.__set_name__SystemString__SystemVoid",
+				["RecalculateClipping"] = "UnityEngineUIMaskableGraphic.__RecalculateClipping__SystemVoid",
+				["RecalculateMasking"] = "UnityEngineUIMaskableGraphic.__RecalculateMasking__SystemVoid",
+				["SetAllDirty"] = "UnityEngineUIMaskableGraphic.__SetAllDirty__SystemVoid",
+				["SetLayoutDirty"] = "UnityEngineUIMaskableGraphic.__SetLayoutDirty__SystemVoid",
+				["SetVerticesDirty"] = "UnityEngineUIMaskableGraphic.__SetVerticesDirty__SystemVoid",
+				["SetMaterialDirty"] = "UnityEngineUIMaskableGraphic.__SetMaterialDirty__SystemVoid",
+				["SetRaycastDirty"] = "UnityEngineUIMaskableGraphic.__SetRaycastDirty__SystemVoid",
+				["OnCullingChanged"] = "UnityEngineUIMaskableGraphic.__OnCullingChanged__SystemVoid",
+				["LayoutComplete"] = "UnityEngineUIMaskableGraphic.__LayoutComplete__SystemVoid",
+				["GraphicUpdateComplete"] = "UnityEngineUIMaskableGraphic.__GraphicUpdateComplete__SystemVoid",
+				["SetNativeSize"] = "UnityEngineUIMaskableGraphic.__SetNativeSize__SystemVoid",
+			},
+			[typeof(global::TMPro.TMP_Dropdown)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineUISelectable.__get_name__SystemString",
+				["set_name"] = "UnityEngineUISelectable.__set_name__SystemString__SystemVoid",
+				["Select"] = "UnityEngineUISelectable.__Select__SystemVoid",
+			},
+			[typeof(global::UnityEngine.UI.Selectable)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineUISelectable.__get_name__SystemString",
+				["set_name"] = "UnityEngineUISelectable.__set_name__SystemString__SystemVoid",
+				["Select"] = "UnityEngineUISelectable.__Select__SystemVoid",
+			},
+			[typeof(global::TMPro.TMP_InputField)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineUISelectable.__get_name__SystemString",
+				["set_name"] = "UnityEngineUISelectable.__set_name__SystemString__SystemVoid",
+				["Select"] = "UnityEngineUISelectable.__Select__SystemVoid",
+			},
+			[typeof(global::TMPro.TMP_ScrollbarEventHandler)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
+			},
+			[typeof(global::TMPro.TMP_SelectionCaret)] = new Dictionary<string, string> {
+				["get_mainTexture"] = "UnityEngineUIMaskableGraphic.__get_mainTexture__UnityEngineTexture",
+				["get_name"] = "UnityEngineUIMaskableGraphic.__get_name__SystemString",
+				["set_name"] = "UnityEngineUIMaskableGraphic.__set_name__SystemString__SystemVoid",
+				["RecalculateClipping"] = "UnityEngineUIMaskableGraphic.__RecalculateClipping__SystemVoid",
+				["RecalculateMasking"] = "UnityEngineUIMaskableGraphic.__RecalculateMasking__SystemVoid",
+				["SetAllDirty"] = "UnityEngineUIMaskableGraphic.__SetAllDirty__SystemVoid",
+				["SetLayoutDirty"] = "UnityEngineUIMaskableGraphic.__SetLayoutDirty__SystemVoid",
+				["SetVerticesDirty"] = "UnityEngineUIMaskableGraphic.__SetVerticesDirty__SystemVoid",
+				["SetMaterialDirty"] = "UnityEngineUIMaskableGraphic.__SetMaterialDirty__SystemVoid",
+				["SetRaycastDirty"] = "UnityEngineUIMaskableGraphic.__SetRaycastDirty__SystemVoid",
+				["OnCullingChanged"] = "UnityEngineUIMaskableGraphic.__OnCullingChanged__SystemVoid",
+				["LayoutComplete"] = "UnityEngineUIMaskableGraphic.__LayoutComplete__SystemVoid",
+				["GraphicUpdateComplete"] = "UnityEngineUIMaskableGraphic.__GraphicUpdateComplete__SystemVoid",
+				["SetNativeSize"] = "UnityEngineUIMaskableGraphic.__SetNativeSize__SystemVoid",
+			},
+			[typeof(global::TMPro.TMP_SpriteAnimator)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
+			},
+			[typeof(global::TMPro.TMP_SubMesh)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
+			},
+			[typeof(global::TMPro.TMP_SubMeshUI)] = new Dictionary<string, string> {
+				["get_mainTexture"] = "UnityEngineUIMaskableGraphic.__get_mainTexture__UnityEngineTexture",
+				["get_name"] = "UnityEngineUIMaskableGraphic.__get_name__SystemString",
+				["set_name"] = "UnityEngineUIMaskableGraphic.__set_name__SystemString__SystemVoid",
+				["RecalculateClipping"] = "UnityEngineUIMaskableGraphic.__RecalculateClipping__SystemVoid",
+				["RecalculateMasking"] = "UnityEngineUIMaskableGraphic.__RecalculateMasking__SystemVoid",
+				["SetAllDirty"] = "UnityEngineUIMaskableGraphic.__SetAllDirty__SystemVoid",
+				["SetLayoutDirty"] = "UnityEngineUIMaskableGraphic.__SetLayoutDirty__SystemVoid",
+				["SetVerticesDirty"] = "UnityEngineUIMaskableGraphic.__SetVerticesDirty__SystemVoid",
+				["SetMaterialDirty"] = "UnityEngineUIMaskableGraphic.__SetMaterialDirty__SystemVoid",
+				["SetRaycastDirty"] = "UnityEngineUIMaskableGraphic.__SetRaycastDirty__SystemVoid",
+				["OnCullingChanged"] = "UnityEngineUIMaskableGraphic.__OnCullingChanged__SystemVoid",
+				["LayoutComplete"] = "UnityEngineUIMaskableGraphic.__LayoutComplete__SystemVoid",
+				["GraphicUpdateComplete"] = "UnityEngineUIMaskableGraphic.__GraphicUpdateComplete__SystemVoid",
+				["SetNativeSize"] = "UnityEngineUIMaskableGraphic.__SetNativeSize__SystemVoid",
+			},
+			[typeof(global::VRC.Udon.UdonBehaviour)] = new Dictionary<string, string> {
+				["get_InteractionText"] = "VRCUdonCommonInterfacesIUdonEventReceiver.__get_InteractionText__SystemString",
+				["set_InteractionText"] = "VRCUdonCommonInterfacesIUdonEventReceiver.__set_InteractionText__SystemString__SystemVoid",
+				["SendCustomEvent"] = "VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid",
+				["RequestSerialization"] = "VRCUdonCommonInterfacesIUdonEventReceiver.__RequestSerialization__SystemVoid",
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
+			},
+			[typeof(global::VRC.Udon.Common.Interfaces.IUdonEventReceiver)] = new Dictionary<string, string> {
+				["get_InteractionText"] = "VRCUdonCommonInterfacesIUdonEventReceiver.__get_InteractionText__SystemString",
+				["set_InteractionText"] = "VRCUdonCommonInterfacesIUdonEventReceiver.__set_InteractionText__SystemString__SystemVoid",
+				["SendCustomEvent"] = "VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid",
+				["RequestSerialization"] = "VRCUdonCommonInterfacesIUdonEventReceiver.__RequestSerialization__SystemVoid",
+			},
+			[typeof(global::VRC.Udon.Common.Interfaces.IUdonBehaviour)] = new Dictionary<string, string> {
+				["get_InteractionText"] = "VRCUdonCommonInterfacesIUdonEventReceiver.__get_InteractionText__SystemString",
+				["set_InteractionText"] = "VRCUdonCommonInterfacesIUdonEventReceiver.__set_InteractionText__SystemString__SystemVoid",
+				["SendCustomEvent"] = "VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid",
+				["RequestSerialization"] = "VRCUdonCommonInterfacesIUdonEventReceiver.__RequestSerialization__SystemVoid",
+			},
+			[typeof(global::VRC.SDK3.Components.AbstractUdonBehaviour)] = new Dictionary<string, string> {
+				["get_InteractionText"] = "VRCUdonCommonInterfacesIUdonEventReceiver.__get_InteractionText__SystemString",
+				["set_InteractionText"] = "VRCUdonCommonInterfacesIUdonEventReceiver.__set_InteractionText__SystemString__SystemVoid",
+				["SendCustomEvent"] = "VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid",
+				["RequestSerialization"] = "VRCUdonCommonInterfacesIUdonEventReceiver.__RequestSerialization__SystemVoid",
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
+			},
+			[typeof(global::VRC.SDK3.Components.VRCInteractable)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
+			},
+			[typeof(global::UnityEngine.UI.Button)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineUIButton.__get_name__SystemString",
+				["set_name"] = "UnityEngineUIButton.__set_name__SystemString__SystemVoid",
+				["Select"] = "UnityEngineUIButton.__Select__SystemVoid",
+			},
+			[typeof(global::UnityEngine.UI.Dropdown)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineUIDropdown.__get_name__SystemString",
+				["set_name"] = "UnityEngineUIDropdown.__set_name__SystemString__SystemVoid",
+				["RefreshShownValue"] = "UnityEngineUIDropdown.__RefreshShownValue__SystemVoid",
+				["ClearOptions"] = "UnityEngineUIDropdown.__ClearOptions__SystemVoid",
+				["Show"] = "UnityEngineUIDropdown.__Show__SystemVoid",
+				["Hide"] = "UnityEngineUIDropdown.__Hide__SystemVoid",
+				["Select"] = "UnityEngineUIDropdown.__Select__SystemVoid",
+			},
 			[typeof(global::UnityEngine.UI.GraphicRaycaster)] = new Dictionary<string, string> {
 				["get_name"] = "UnityEngineUIGraphicRaycaster.__get_name__SystemString",
 				["set_name"] = "UnityEngineUIGraphicRaycaster.__set_name__SystemString__SystemVoid",
+			},
+			[typeof(global::UnityEngine.EventSystems.BaseRaycaster)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::UnityEngine.UI.Image)] = new Dictionary<string, string> {
 				["get_sprite"] = "UnityEngineUIImage.__get_sprite__UnityEngineSprite",
@@ -599,6 +822,14 @@ namespace HoshinoLabs.Localization {
 				["SetLayoutHorizontal"] = "UnityEngineUIGridLayoutGroup.__SetLayoutHorizontal__SystemVoid",
 				["SetLayoutVertical"] = "UnityEngineUIGridLayoutGroup.__SetLayoutVertical__SystemVoid",
 			},
+			[typeof(global::UnityEngine.UI.LayoutGroup)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineUILayoutGroup.__get_name__SystemString",
+				["set_name"] = "UnityEngineUILayoutGroup.__set_name__SystemString__SystemVoid",
+				["CalculateLayoutInputHorizontal"] = "UnityEngineUILayoutGroup.__CalculateLayoutInputHorizontal__SystemVoid",
+				["CalculateLayoutInputVertical"] = "UnityEngineUILayoutGroup.__CalculateLayoutInputVertical__SystemVoid",
+				["SetLayoutHorizontal"] = "UnityEngineUILayoutGroup.__SetLayoutHorizontal__SystemVoid",
+				["SetLayoutVertical"] = "UnityEngineUILayoutGroup.__SetLayoutVertical__SystemVoid",
+			},
 			[typeof(global::UnityEngine.UI.HorizontalLayoutGroup)] = new Dictionary<string, string> {
 				["get_name"] = "UnityEngineUIHorizontalLayoutGroup.__get_name__SystemString",
 				["set_name"] = "UnityEngineUIHorizontalLayoutGroup.__set_name__SystemString__SystemVoid",
@@ -621,14 +852,6 @@ namespace HoshinoLabs.Localization {
 				["CalculateLayoutInputHorizontal"] = "UnityEngineUILayoutElement.__CalculateLayoutInputHorizontal__SystemVoid",
 				["CalculateLayoutInputVertical"] = "UnityEngineUILayoutElement.__CalculateLayoutInputVertical__SystemVoid",
 			},
-			[typeof(global::UnityEngine.UI.LayoutGroup)] = new Dictionary<string, string> {
-				["get_name"] = "UnityEngineUILayoutGroup.__get_name__SystemString",
-				["set_name"] = "UnityEngineUILayoutGroup.__set_name__SystemString__SystemVoid",
-				["CalculateLayoutInputHorizontal"] = "UnityEngineUILayoutGroup.__CalculateLayoutInputHorizontal__SystemVoid",
-				["CalculateLayoutInputVertical"] = "UnityEngineUILayoutGroup.__CalculateLayoutInputVertical__SystemVoid",
-				["SetLayoutHorizontal"] = "UnityEngineUILayoutGroup.__SetLayoutHorizontal__SystemVoid",
-				["SetLayoutVertical"] = "UnityEngineUILayoutGroup.__SetLayoutVertical__SystemVoid",
-			},
 			[typeof(global::UnityEngine.UI.VerticalLayoutGroup)] = new Dictionary<string, string> {
 				["get_name"] = "UnityEngineUIVerticalLayoutGroup.__get_name__SystemString",
 				["set_name"] = "UnityEngineUIVerticalLayoutGroup.__set_name__SystemString__SystemVoid",
@@ -640,22 +863,6 @@ namespace HoshinoLabs.Localization {
 			[typeof(global::UnityEngine.UI.Mask)] = new Dictionary<string, string> {
 				["get_name"] = "UnityEngineUIMask.__get_name__SystemString",
 				["set_name"] = "UnityEngineUIMask.__set_name__SystemString__SystemVoid",
-			},
-			[typeof(global::UnityEngine.UI.MaskableGraphic)] = new Dictionary<string, string> {
-				["get_mainTexture"] = "UnityEngineUIMaskableGraphic.__get_mainTexture__UnityEngineTexture",
-				["get_name"] = "UnityEngineUIMaskableGraphic.__get_name__SystemString",
-				["set_name"] = "UnityEngineUIMaskableGraphic.__set_name__SystemString__SystemVoid",
-				["RecalculateClipping"] = "UnityEngineUIMaskableGraphic.__RecalculateClipping__SystemVoid",
-				["RecalculateMasking"] = "UnityEngineUIMaskableGraphic.__RecalculateMasking__SystemVoid",
-				["SetAllDirty"] = "UnityEngineUIMaskableGraphic.__SetAllDirty__SystemVoid",
-				["SetLayoutDirty"] = "UnityEngineUIMaskableGraphic.__SetLayoutDirty__SystemVoid",
-				["SetVerticesDirty"] = "UnityEngineUIMaskableGraphic.__SetVerticesDirty__SystemVoid",
-				["SetMaterialDirty"] = "UnityEngineUIMaskableGraphic.__SetMaterialDirty__SystemVoid",
-				["SetRaycastDirty"] = "UnityEngineUIMaskableGraphic.__SetRaycastDirty__SystemVoid",
-				["OnCullingChanged"] = "UnityEngineUIMaskableGraphic.__OnCullingChanged__SystemVoid",
-				["LayoutComplete"] = "UnityEngineUIMaskableGraphic.__LayoutComplete__SystemVoid",
-				["GraphicUpdateComplete"] = "UnityEngineUIMaskableGraphic.__GraphicUpdateComplete__SystemVoid",
-				["SetNativeSize"] = "UnityEngineUIMaskableGraphic.__SetNativeSize__SystemVoid",
 			},
 			[typeof(global::UnityEngine.UI.RawImage)] = new Dictionary<string, string> {
 				["get_mainTexture"] = "UnityEngineUIRawImage.__get_mainTexture__UnityEngineTexture",
@@ -698,11 +905,6 @@ namespace HoshinoLabs.Localization {
 				["CalculateLayoutInputVertical"] = "UnityEngineUIScrollRect.__CalculateLayoutInputVertical__SystemVoid",
 				["SetLayoutHorizontal"] = "UnityEngineUIScrollRect.__SetLayoutHorizontal__SystemVoid",
 				["SetLayoutVertical"] = "UnityEngineUIScrollRect.__SetLayoutVertical__SystemVoid",
-			},
-			[typeof(global::UnityEngine.UI.Selectable)] = new Dictionary<string, string> {
-				["get_name"] = "UnityEngineUISelectable.__get_name__SystemString",
-				["set_name"] = "UnityEngineUISelectable.__set_name__SystemString__SystemVoid",
-				["Select"] = "UnityEngineUISelectable.__Select__SystemVoid",
 			},
 			[typeof(global::UnityEngine.UI.Slider)] = new Dictionary<string, string> {
 				["get_name"] = "UnityEngineUISlider.__get_name__SystemString",
@@ -752,71 +954,132 @@ namespace HoshinoLabs.Localization {
 				["get_name"] = "UnityEngineUIOutline.__get_name__SystemString",
 				["set_name"] = "UnityEngineUIOutline.__set_name__SystemString__SystemVoid",
 			},
-			[typeof(global::UnityEngine.UI.PositionAsUV1)] = new Dictionary<string, string> {
-				["get_name"] = "UnityEngineUIPositionAsUV1.__get_name__SystemString",
-				["set_name"] = "UnityEngineUIPositionAsUV1.__set_name__SystemString__SystemVoid",
-			},
 			[typeof(global::UnityEngine.UI.Shadow)] = new Dictionary<string, string> {
 				["get_name"] = "UnityEngineUIShadow.__get_name__SystemString",
 				["set_name"] = "UnityEngineUIShadow.__set_name__SystemString__SystemVoid",
 			},
+			[typeof(global::UnityEngine.UI.PositionAsUV1)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineUIPositionAsUV1.__get_name__SystemString",
+				["set_name"] = "UnityEngineUIPositionAsUV1.__set_name__SystemString__SystemVoid",
+			},
 			[typeof(global::UnityEngine.EventSystems.EventSystem)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::UnityEngine.EventSystems.EventTrigger)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::UnityEngine.EventSystems.BaseInput)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::UnityEngine.EventSystems.BaseInputModule)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::UnityEngine.EventSystems.PointerInputModule)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::UnityEngine.EventSystems.StandaloneInputModule)] = new Dictionary<string, string> {
-			},
-			[typeof(global::UnityEngine.EventSystems.BaseRaycaster)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::UnityEngine.EventSystems.PhysicsRaycaster)] = new Dictionary<string, string> {
-			},
-			[typeof(global::UnityEngine.EventSystems.UIBehaviour)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::ONSPAudioSource)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::Cinemachine.Cinemachine3rdPersonAim)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
+			},
+			[typeof(global::Cinemachine.CinemachineExtension)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::Cinemachine.CinemachineBlendListCamera)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
+			},
+			[typeof(global::Cinemachine.CinemachineVirtualCameraBase)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::Cinemachine.CinemachineBrain)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::Cinemachine.CinemachineClearShot)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::Cinemachine.CinemachineCollider)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::Cinemachine.CinemachineConfiner)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::Cinemachine.CinemachineDollyCart)] = new Dictionary<string, string> {
 				["get_name"] = "CinemachineCinemachineDollyCart.__get_name__SystemString",
 				["set_name"] = "CinemachineCinemachineDollyCart.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::Cinemachine.CinemachineExternalCamera)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::Cinemachine.CinemachineFollowZoom)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::Cinemachine.CinemachineFreeLook)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::Cinemachine.CinemachineMixingCamera)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::Cinemachine.CinemachinePath)] = new Dictionary<string, string> {
+				["get_name"] = "CinemachineCinemachinePathBase.__get_name__SystemString",
+				["set_name"] = "CinemachineCinemachinePathBase.__set_name__SystemString__SystemVoid",
+				["InvalidateDistanceCache"] = "CinemachineCinemachinePathBase.__InvalidateDistanceCache__SystemVoid",
+			},
+			[typeof(global::Cinemachine.CinemachinePathBase)] = new Dictionary<string, string> {
+				["get_name"] = "CinemachineCinemachinePathBase.__get_name__SystemString",
+				["set_name"] = "CinemachineCinemachinePathBase.__set_name__SystemString__SystemVoid",
+				["InvalidateDistanceCache"] = "CinemachineCinemachinePathBase.__InvalidateDistanceCache__SystemVoid",
 			},
 			[typeof(global::Cinemachine.CinemachinePipeline)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::Cinemachine.CinemachinePixelPerfect)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::Cinemachine.CinemachineSmoothPath)] = new Dictionary<string, string> {
+				["get_name"] = "CinemachineCinemachinePathBase.__get_name__SystemString",
+				["set_name"] = "CinemachineCinemachinePathBase.__set_name__SystemString__SystemVoid",
+				["InvalidateDistanceCache"] = "CinemachineCinemachinePathBase.__InvalidateDistanceCache__SystemVoid",
 			},
 			[typeof(global::Cinemachine.CinemachineStateDrivenCamera)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::Cinemachine.CinemachineStoryboard)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::Cinemachine.CinemachineTargetGroup)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::Cinemachine.CinemachineVirtualCamera)] = new Dictionary<string, string> {
 				["get_Description"] = "CinemachineCinemachineVirtualCamera.__get_Description__SystemString",
@@ -825,30 +1088,56 @@ namespace HoshinoLabs.Localization {
 				["MoveToTopOfPrioritySubqueue"] = "CinemachineCinemachineVirtualCamera.__MoveToTopOfPrioritySubqueue__SystemVoid",
 			},
 			[typeof(global::Cinemachine.Cinemachine3rdPersonFollow)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
+			},
+			[typeof(global::Cinemachine.CinemachineComponentBase)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::Cinemachine.CinemachineBasicMultiChannelPerlin)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::Cinemachine.CinemachineComposer)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::Cinemachine.CinemachineFramingTransposer)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::Cinemachine.CinemachineGroupComposer)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::Cinemachine.CinemachineHardLockToTarget)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::Cinemachine.CinemachineHardLookAt)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::Cinemachine.CinemachineOrbitalTransposer)] = new Dictionary<string, string> {
-			},
-			[typeof(global::Cinemachine.CinemachinePOV)] = new Dictionary<string, string> {
-			},
-			[typeof(global::Cinemachine.CinemachineSameAsFollowTarget)] = new Dictionary<string, string> {
-			},
-			[typeof(global::Cinemachine.CinemachineTrackedDolly)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::Cinemachine.CinemachineTransposer)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
 			},
-			[typeof(global::Cinemachine.CinemachineCore)] = new Dictionary<string, string> {
+			[typeof(global::Cinemachine.CinemachinePOV)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
+			},
+			[typeof(global::Cinemachine.CinemachineSameAsFollowTarget)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
+			},
+			[typeof(global::Cinemachine.CinemachineTrackedDolly)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::VRC.SDK3.Video.Components.Base.BaseVRCVideoPlayer)] = new Dictionary<string, string> {
 				["get_name"] = "VRCSDK3VideoComponentsBaseBaseVRCVideoPlayer.__get_name__SystemString",
@@ -858,23 +1147,39 @@ namespace HoshinoLabs.Localization {
 				["Stop"] = "VRCSDK3VideoComponentsBaseBaseVRCVideoPlayer.__Stop__SystemVoid",
 			},
 			[typeof(global::VRC.SDK3.Video.Components.AVPro.VRCAVProVideoScreen)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::VRC.SDK3.Video.Components.AVPro.VRCAVProVideoSpeaker)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::VRC.SDK3.Midi.VRCMidiPlayer)] = new Dictionary<string, string> {
 				["Play"] = "VRCSDK3MidiVRCMidiPlayer.__Play__SystemVoid",
 				["Stop"] = "VRCSDK3MidiVRCMidiPlayer.__Stop__SystemVoid",
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::VRC.SDK3.Midi.VRCMidiListener)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::VRC.SDK3.Components.VRCSpatialAudioSource)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::VRC.SDK3.Components.VRCObjectPool)] = new Dictionary<string, string> {
 				["get_name"] = "VRCSDK3ComponentsVRCObjectPool.__get_name__SystemString",
 				["set_name"] = "VRCSDK3ComponentsVRCObjectPool.__set_name__SystemString__SystemVoid",
 				["Shuffle"] = "VRCSDK3ComponentsVRCObjectPool.__Shuffle__SystemVoid",
 			},
+			[typeof(global::VRC.SDK3.Network.VRCNetworkBehaviour)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
+			},
 			[typeof(global::VRC.SDK3.Components.VRCVisualDamage)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::VRC.SDK3.Components.VRCAvatarPedestal)] = new Dictionary<string, string> {
 				["get_name"] = "VRCSDK3ComponentsVRCAvatarPedestal.__get_name__SystemString",
@@ -904,18 +1209,28 @@ namespace HoshinoLabs.Localization {
 				["OnWillRenderObject"] = "VRCSDK3ComponentsVRCMirrorReflection.__OnWillRenderObject__SystemVoid",
 			},
 			[typeof(global::VRC.SDK3.Components.VRCSceneDescriptor)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::VRC.SDK3.Components.VRCStation)] = new Dictionary<string, string> {
 				["get_name"] = "VRCSDK3ComponentsVRCStation.__get_name__SystemString",
 				["set_name"] = "VRCSDK3ComponentsVRCStation.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::VRC.SDK3.Components.VRCInputFieldKeyboardOverride)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::VRC.SDK3.Components.VRCUiShape)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::VRCProjectSettings)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::VRC.Core.PipelineManager)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
 			},
 		};
 	}

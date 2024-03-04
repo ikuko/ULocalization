@@ -12,6 +12,18 @@ namespace HoshinoLabs.Localization {
 				"CompleteOffMeshLink",
 				"ResetPath",
 			},
+			[typeof(global::UnityEngine.Behaviour)] = new HashSet<string> {
+				"get_name",
+				"set_name",
+			},
+			[typeof(global::UnityEngine.Component)] = new HashSet<string> {
+				"get_name",
+				"set_name",
+			},
+			[typeof(global::UnityEngine.Object)] = new HashSet<string> {
+				"get_name",
+				"set_name",
+			},
 			[typeof(global::UnityEngine.AI.NavMeshObstacle)] = new HashSet<string> {
 				"get_name",
 				"set_name",
@@ -71,6 +83,10 @@ namespace HoshinoLabs.Localization {
 				"Pause",
 				"UnPause",
 			},
+			[typeof(global::UnityEngine.AudioBehaviour)] = new HashSet<string> {
+				"get_name",
+				"set_name",
+			},
 			[typeof(global::UnityEngine.AudioLowPassFilter)] = new HashSet<string> {
 				"get_name",
 				"set_name",
@@ -84,6 +100,8 @@ namespace HoshinoLabs.Localization {
 				"set_name",
 			},
 			[typeof(global::UnityEngine.AudioListener)] = new HashSet<string> {
+				"get_name",
+				"set_name",
 			},
 			[typeof(global::UnityEngine.AudioReverbZone)] = new HashSet<string> {
 				"get_name",
@@ -102,6 +120,8 @@ namespace HoshinoLabs.Localization {
 				"set_name",
 			},
 			[typeof(global::UnityEngine.Cloth)] = new HashSet<string> {
+				"get_name",
+				"set_name",
 			},
 			[typeof(global::UnityEngine.Camera)] = new HashSet<string> {
 				"get_name",
@@ -119,6 +139,8 @@ namespace HoshinoLabs.Localization {
 				"RenderDontRestore",
 			},
 			[typeof(global::UnityEngine.FlareLayer)] = new HashSet<string> {
+				"get_name",
+				"set_name",
 			},
 			[typeof(global::UnityEngine.ReflectionProbe)] = new HashSet<string> {
 				"get_bakedTexture",
@@ -147,6 +169,8 @@ namespace HoshinoLabs.Localization {
 				"ResetLocalBounds",
 			},
 			[typeof(global::UnityEngine.Projector)] = new HashSet<string> {
+				"get_name",
+				"set_name",
 			},
 			[typeof(global::UnityEngine.TrailRenderer)] = new HashSet<string> {
 				"get_sortingLayerName",
@@ -170,8 +194,12 @@ namespace HoshinoLabs.Localization {
 				"set_name",
 			},
 			[typeof(global::UnityEngine.OcclusionArea)] = new HashSet<string> {
+				"get_name",
+				"set_name",
 			},
 			[typeof(global::UnityEngine.LensFlare)] = new HashSet<string> {
+				"get_name",
+				"set_name",
 			},
 			[typeof(global::UnityEngine.Light)] = new HashSet<string> {
 				"get_cookie",
@@ -181,12 +209,16 @@ namespace HoshinoLabs.Localization {
 				"Reset",
 			},
 			[typeof(global::UnityEngine.Skybox)] = new HashSet<string> {
+				"get_name",
+				"set_name",
 			},
 			[typeof(global::UnityEngine.MeshFilter)] = new HashSet<string> {
 				"get_name",
 				"set_name",
 			},
 			[typeof(global::UnityEngine.LightProbeProxyVolume)] = new HashSet<string> {
+				"get_name",
+				"set_name",
 			},
 			[typeof(global::UnityEngine.SkinnedMeshRenderer)] = new HashSet<string> {
 				"get_sortingLayerName",
@@ -205,8 +237,12 @@ namespace HoshinoLabs.Localization {
 				"ResetLocalBounds",
 			},
 			[typeof(global::UnityEngine.LightProbeGroup)] = new HashSet<string> {
+				"get_name",
+				"set_name",
 			},
 			[typeof(global::UnityEngine.LODGroup)] = new HashSet<string> {
+				"get_name",
+				"set_name",
 			},
 			[typeof(global::UnityEngine.RectTransform)] = new HashSet<string> {
 				"get_name",
@@ -234,6 +270,8 @@ namespace HoshinoLabs.Localization {
 				"ResetLocalBounds",
 			},
 			[typeof(global::UnityEngine.Rendering.SortingGroup)] = new HashSet<string> {
+				"get_name",
+				"set_name",
 			},
 			[typeof(global::UnityEngine.Playables.PlayableDirector)] = new HashSet<string> {
 				"get_name",
@@ -246,8 +284,12 @@ namespace HoshinoLabs.Localization {
 				"Resume",
 			},
 			[typeof(global::UnityEngine.Grid)] = new HashSet<string> {
+				"get_name",
+				"set_name",
 			},
 			[typeof(global::UnityEngine.GridLayout)] = new HashSet<string> {
+				"get_name",
+				"set_name",
 			},
 			[typeof(global::UnityEngine.ParticleSystem)] = new HashSet<string> {
 				"get_name",
@@ -268,6 +310,8 @@ namespace HoshinoLabs.Localization {
 				"ResetLocalBounds",
 			},
 			[typeof(global::UnityEngine.ParticleSystemForceField)] = new HashSet<string> {
+				"get_name",
+				"set_name",
 			},
 			[typeof(global::UnityEngine.Rigidbody)] = new HashSet<string> {
 				"get_name",
@@ -322,6 +366,8 @@ namespace HoshinoLabs.Localization {
 				"set_name",
 			},
 			[typeof(global::UnityEngine.CharacterJoint)] = new HashSet<string> {
+				"get_name",
+				"set_name",
 			},
 			[typeof(global::UnityEngine.ConfigurableJoint)] = new HashSet<string> {
 				"get_name",
@@ -368,6 +414,10 @@ namespace HoshinoLabs.Localization {
 				"set_name",
 			},
 			[typeof(global::UnityEngine.DistanceJoint2D)] = new HashSet<string> {
+				"get_name",
+				"set_name",
+			},
+			[typeof(global::UnityEngine.AnchoredJoint2D)] = new HashSet<string> {
 				"get_name",
 				"set_name",
 			},
@@ -423,19 +473,45 @@ namespace HoshinoLabs.Localization {
 				"get_name",
 				"set_name",
 			},
+			[typeof(global::UnityEngine.PhysicsUpdateBehaviour2D)] = new HashSet<string> {
+				"get_name",
+				"set_name",
+			},
 			[typeof(global::UnityEngine.SpriteMask)] = new HashSet<string> {
+				"get_sortingLayerName",
+				"set_sortingLayerName",
+				"get_name",
+				"set_name",
+				"ResetBounds",
+				"ResetLocalBounds",
 			},
 			[typeof(global::UnityEngine.Terrain)] = new HashSet<string> {
+				"get_name",
+				"set_name",
 			},
 			[typeof(global::UnityEngine.Tree)] = new HashSet<string> {
+				"get_name",
+				"set_name",
 			},
 			[typeof(global::UnityEngine.TerrainCollider)] = new HashSet<string> {
+				"get_name",
+				"set_name",
 			},
 			[typeof(global::UnityEngine.TextMesh)] = new HashSet<string> {
+				"get_name",
+				"set_name",
 			},
 			[typeof(global::UnityEngine.Tilemaps.Tilemap)] = new HashSet<string> {
+				"get_name",
+				"set_name",
 			},
 			[typeof(global::UnityEngine.Tilemaps.TilemapRenderer)] = new HashSet<string> {
+				"get_sortingLayerName",
+				"set_sortingLayerName",
+				"get_name",
+				"set_name",
+				"ResetBounds",
+				"ResetLocalBounds",
 			},
 			[typeof(global::UnityEngine.CanvasGroup)] = new HashSet<string> {
 				"get_name",
@@ -461,16 +537,32 @@ namespace HoshinoLabs.Localization {
 				"ResetSprungMasses",
 			},
 			[typeof(global::UnityEngine.WindZone)] = new HashSet<string> {
+				"get_name",
+				"set_name",
 			},
 			[typeof(global::UnityEngine.Rendering.PostProcessing.PostProcessDebug)] = new HashSet<string> {
+				"get_name",
+				"set_name",
+			},
+			[typeof(global::UnityEngine.MonoBehaviour)] = new HashSet<string> {
+				"get_name",
+				"set_name",
 			},
 			[typeof(global::UnityEngine.Rendering.PostProcessing.PostProcessLayer)] = new HashSet<string> {
+				"get_name",
+				"set_name",
 			},
 			[typeof(global::UnityEngine.Rendering.PostProcessing.PostProcessVolume)] = new HashSet<string> {
 				"get_name",
 				"set_name",
 			},
 			[typeof(global::TMPro.TextContainer)] = new HashSet<string> {
+				"get_name",
+				"set_name",
+			},
+			[typeof(global::UnityEngine.EventSystems.UIBehaviour)] = new HashSet<string> {
+				"get_name",
+				"set_name",
 			},
 			[typeof(global::TMPro.TextMeshPro)] = new HashSet<string> {
 				"get_text",
@@ -478,45 +570,49 @@ namespace HoshinoLabs.Localization {
 				"get_mainTexture",
 				"get_name",
 				"set_name",
+				"RecalculateClipping",
+				"RecalculateMasking",
+				"SetAllDirty",
+				"SetLayoutDirty",
+				"SetVerticesDirty",
+				"SetMaterialDirty",
+				"SetRaycastDirty",
+				"OnCullingChanged",
+				"LayoutComplete",
+				"GraphicUpdateComplete",
+				"SetNativeSize",
 			},
-			[typeof(global::TMPro.TextMeshProUGUI)] = new HashSet<string> {
-				"get_text",
-				"set_text",
+			[typeof(global::TMPro.TMP_Text)] = new HashSet<string> {
 				"get_mainTexture",
 				"get_name",
 				"set_name",
+				"RecalculateClipping",
+				"RecalculateMasking",
+				"SetAllDirty",
+				"SetLayoutDirty",
+				"SetVerticesDirty",
+				"SetMaterialDirty",
+				"SetRaycastDirty",
+				"OnCullingChanged",
+				"LayoutComplete",
+				"GraphicUpdateComplete",
+				"SetNativeSize",
 			},
-			[typeof(global::TMPro.TMP_Dropdown)] = new HashSet<string> {
-			},
-			[typeof(global::TMPro.TMP_InputField)] = new HashSet<string> {
-			},
-			[typeof(global::TMPro.TMP_ScrollbarEventHandler)] = new HashSet<string> {
-			},
-			[typeof(global::TMPro.TMP_SelectionCaret)] = new HashSet<string> {
-			},
-			[typeof(global::TMPro.TMP_SpriteAnimator)] = new HashSet<string> {
-			},
-			[typeof(global::TMPro.TMP_SubMesh)] = new HashSet<string> {
-			},
-			[typeof(global::TMPro.TMP_SubMeshUI)] = new HashSet<string> {
-			},
-			[typeof(global::TMPro.TMP_Text)] = new HashSet<string> {
-			},
-			[typeof(global::VRC.Udon.UdonBehaviour)] = new HashSet<string> {
-			},
-			[typeof(global::UnityEngine.UI.Button)] = new HashSet<string> {
+			[typeof(global::UnityEngine.UI.MaskableGraphic)] = new HashSet<string> {
+				"get_mainTexture",
 				"get_name",
 				"set_name",
-				"Select",
-			},
-			[typeof(global::UnityEngine.UI.Dropdown)] = new HashSet<string> {
-				"get_name",
-				"set_name",
-				"RefreshShownValue",
-				"ClearOptions",
-				"Show",
-				"Hide",
-				"Select",
+				"RecalculateClipping",
+				"RecalculateMasking",
+				"SetAllDirty",
+				"SetLayoutDirty",
+				"SetVerticesDirty",
+				"SetMaterialDirty",
+				"SetRaycastDirty",
+				"OnCullingChanged",
+				"LayoutComplete",
+				"GraphicUpdateComplete",
+				"SetNativeSize",
 			},
 			[typeof(global::UnityEngine.UI.Graphic)] = new HashSet<string> {
 				"get_mainTexture",
@@ -532,7 +628,134 @@ namespace HoshinoLabs.Localization {
 				"GraphicUpdateComplete",
 				"SetNativeSize",
 			},
+			[typeof(global::TMPro.TextMeshProUGUI)] = new HashSet<string> {
+				"get_text",
+				"set_text",
+				"get_mainTexture",
+				"get_name",
+				"set_name",
+				"RecalculateClipping",
+				"RecalculateMasking",
+				"SetAllDirty",
+				"SetLayoutDirty",
+				"SetVerticesDirty",
+				"SetMaterialDirty",
+				"SetRaycastDirty",
+				"OnCullingChanged",
+				"LayoutComplete",
+				"GraphicUpdateComplete",
+				"SetNativeSize",
+			},
+			[typeof(global::TMPro.TMP_Dropdown)] = new HashSet<string> {
+				"get_name",
+				"set_name",
+				"Select",
+			},
+			[typeof(global::UnityEngine.UI.Selectable)] = new HashSet<string> {
+				"get_name",
+				"set_name",
+				"Select",
+			},
+			[typeof(global::TMPro.TMP_InputField)] = new HashSet<string> {
+				"get_name",
+				"set_name",
+				"Select",
+			},
+			[typeof(global::TMPro.TMP_ScrollbarEventHandler)] = new HashSet<string> {
+				"get_name",
+				"set_name",
+			},
+			[typeof(global::TMPro.TMP_SelectionCaret)] = new HashSet<string> {
+				"get_mainTexture",
+				"get_name",
+				"set_name",
+				"RecalculateClipping",
+				"RecalculateMasking",
+				"SetAllDirty",
+				"SetLayoutDirty",
+				"SetVerticesDirty",
+				"SetMaterialDirty",
+				"SetRaycastDirty",
+				"OnCullingChanged",
+				"LayoutComplete",
+				"GraphicUpdateComplete",
+				"SetNativeSize",
+			},
+			[typeof(global::TMPro.TMP_SpriteAnimator)] = new HashSet<string> {
+				"get_name",
+				"set_name",
+			},
+			[typeof(global::TMPro.TMP_SubMesh)] = new HashSet<string> {
+				"get_name",
+				"set_name",
+			},
+			[typeof(global::TMPro.TMP_SubMeshUI)] = new HashSet<string> {
+				"get_mainTexture",
+				"get_name",
+				"set_name",
+				"RecalculateClipping",
+				"RecalculateMasking",
+				"SetAllDirty",
+				"SetLayoutDirty",
+				"SetVerticesDirty",
+				"SetMaterialDirty",
+				"SetRaycastDirty",
+				"OnCullingChanged",
+				"LayoutComplete",
+				"GraphicUpdateComplete",
+				"SetNativeSize",
+			},
+			[typeof(global::VRC.Udon.UdonBehaviour)] = new HashSet<string> {
+				"get_InteractionText",
+				"set_InteractionText",
+				"SendCustomEvent",
+				"RequestSerialization",
+				"get_name",
+				"set_name",
+			},
+			[typeof(global::VRC.Udon.Common.Interfaces.IUdonEventReceiver)] = new HashSet<string> {
+				"get_InteractionText",
+				"set_InteractionText",
+				"SendCustomEvent",
+				"RequestSerialization",
+			},
+			[typeof(global::VRC.Udon.Common.Interfaces.IUdonBehaviour)] = new HashSet<string> {
+				"get_InteractionText",
+				"set_InteractionText",
+				"SendCustomEvent",
+				"RequestSerialization",
+			},
+			[typeof(global::VRC.SDK3.Components.AbstractUdonBehaviour)] = new HashSet<string> {
+				"get_InteractionText",
+				"set_InteractionText",
+				"SendCustomEvent",
+				"RequestSerialization",
+				"get_name",
+				"set_name",
+			},
+			[typeof(global::VRC.SDK3.Components.VRCInteractable)] = new HashSet<string> {
+				"get_name",
+				"set_name",
+			},
+			[typeof(global::UnityEngine.UI.Button)] = new HashSet<string> {
+				"get_name",
+				"set_name",
+				"Select",
+			},
+			[typeof(global::UnityEngine.UI.Dropdown)] = new HashSet<string> {
+				"get_name",
+				"set_name",
+				"RefreshShownValue",
+				"ClearOptions",
+				"Show",
+				"Hide",
+				"Select",
+			},
 			[typeof(global::UnityEngine.UI.GraphicRaycaster)] = new HashSet<string> {
+				"get_name",
+				"set_name",
+			},
+			[typeof(global::UnityEngine.EventSystems.BaseRaycaster)] = new HashSet<string> {
 				"get_name",
 				"set_name",
 			},
@@ -599,6 +822,14 @@ namespace HoshinoLabs.Localization {
 				"SetLayoutHorizontal",
 				"SetLayoutVertical",
 			},
+			[typeof(global::UnityEngine.UI.LayoutGroup)] = new HashSet<string> {
+				"get_name",
+				"set_name",
+				"CalculateLayoutInputHorizontal",
+				"CalculateLayoutInputVertical",
+				"SetLayoutHorizontal",
+				"SetLayoutVertical",
+			},
 			[typeof(global::UnityEngine.UI.HorizontalLayoutGroup)] = new HashSet<string> {
 				"get_name",
 				"set_name",
@@ -621,14 +852,6 @@ namespace HoshinoLabs.Localization {
 				"CalculateLayoutInputHorizontal",
 				"CalculateLayoutInputVertical",
 			},
-			[typeof(global::UnityEngine.UI.LayoutGroup)] = new HashSet<string> {
-				"get_name",
-				"set_name",
-				"CalculateLayoutInputHorizontal",
-				"CalculateLayoutInputVertical",
-				"SetLayoutHorizontal",
-				"SetLayoutVertical",
-			},
 			[typeof(global::UnityEngine.UI.VerticalLayoutGroup)] = new HashSet<string> {
 				"get_name",
 				"set_name",
@@ -640,22 +863,6 @@ namespace HoshinoLabs.Localization {
 			[typeof(global::UnityEngine.UI.Mask)] = new HashSet<string> {
 				"get_name",
 				"set_name",
-			},
-			[typeof(global::UnityEngine.UI.MaskableGraphic)] = new HashSet<string> {
-				"get_mainTexture",
-				"get_name",
-				"set_name",
-				"RecalculateClipping",
-				"RecalculateMasking",
-				"SetAllDirty",
-				"SetLayoutDirty",
-				"SetVerticesDirty",
-				"SetMaterialDirty",
-				"SetRaycastDirty",
-				"OnCullingChanged",
-				"LayoutComplete",
-				"GraphicUpdateComplete",
-				"SetNativeSize",
 			},
 			[typeof(global::UnityEngine.UI.RawImage)] = new HashSet<string> {
 				"get_mainTexture",
@@ -698,11 +905,6 @@ namespace HoshinoLabs.Localization {
 				"CalculateLayoutInputVertical",
 				"SetLayoutHorizontal",
 				"SetLayoutVertical",
-			},
-			[typeof(global::UnityEngine.UI.Selectable)] = new HashSet<string> {
-				"get_name",
-				"set_name",
-				"Select",
 			},
 			[typeof(global::UnityEngine.UI.Slider)] = new HashSet<string> {
 				"get_name",
@@ -752,71 +954,132 @@ namespace HoshinoLabs.Localization {
 				"get_name",
 				"set_name",
 			},
-			[typeof(global::UnityEngine.UI.PositionAsUV1)] = new HashSet<string> {
-				"get_name",
-				"set_name",
-			},
 			[typeof(global::UnityEngine.UI.Shadow)] = new HashSet<string> {
 				"get_name",
 				"set_name",
 			},
+			[typeof(global::UnityEngine.UI.PositionAsUV1)] = new HashSet<string> {
+				"get_name",
+				"set_name",
+			},
 			[typeof(global::UnityEngine.EventSystems.EventSystem)] = new HashSet<string> {
+				"get_name",
+				"set_name",
 			},
 			[typeof(global::UnityEngine.EventSystems.EventTrigger)] = new HashSet<string> {
+				"get_name",
+				"set_name",
 			},
 			[typeof(global::UnityEngine.EventSystems.BaseInput)] = new HashSet<string> {
+				"get_name",
+				"set_name",
 			},
 			[typeof(global::UnityEngine.EventSystems.BaseInputModule)] = new HashSet<string> {
+				"get_name",
+				"set_name",
 			},
 			[typeof(global::UnityEngine.EventSystems.PointerInputModule)] = new HashSet<string> {
+				"get_name",
+				"set_name",
 			},
 			[typeof(global::UnityEngine.EventSystems.StandaloneInputModule)] = new HashSet<string> {
-			},
-			[typeof(global::UnityEngine.EventSystems.BaseRaycaster)] = new HashSet<string> {
+				"get_name",
+				"set_name",
 			},
 			[typeof(global::UnityEngine.EventSystems.PhysicsRaycaster)] = new HashSet<string> {
-			},
-			[typeof(global::UnityEngine.EventSystems.UIBehaviour)] = new HashSet<string> {
+				"get_name",
+				"set_name",
 			},
 			[typeof(global::ONSPAudioSource)] = new HashSet<string> {
+				"get_name",
+				"set_name",
 			},
 			[typeof(global::Cinemachine.Cinemachine3rdPersonAim)] = new HashSet<string> {
+				"get_name",
+				"set_name",
+			},
+			[typeof(global::Cinemachine.CinemachineExtension)] = new HashSet<string> {
+				"get_name",
+				"set_name",
 			},
 			[typeof(global::Cinemachine.CinemachineBlendListCamera)] = new HashSet<string> {
+				"get_name",
+				"set_name",
+			},
+			[typeof(global::Cinemachine.CinemachineVirtualCameraBase)] = new HashSet<string> {
+				"get_name",
+				"set_name",
 			},
 			[typeof(global::Cinemachine.CinemachineBrain)] = new HashSet<string> {
+				"get_name",
+				"set_name",
 			},
 			[typeof(global::Cinemachine.CinemachineClearShot)] = new HashSet<string> {
+				"get_name",
+				"set_name",
 			},
 			[typeof(global::Cinemachine.CinemachineCollider)] = new HashSet<string> {
+				"get_name",
+				"set_name",
 			},
 			[typeof(global::Cinemachine.CinemachineConfiner)] = new HashSet<string> {
+				"get_name",
+				"set_name",
 			},
 			[typeof(global::Cinemachine.CinemachineDollyCart)] = new HashSet<string> {
 				"get_name",
 				"set_name",
 			},
 			[typeof(global::Cinemachine.CinemachineExternalCamera)] = new HashSet<string> {
+				"get_name",
+				"set_name",
 			},
 			[typeof(global::Cinemachine.CinemachineFollowZoom)] = new HashSet<string> {
+				"get_name",
+				"set_name",
 			},
 			[typeof(global::Cinemachine.CinemachineFreeLook)] = new HashSet<string> {
+				"get_name",
+				"set_name",
 			},
 			[typeof(global::Cinemachine.CinemachineMixingCamera)] = new HashSet<string> {
+				"get_name",
+				"set_name",
 			},
 			[typeof(global::Cinemachine.CinemachinePath)] = new HashSet<string> {
+				"get_name",
+				"set_name",
+				"InvalidateDistanceCache",
+			},
+			[typeof(global::Cinemachine.CinemachinePathBase)] = new HashSet<string> {
+				"get_name",
+				"set_name",
+				"InvalidateDistanceCache",
 			},
 			[typeof(global::Cinemachine.CinemachinePipeline)] = new HashSet<string> {
+				"get_name",
+				"set_name",
 			},
 			[typeof(global::Cinemachine.CinemachinePixelPerfect)] = new HashSet<string> {
+				"get_name",
+				"set_name",
 			},
 			[typeof(global::Cinemachine.CinemachineSmoothPath)] = new HashSet<string> {
+				"get_name",
+				"set_name",
+				"InvalidateDistanceCache",
 			},
 			[typeof(global::Cinemachine.CinemachineStateDrivenCamera)] = new HashSet<string> {
+				"get_name",
+				"set_name",
 			},
 			[typeof(global::Cinemachine.CinemachineStoryboard)] = new HashSet<string> {
+				"get_name",
+				"set_name",
 			},
 			[typeof(global::Cinemachine.CinemachineTargetGroup)] = new HashSet<string> {
+				"get_name",
+				"set_name",
 			},
 			[typeof(global::Cinemachine.CinemachineVirtualCamera)] = new HashSet<string> {
 				"get_Description",
@@ -825,30 +1088,56 @@ namespace HoshinoLabs.Localization {
 				"MoveToTopOfPrioritySubqueue",
 			},
 			[typeof(global::Cinemachine.Cinemachine3rdPersonFollow)] = new HashSet<string> {
+				"get_name",
+				"set_name",
+			},
+			[typeof(global::Cinemachine.CinemachineComponentBase)] = new HashSet<string> {
+				"get_name",
+				"set_name",
 			},
 			[typeof(global::Cinemachine.CinemachineBasicMultiChannelPerlin)] = new HashSet<string> {
+				"get_name",
+				"set_name",
 			},
 			[typeof(global::Cinemachine.CinemachineComposer)] = new HashSet<string> {
+				"get_name",
+				"set_name",
 			},
 			[typeof(global::Cinemachine.CinemachineFramingTransposer)] = new HashSet<string> {
+				"get_name",
+				"set_name",
 			},
 			[typeof(global::Cinemachine.CinemachineGroupComposer)] = new HashSet<string> {
+				"get_name",
+				"set_name",
 			},
 			[typeof(global::Cinemachine.CinemachineHardLockToTarget)] = new HashSet<string> {
+				"get_name",
+				"set_name",
 			},
 			[typeof(global::Cinemachine.CinemachineHardLookAt)] = new HashSet<string> {
+				"get_name",
+				"set_name",
 			},
 			[typeof(global::Cinemachine.CinemachineOrbitalTransposer)] = new HashSet<string> {
-			},
-			[typeof(global::Cinemachine.CinemachinePOV)] = new HashSet<string> {
-			},
-			[typeof(global::Cinemachine.CinemachineSameAsFollowTarget)] = new HashSet<string> {
-			},
-			[typeof(global::Cinemachine.CinemachineTrackedDolly)] = new HashSet<string> {
+				"get_name",
+				"set_name",
 			},
 			[typeof(global::Cinemachine.CinemachineTransposer)] = new HashSet<string> {
+				"get_name",
+				"set_name",
 			},
-			[typeof(global::Cinemachine.CinemachineCore)] = new HashSet<string> {
+			[typeof(global::Cinemachine.CinemachinePOV)] = new HashSet<string> {
+				"get_name",
+				"set_name",
+			},
+			[typeof(global::Cinemachine.CinemachineSameAsFollowTarget)] = new HashSet<string> {
+				"get_name",
+				"set_name",
+			},
+			[typeof(global::Cinemachine.CinemachineTrackedDolly)] = new HashSet<string> {
+				"get_name",
+				"set_name",
 			},
 			[typeof(global::VRC.SDK3.Video.Components.Base.BaseVRCVideoPlayer)] = new HashSet<string> {
 				"get_name",
@@ -858,23 +1147,39 @@ namespace HoshinoLabs.Localization {
 				"Stop",
 			},
 			[typeof(global::VRC.SDK3.Video.Components.AVPro.VRCAVProVideoScreen)] = new HashSet<string> {
+				"get_name",
+				"set_name",
 			},
 			[typeof(global::VRC.SDK3.Video.Components.AVPro.VRCAVProVideoSpeaker)] = new HashSet<string> {
+				"get_name",
+				"set_name",
 			},
 			[typeof(global::VRC.SDK3.Midi.VRCMidiPlayer)] = new HashSet<string> {
 				"Play",
 				"Stop",
+				"get_name",
+				"set_name",
 			},
 			[typeof(global::VRC.SDK3.Midi.VRCMidiListener)] = new HashSet<string> {
+				"get_name",
+				"set_name",
 			},
 			[typeof(global::VRC.SDK3.Components.VRCSpatialAudioSource)] = new HashSet<string> {
+				"get_name",
+				"set_name",
 			},
 			[typeof(global::VRC.SDK3.Components.VRCObjectPool)] = new HashSet<string> {
 				"get_name",
 				"set_name",
 				"Shuffle",
 			},
+			[typeof(global::VRC.SDK3.Network.VRCNetworkBehaviour)] = new HashSet<string> {
+				"get_name",
+				"set_name",
+			},
 			[typeof(global::VRC.SDK3.Components.VRCVisualDamage)] = new HashSet<string> {
+				"get_name",
+				"set_name",
 			},
 			[typeof(global::VRC.SDK3.Components.VRCAvatarPedestal)] = new HashSet<string> {
 				"get_name",
@@ -904,18 +1209,28 @@ namespace HoshinoLabs.Localization {
 				"OnWillRenderObject",
 			},
 			[typeof(global::VRC.SDK3.Components.VRCSceneDescriptor)] = new HashSet<string> {
+				"get_name",
+				"set_name",
 			},
 			[typeof(global::VRC.SDK3.Components.VRCStation)] = new HashSet<string> {
 				"get_name",
 				"set_name",
 			},
 			[typeof(global::VRC.SDK3.Components.VRCInputFieldKeyboardOverride)] = new HashSet<string> {
+				"get_name",
+				"set_name",
 			},
 			[typeof(global::VRC.SDK3.Components.VRCUiShape)] = new HashSet<string> {
+				"get_name",
+				"set_name",
 			},
 			[typeof(global::VRCProjectSettings)] = new HashSet<string> {
+				"get_name",
+				"set_name",
 			},
 			[typeof(global::VRC.Core.PipelineManager)] = new HashSet<string> {
+				"get_name",
+				"set_name",
 			},
 		};
 	}

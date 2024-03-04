@@ -99,6 +99,9 @@ namespace HoshinoLabs.Localization.Udon {
 
         public override void RefreshString(int groupId) {
             var assetId = groups_2[groupId];
+            if (assetId < 0) {
+                return;
+            }
             listenerString = currentStringDatabase[assetId];
             var args = groups_3[groupId];
             if (args != null) {
@@ -115,6 +118,9 @@ namespace HoshinoLabs.Localization.Udon {
 
         public override void RefreshAsset(int groupId) {
             var assetId = groups_2[groupId];
+            if (assetId < 0) {
+                return;
+            }
             listenerAsset = currentAssetDatabase[assetId];
             var listenerLength = groups_4_0[groupId];
             listenerHash = groups_4_1[groupId];
@@ -131,6 +137,9 @@ namespace HoshinoLabs.Localization.Udon {
                 return null;
             }
             var assetId = groups_2[groupId];
+            if (assetId < 0) {
+                return null;
+            }
             listenerString = stringDatabase[localeId][assetId];
             var args = groups_3[groupId];
             if (args != null) {
@@ -141,13 +150,23 @@ namespace HoshinoLabs.Localization.Udon {
 
         public override object GetLocalizedAsset(int groupId, string locale) {
             var localeId = Array.IndexOf(availableLocales, locale);
+            if (localeId < 0) {
+                return null;
+            }
             var assetId = groups_2[groupId];
-            return localeId < 0 ? null : assetDatabase[localeId][assetId];
+            if (assetId < 0) {
+                return null;
+            }
+            listenerAsset = currentAssetDatabase[assetId];
+            return listenerAsset;
         }
 
         void InvokeSelectedLocaleChanged() {
             for (var groupId = 0; groupId < groups_0; groupId++) {
                 var assetId = groups_2[groupId];
+                if (assetId < 0) {
+                    continue;
+                }
                 if (groups_1[groupId]) {
                     listenerAsset = currentAssetDatabase[assetId];
                 }

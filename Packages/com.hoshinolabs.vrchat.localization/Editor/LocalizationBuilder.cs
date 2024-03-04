@@ -250,13 +250,17 @@ namespace HoshinoLabs.Localization {
                 .ToArray();
         }
 
+        GroupData BuildInvalidGroupData() {
+            return new GroupData(default, -1, default, new ListenerData[0]);
+        }
+
         GroupData BuildGroupData(LocalizeStringEvent localizeString, Dictionary<IVariable, int> referenceVariableIds) {
             var localized = localizeString.StringReference;
             if (localized.TableReference.ReferenceType != TableReference.Type.Guid) {
-                return null;
+                return BuildInvalidGroupData();
             }
             if (localized.TableEntryReference.ReferenceType != TableEntryReference.Type.Id) {
-                return null;
+                return BuildInvalidGroupData();
             }
             var tableId = localized.TableReference.TableCollectionName;
             var entryId = localized.TableEntryReference.KeyId.ToString();
@@ -272,10 +276,10 @@ namespace HoshinoLabs.Localization {
             where V : UnityEvent<T>, new() {
             var localized = localizeAsset.AssetReference;
             if (localized.TableReference.ReferenceType != TableReference.Type.Guid) {
-                return null;
+                return BuildInvalidGroupData();
             }
             if (localized.TableEntryReference.ReferenceType != TableEntryReference.Type.Id) {
-                return null;
+                return BuildInvalidGroupData();
             }
             var tableId = localized.TableReference.TableCollectionName;
             var entryId = localized.TableEntryReference.KeyId.ToString();
@@ -302,11 +306,10 @@ namespace HoshinoLabs.Localization {
                                 return BuildGroupData(localizeSprite);
                             }
                         default: {
-                                return null;
+                                return BuildInvalidGroupData();
                             }
                     }
                 })
-                //.Where(x => x != null)
                 .ToArray();
             return (
                 _0: groupData.Length,
