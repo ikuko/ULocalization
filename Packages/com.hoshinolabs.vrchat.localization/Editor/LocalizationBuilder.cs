@@ -15,7 +15,6 @@ using UnityEngine.Events;
 using UnityEngine.Localization;
 using UnityEngine.Localization.Components;
 using UnityEngine.Localization.Settings;
-using UnityEngine.Localization.SmartFormat.PersistentVariables;
 using UnityEngine.Localization.Tables;
 using UnityEngine.SceneManagement;
 using VRC.SDK3.Data;
@@ -71,9 +70,8 @@ namespace HoshinoLabs.Localization {
                 return;
             }
 
-            var referenceVariableIds = BuildReferenceVariableIds();
-            var variableData = BuildVariableData(referenceVariableIds);
-            var groupData = BuildGroupData(referenceVariableIds);
+            var variableData = BuildVariableData();
+            var groupData = BuildGroupData();
 
             ProjectContext.Enqueue(builder => {
                 builder.AddOnNewGameObject(
@@ -158,47 +156,15 @@ namespace HoshinoLabs.Localization {
                 .ToArray();
         }
 
-        Dictionary<IVariable, int> BuildReferenceVariableIds() {
-            return LocalizationHelper.ReferenceGroupIds
-                .Select(x => GlobalObjectId.GlobalObjectIdentifierToObjectSlow(x.Key))
-                .OfType<LocalizeStringEvent>()
-                .Where(x => x != null)
-                .SelectMany(x => x.StringReference.Values)
-                .Where(x => {
-                    switch (x) {
-                        case BoolVariable:
-                        case SByteVariable:
-                        case ByteVariable:
-                        case ShortVariable:
-                        case UShortVariable:
-                        case IntVariable:
-                        case UIntVariable:
-                        case LongVariable:
-                        case ULongVariable:
-                        case StringVariable:
-                        case FloatVariable:
-                        case DoubleVariable:
-                        case ObjectVariable:
-                        case LocalizedString:
-                        //case CurrentTime:
-                        //case DateTimeVariable:
-                        case UdonVariable: {
-                                return true;
-                            }
-                        default: {
-                                return false;
-                            }
-                    }
-                })
-                .Select((v, i) => (v, i))
-                .ToDictionary(x => x.v, x => x.i);
-        }
-
-        (VariableType[] _0, object[] _1) BuildVariableData(Dictionary<IVariable, int> referenceVariableIds) {
-            var variableData = referenceVariableIds
+        (VariableType[] _0, object[] _1) BuildVariableData() {
+            var variableData = LocalizationHelper.ReferenceVariableIds
                 .OrderBy(x => x.Value)
                 .Select(x => x.Key)
-                .Select(x => x.ToVariable())
+                .Select(x => (
+                    group: GlobalObjectId.GlobalObjectIdentifierToObjectSlow(x.group) as LocalizeStringEvent,
+                    x.index
+                ))
+                .Select(x => x.group.StringReference.Values.ElementAt(x.index).ToVariable())
                 .ToArray();
             return (
                 variableData.Select(x => x.Type).ToArray(),
@@ -206,14 +172,49 @@ namespace HoshinoLabs.Localization {
             );
         }
 
-        DataDictionary BuildGroupValues(LocalizedString localized, Dictionary<IVariable, int> referenceVariableIds) {
+        DataDictionary BuildGroupValues(LocalizeStringEvent localizeString) {
             var values = new DataDictionary();
-            foreach (var (key, value) in localized.ToArray()) {
-                if (referenceVariableIds.TryGetValue(value, out var variableId)) {
-                    values.Add(key, variableId);
+            var group = GlobalObjectId.GetGlobalObjectIdSlow(localizeString);
+            foreach (var (x, i) in localizeString.StringReference.Keys.Select((v, i) => (v, i))) {
+                if (LocalizationHelper.ReferenceVariableIds.TryGetValue((group, i), out var variableId)) {
+                    values.Add(x, variableId);
                 }
             }
             return values.Count == 0 ? null : values;
+        }
+
+        ListenerData BuildGroupListener(UnityEventExtensions.PersistentCall listener) {
+            var target = listener.Target;
+            if (typeof(UdonSharpBehaviour).IsAssignableFrom(target.GetType())) {
+                target = UdonSharpEditorUtility.GetBackingUdonBehaviour((UdonSharpBehaviour)target);
+            }
+            var signature = default(string);
+            var argument = default(object);
+            switch (listener.Mode) {
+                case PersistentListenerMode.EventDefined: {
+                        signature = $"{MethodSignature.GetSignature(target.GetType(), listener.MethodName)}.0";
+                        argument = null;
+                        break;
+                    }
+                case PersistentListenerMode.Void: {
+                        signature = MethodSignature.GetSignature(target.GetType(), listener.MethodName);
+                        argument = null;
+                        break;
+                    }
+                default: {
+                        signature = $"{MethodSignature.GetSignature(target.GetType(), listener.MethodName)}.1";
+                        argument = listener.Arguments.Value;
+                        break;
+                    }
+            }
+            if (target.GetType().IsAssignableToGenericType(typeof(IProxyTarget<>))) {
+                target = (target as IProxyTarget).Target;
+            }
+            return new ListenerData(
+                $"__{signature.ComputeHashMD5()}",
+                target,
+                argument
+            );
         }
 
         ListenerData[] BuildGroupListeners(LocalizedMonoBehaviour behaviour, string property) {
@@ -221,32 +222,7 @@ namespace HoshinoLabs.Localization {
                 .GetListeners()
                 .Where(x => x.Target && !string.IsNullOrEmpty(x.MethodName))
                 .Where(x => UnityEventFilter.IsTargetPermitted(x.Target, x.MethodName))
-                .Select(x => {
-                    var signature = default(string);
-                    var argument = default(object);
-                    switch (x.Mode) {
-                        case PersistentListenerMode.EventDefined: {
-                                signature = $"{MethodSignature.GetSignature(x.Target.GetType(), x.MethodName)}.0";
-                                argument = null;
-                                break;
-                            }
-                        case PersistentListenerMode.Void: {
-                                signature = MethodSignature.GetSignature(x.Target.GetType(), x.MethodName);
-                                argument = null;
-                                break;
-                            }
-                        default: {
-                                signature = $"{MethodSignature.GetSignature(x.Target.GetType(), x.MethodName)}.1";
-                                argument = x.Arguments.Value;
-                                break;
-                            }
-                    }
-                    return new ListenerData(
-                        $"__{signature.ComputeHashMD5()}",
-                        x.Target,
-                        argument
-                    );
-                })
+                .Select(x => BuildGroupListener(x))
                 .ToArray();
         }
 
@@ -254,7 +230,7 @@ namespace HoshinoLabs.Localization {
             return new GroupData(default, -1, default, new ListenerData[0]);
         }
 
-        GroupData BuildGroupData(LocalizeStringEvent localizeString, Dictionary<IVariable, int> referenceVariableIds) {
+        GroupData BuildGroupData(LocalizeStringEvent localizeString) {
             var localized = localizeString.StringReference;
             if (localized.TableReference.ReferenceType != TableReference.Type.Guid) {
                 return BuildInvalidGroupData();
@@ -264,8 +240,8 @@ namespace HoshinoLabs.Localization {
             }
             var tableId = localized.TableReference.TableCollectionName;
             var entryId = localized.TableEntryReference.KeyId.ToString();
-            var flag = LocalizationHelper.ReferenceStringIds.TryGetValue((tableId, entryId), out var assetId);
-            var values = BuildGroupValues(localized, referenceVariableIds);
+            LocalizationHelper.ReferenceStringIds.TryGetValue((tableId, entryId), out var assetId);
+            var values = BuildGroupValues(localizeString);
             var listeners = BuildGroupListeners(localizeString, "m_UpdateString");
             return new GroupData(false, assetId, values, listeners);
         }
@@ -288,13 +264,13 @@ namespace HoshinoLabs.Localization {
             return new GroupData(true, assetId, null, listeners);
         }
 
-        (int _0, bool[] _1, int[] _2, DataDictionary[] _3, (int[] _0, string[][] _1, object[][] _2, object[][] _3) _4) BuildGroupData(Dictionary<IVariable, int> referenceVariableIds) {
+        (int _0, bool[] _1, int[] _2, DataDictionary[] _3, (int[] _0, string[][] _1, object[][] _2, object[][] _3) _4) BuildGroupData() {
             var groupData = LocalizationHelper.ReferenceGroupIds
                 .Select(x => GlobalObjectId.GlobalObjectIdentifierToObjectSlow(x.Key))
                 .Select(x => {
                     switch (x) {
                         case LocalizeStringEvent localizeString: {
-                                return BuildGroupData(localizeString, referenceVariableIds);
+                                return BuildGroupData(localizeString);
                             }
                         case LocalizeAudioClipEvent localizeAudioClip: {
                                 return BuildGroupData(localizeAudioClip);

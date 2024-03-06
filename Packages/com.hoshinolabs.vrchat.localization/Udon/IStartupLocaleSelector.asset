@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c333ccfdd0cbdbc4ca30cef2dd6e6b9b, type: 3}
   m_Name: IStartupLocaleSelector
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: e12c485d392f72f4cb1b4b6ac91efd87,
+  serializedUdonProgramAsset: {fileID: 11400000, guid: 36b452c064619084aac59332fc2ae44c,
     type: 2}
   udonAssembly: 
   assemblyError: 

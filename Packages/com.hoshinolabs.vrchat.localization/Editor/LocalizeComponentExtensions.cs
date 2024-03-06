@@ -11,8 +11,8 @@ namespace HoshinoLabs.Localization {
             return LocalizationHelper.ReferenceGroupIds.TryGetValue(GlobalObjectId.GetGlobalObjectIdSlow(self), out groupId);
         }
 
-        public static int GetRuntimeGroupId(this LocalizeAudioClipEvent self, out int groupId) {
-            if (self.TryGetRuntimeGroupId(out groupId)) {
+        public static int GetRuntimeGroupId(this LocalizeAudioClipEvent self) {
+            if (self.TryGetRuntimeGroupId(out var groupId)) {
                 return groupId;
             }
             throw new Exception("Group ID could not be found.");
@@ -22,8 +22,8 @@ namespace HoshinoLabs.Localization {
             return LocalizationHelper.ReferenceGroupIds.TryGetValue(GlobalObjectId.GetGlobalObjectIdSlow(self), out groupId);
         }
 
-        public static int GetRuntimeGroupId(this LocalizeStringEvent self, out int groupId) {
-            if (self.TryGetRuntimeGroupId(out groupId)) {
+        public static int GetRuntimeGroupId(this LocalizeStringEvent self) {
+            if (self.TryGetRuntimeGroupId(out var groupId)) {
                 return groupId;
             }
             throw new Exception("Group ID could not be found.");
@@ -33,8 +33,8 @@ namespace HoshinoLabs.Localization {
             return LocalizationHelper.ReferenceGroupIds.TryGetValue(GlobalObjectId.GetGlobalObjectIdSlow(self), out groupId);
         }
 
-        public static int GetRuntimeGroupId(this LocalizeTextureEvent self, out int groupId) {
-            if (self.TryGetRuntimeGroupId(out groupId)) {
+        public static int GetRuntimeGroupId(this LocalizeTextureEvent self) {
+            if (self.TryGetRuntimeGroupId(out var groupId)) {
                 return groupId;
             }
             throw new Exception("Group ID could not be found.");
@@ -44,8 +44,8 @@ namespace HoshinoLabs.Localization {
             return LocalizationHelper.ReferenceGroupIds.TryGetValue(GlobalObjectId.GetGlobalObjectIdSlow(self), out groupId);
         }
 
-        public static int GetRuntimeGroupId(this LocalizeSpriteEvent self, out int groupId) {
-            if (self.TryGetRuntimeGroupId(out groupId)) {
+        public static int GetRuntimeGroupId(this LocalizeSpriteEvent self) {
+            if (self.TryGetRuntimeGroupId(out var groupId)) {
                 return groupId;
             }
             throw new Exception("Group ID could not be found.");

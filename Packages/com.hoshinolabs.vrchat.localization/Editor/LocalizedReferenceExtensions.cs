@@ -12,8 +12,8 @@ namespace HoshinoLabs.Localization {
         //    return LocalizationTypeResolver.ReferenceIds.TryGetValue((tableId, entryId), out assetId);
         //}
 
-        //public static int GetRuntimeAssetId(this LocalizedReference self, out int assetId) {
-        //    if (self.TryGetRuntimeAssetId(out assetId)) {
+        //public static int GetRuntimeAssetId(this LocalizedReference self) {
+        //    if (self.TryGetRuntimeAssetId(out var assetId)) {
         //        return assetId;
         //    }
         //    throw new Exception("Asset ID could not be found.");

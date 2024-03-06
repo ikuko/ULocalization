@@ -19,8 +19,8 @@ namespace HoshinoLabs.Localization.Udon {
         Double,
         Object,
         LocalizedString,
-        CurrentTime,
-        DateTime,
+        //CurrentTime,
+        //DateTime,
         Udon,
     }
 }

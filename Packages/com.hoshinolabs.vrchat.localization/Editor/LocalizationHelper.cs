@@ -4,9 +4,11 @@ using System.Linq;
 using UnityEditor;
 using UnityEditor.Localization;
 using UnityEngine;
+using UnityEngine.Localization;
 using UnityEngine.Localization.Components;
 using UnityEngine.Localization.Settings;
 using UnityEngine.Localization.SmartFormat;
+using UnityEngine.Localization.SmartFormat.PersistentVariables;
 using UnityEngine.Localization.Tables;
 using VRC.SDKBase.Editor.BuildPipeline;
 
@@ -14,6 +16,7 @@ namespace HoshinoLabs.Localization {
     public static class LocalizationHelper {
         static Locale[] availableLocales;
         static Dictionary<GlobalObjectId, int> referenceGroupIds;
+        static Dictionary<(GlobalObjectId group, int index), int> referenceVariableIds;
         static TableEntry[] stringEntries;
         static TableEntry[] assetEntries;
         static Dictionary<(string tableId, string entryId), int> referenceStringIds;
@@ -23,6 +26,7 @@ namespace HoshinoLabs.Localization {
 
         public static Locale[] AvailableLocales => availableLocales;
         internal static Dictionary<GlobalObjectId, int> ReferenceGroupIds => referenceGroupIds;
+        internal static Dictionary<(GlobalObjectId group, int index), int> ReferenceVariableIds => referenceVariableIds;
         internal static Dictionary<(string tableId, string entryId), int> ReferenceStringIds => referenceStringIds;
         internal static Dictionary<(string tableId, string entryId), int> ReferenceAssetIds => referenceAssetIds;
         internal static StringTableEntryData[][] StringDatabase => stringDatabase;
@@ -41,6 +45,7 @@ namespace HoshinoLabs.Localization {
         static void Init() {
             availableLocales = BuildAvailableLocales();
             referenceGroupIds = BuildGroupIds();
+            referenceVariableIds = BuildReferenceVariableIds();
             stringEntries = CollectAllStringEntry();
             assetEntries = CollectAllAssetEntry();
             referenceStringIds = BuildReferenceStringIds();
@@ -176,6 +181,47 @@ namespace HoshinoLabs.Localization {
                 }
                 .SelectMany(x => x)
                 .Select(x => GlobalObjectId.GetGlobalObjectIdSlow(x))
+                .Select((v, i) => (v, i))
+                .ToDictionary(x => x.v, x => x.i);
+        }
+
+        static Dictionary<(GlobalObjectId group, int index), int> BuildReferenceVariableIds() {
+            return LocalizationHelper.ReferenceGroupIds
+                .Select(x => GlobalObjectId.GlobalObjectIdentifierToObjectSlow(x.Key))
+                .OfType<LocalizeStringEvent>()
+                .Where(x => x != null)
+                .Select(x => {
+                    var group = GlobalObjectId.GetGlobalObjectIdSlow(x);
+                    return x.StringReference.Values
+                        .Where(x => {
+                            switch (x) {
+                                case BoolVariable:
+                                case SByteVariable:
+                                case ByteVariable:
+                                case ShortVariable:
+                                case UShortVariable:
+                                case IntVariable:
+                                case UIntVariable:
+                                case LongVariable:
+                                case ULongVariable:
+                                case StringVariable:
+                                case FloatVariable:
+                                case DoubleVariable:
+                                case ObjectVariable:
+                                case LocalizedString:
+                                //case CurrentTime:
+                                //case DateTimeVariable:
+                                case UdonVariable: {
+                                        return true;
+                                    }
+                                default: {
+                                        return false;
+                                    }
+                            }
+                        })
+                        .Select((_, i) => (group, i));
+                })
+                .SelectMany(x => x)
                 .Select((v, i) => (v, i))
                 .ToDictionary(x => x.v, x => x.i);
         }

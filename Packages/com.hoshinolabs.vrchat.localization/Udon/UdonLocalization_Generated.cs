@@ -316,6 +316,10 @@ namespace HoshinoLabs.Localization.Udon {
 		public void __e8d12f8d52346ef5b3763e8b33d3e77e() => ((global::VRC.Udon.Common.Interfaces.IUdonEventReceiver)listenerTarget[listenerIdx]).SendCustomEvent(listenerString);
 		public void __b6bb1f9cf8c3f04fc2a1122f61804d6f() => ((global::VRC.Udon.Common.Interfaces.IUdonEventReceiver)listenerTarget[listenerIdx]).SendCustomEvent((global::System.String)listenerArgument[listenerIdx]);
 		public void __1c667c143e593c5992f3a250f78488e0() => ((global::VRC.Udon.Common.Interfaces.IUdonEventReceiver)listenerTarget[listenerIdx]).RequestSerialization();
+		public void __c0d2814c41cd56654e5abe6108cea05c() => ((global::VRC.SDK3.Components.VRCPickup)listenerTarget[listenerIdx]).InteractionText = listenerString;
+		public void __697d5a317b02c06a76b91acd5a16aca6() => ((global::VRC.SDK3.Components.VRCPickup)listenerTarget[listenerIdx]).InteractionText = (global::System.String)listenerArgument[listenerIdx];
+		public void __829cae35f97508e92408c76e03c0f511() => ((global::VRC.SDK3.Components.VRCPickup)listenerTarget[listenerIdx]).UseText = listenerString;
+		public void __bdbfb1d69a6f0d13620916b4726074ea() => ((global::VRC.SDK3.Components.VRCPickup)listenerTarget[listenerIdx]).UseText = (global::System.String)listenerArgument[listenerIdx];
 		public void __6b5e98a80d95a0d55f4ace2106c9a58e() => ((global::UnityEngine.UI.Button)listenerTarget[listenerIdx]).name = listenerString;
 		public void __c2fde925ca6634ccfc8828ca0bc4166e() => ((global::UnityEngine.UI.Button)listenerTarget[listenerIdx]).name = (global::System.String)listenerArgument[listenerIdx];
 		public void __37ab4634d86cb20b424dc0fa4cb6af0c() => ((global::UnityEngine.UI.Button)listenerTarget[listenerIdx]).Select();

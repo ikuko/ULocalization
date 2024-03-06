@@ -103,16 +103,16 @@ namespace HoshinoLabs.Localization.Udon {
                             listenerString = listenerString.Replace($"{{{v}}}", currentStringDatabase[value]);
                             break;
                         }
-                    case VariableType.CurrentTime: {
-                            var value = DateTime.Now;
-                            listenerString = listenerString.Replace($"{{{v}}}", value.ToString(f));
-                            break;
-                        }
-                    case VariableType.DateTime: {
-                            var value = (DateTime)variables_1[variableId];
-                            listenerString = listenerString.Replace($"{{{v}}}", value.ToString(f));
-                            break;
-                        }
+                    //case VariableType.CurrentTime: {
+                    //        var value = DateTime.Now;
+                    //        listenerString = listenerString.Replace($"{{{v}}}", value.ToString(f));
+                    //        break;
+                    //    }
+                    //case VariableType.DateTime: {
+                    //        var value = (DateTime)variables_1[variableId];
+                    //        listenerString = listenerString.Replace($"{{{v}}}", value.ToString(f));
+                    //        break;
+                    //    }
                     case VariableType.Udon: {
                             var udon = (UdonBehaviour)variables_1[variableId];
                             if (string.IsNullOrEmpty(m)) {

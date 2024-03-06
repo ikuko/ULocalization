@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace HoshinoLabs.Localization {
 	internal static partial class MethodSignature {
-		static Dictionary<Type, Dictionary<string, string>> methodSignatures = new Dictionary<Type, Dictionary<string, string>>() {
+		static Dictionary<Type, Dictionary<string, string>> methodSignatures = new Dictionary<Type, Dictionary<string, string>> {
 			[typeof(global::UnityEngine.AI.NavMeshAgent)] = new Dictionary<string, string> {
 				["get_name"] = "UnityEngineAINavMeshAgent.__get_name__SystemString",
 				["set_name"] = "UnityEngineAINavMeshAgent.__set_name__SystemString__SystemVoid",
@@ -734,6 +734,14 @@ namespace HoshinoLabs.Localization {
 				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::VRC.SDK3.Components.VRCInteractable)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
+			},
+			[typeof(global::HoshinoLabs.Localization.VRCPickupProxy)] = new Dictionary<string, string> {
+				["get_InteractionText"] = "VRCSDK3ComponentsVRCPickup.__get_InteractionText__SystemString",
+				["set_InteractionText"] = "VRCSDK3ComponentsVRCPickup.__get_InteractionText__SystemString",
+				["get_UseText"] = "VRCSDK3ComponentsVRCPickup.__get_UseText__SystemString",
+				["set_UseText"] = "VRCSDK3ComponentsVRCPickup.__get_UseText__SystemString",
 				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
 				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
 			},

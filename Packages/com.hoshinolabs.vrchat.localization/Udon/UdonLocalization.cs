@@ -116,6 +116,14 @@ namespace HoshinoLabs.Localization.Udon {
             }
         }
 
+        public override object GetVariable(int variableId) {
+            return variables_1[variableId];
+        }
+
+        public override void SetVariable(int variableId, object value) {
+            variables_1[variableId] = value;
+        }
+
         public override void RefreshAsset(int groupId) {
             var assetId = groups_2[groupId];
             if (assetId < 0) {

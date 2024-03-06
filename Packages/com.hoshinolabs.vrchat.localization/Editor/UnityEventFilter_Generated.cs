@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace HoshinoLabs.Localization {
 	internal static partial class UnityEventFilter {
-		static Dictionary<Type, HashSet<string>> allowedUnityEventTargetTypes = new Dictionary<Type, HashSet<string>>() {
+		static Dictionary<Type, HashSet<string>> allowedUnityEventTargetTypes = new Dictionary<Type, HashSet<string>> {
 			[typeof(global::UnityEngine.AI.NavMeshAgent)] = new HashSet<string> {
 				"get_name",
 				"set_name",
@@ -734,6 +734,14 @@ namespace HoshinoLabs.Localization {
 				"set_name",
 			},
 			[typeof(global::VRC.SDK3.Components.VRCInteractable)] = new HashSet<string> {
+				"get_name",
+				"set_name",
+			},
+			[typeof(global::HoshinoLabs.Localization.VRCPickupProxy)] = new HashSet<string> {
+				"get_InteractionText",
+				"set_InteractionText",
+				"get_UseText",
+				"set_UseText",
 				"get_name",
 				"set_name",
 			},
