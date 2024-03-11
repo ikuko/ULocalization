@@ -21,7 +21,7 @@ namespace HoshinoLabs.Localization.Samples {
                     var languageSettingMenu = container.Resolve<LanguageSettingMenu>();
                     if (languageSettingMenu) {
                         var dropdown = languageSettingMenu.GetComponentInChildren<Dropdown>();
-                        dropdown.options = LocalizationHelper.AvailableLocales
+                        dropdown.options = LocalizationExtensions.AvailableLocales
                             .Select(x => new Dropdown.OptionData($"{x.Name} ({x.Code})"))
                             .ToList();
                     }

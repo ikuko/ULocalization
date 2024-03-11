@@ -13,7 +13,7 @@ using UnityEngine.Localization.Tables;
 using VRC.SDKBase.Editor.BuildPipeline;
 
 namespace HoshinoLabs.Localization {
-    public static class LocalizationHelper {
+    internal static class LocalizationHelper {
         static Locale[] availableLocales;
         static Dictionary<GlobalObjectId, int> referenceGroupIds;
         static Dictionary<(GlobalObjectId group, int index), int> referenceVariableIds;
