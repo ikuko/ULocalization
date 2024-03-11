@@ -8,6 +8,8 @@ Porting to VRChat of Unity Localization package.
 ## Features
 
 - バリアントモードへ対応
+- テンプレートフォーマッタの対応
+- グローバル変数の対応
 
 ## Documentation
 
