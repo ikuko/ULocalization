@@ -1,5 +1,5 @@
 ---
-sidebar_position: 3
+sidebar_position: 4
 ---
 
 # Udon Refresh
@@ -31,7 +31,8 @@ public class LocalizeReloadBuilder : IProcessSceneWithReport {
     public int callbackOrder => 0;
 
     public void OnProcessScene(Scene scene, BuildReport report) {
-        ProjectContext.Enqueue(builder => {
+        var context = ProjectContext.New();
+        context.Enqueue(builder => {
             var go = GameObject.Find("Canvas/Panel/Text (TMP)");
             var localize = go.GetComponent<LocalizeStringEvent>();
             var groupId = localize.GetRuntimeGroupId();
@@ -39,6 +40,7 @@ public class LocalizeReloadBuilder : IProcessSceneWithReport {
             builder.AddInHierarchy<LocalizeReload>()
                 .WithParameter("groupId", groupId);
         });
+        context.Build();
     }
 }
 ```

@@ -32,4 +32,7 @@ View on [GitHub Pages](https://hoshinolabs-vrchat.github.io/Localization/)
 
 ## License
 
-MIT
+MIT  
+
+利用頂いた際は使用ワールドなどを教えて頂けると幸いです。  
+また任意ですがクレジットの掲載もして頂けると嬉しいです。

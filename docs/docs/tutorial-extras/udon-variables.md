@@ -1,5 +1,5 @@
 ---
-sidebar_position: 4
+sidebar_position: 5
 ---
 
 # Udon Variables
@@ -39,7 +39,8 @@ public class ClickCounterBuilder : IProcessSceneWithReport {
     public int callbackOrder => 0;
 
     public void OnProcessScene(Scene scene, BuildReport report) {
-        ProjectContext.Enqueue(builder => {
+        var context = ProjectContext.New();
+        context.Enqueue(builder => {
             var go = GameObject.Find("Canvas/Panel/Text (TMP)");
             var localize = go.GetComponent<LocalizeStringEvent>();
             var groupId = localize.GetRuntimeGroupId();
@@ -49,6 +50,7 @@ public class ClickCounterBuilder : IProcessSceneWithReport {
                 .WithParameter("groupId", groupId)
                 .WithParameter("variableId", variableId);
         });
+        context.Build();
     }
 }
 ```
