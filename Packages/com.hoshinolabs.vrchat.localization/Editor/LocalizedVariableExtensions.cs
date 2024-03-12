@@ -9,7 +9,7 @@ using UnityEngine.Localization.Components;
 namespace HoshinoLabs.Localization {
     public static class LocalizedVariableExtensions {
         public static bool TryGetRuntimeVariableId(this LocalizeStringEvent self, int index, out int groupId) {
-            return LocalizationHelper.ReferenceVariableIds.TryGetValue((GlobalObjectId.GetGlobalObjectIdSlow(self), index), out groupId);
+            return LocalizationHelper.ReferenceVariableIds.TryGetValue((self, index), out groupId);
         }
 
         public static int GetRuntimeVariableId(this LocalizeStringEvent self, int index) {

@@ -8,7 +8,7 @@ using UnityEngine.Localization.Components;
 namespace HoshinoLabs.Localization {
     public static class LocalizeComponentExtensions {
         public static bool TryGetRuntimeGroupId(this LocalizeAudioClipEvent self, out int groupId) {
-            return LocalizationHelper.ReferenceGroupIds.TryGetValue(GlobalObjectId.GetGlobalObjectIdSlow(self), out groupId);
+            return LocalizationHelper.ReferenceGroupIds.TryGetValue(self, out groupId);
         }
 
         public static int GetRuntimeGroupId(this LocalizeAudioClipEvent self) {
@@ -19,7 +19,7 @@ namespace HoshinoLabs.Localization {
         }
 
         public static bool TryGetRuntimeGroupId(this LocalizeStringEvent self, out int groupId) {
-            return LocalizationHelper.ReferenceGroupIds.TryGetValue(GlobalObjectId.GetGlobalObjectIdSlow(self), out groupId);
+            return LocalizationHelper.ReferenceGroupIds.TryGetValue(self, out groupId);
         }
 
         public static int GetRuntimeGroupId(this LocalizeStringEvent self) {
@@ -30,7 +30,7 @@ namespace HoshinoLabs.Localization {
         }
 
         public static bool TryGetRuntimeGroupId(this LocalizeTextureEvent self, out int groupId) {
-            return LocalizationHelper.ReferenceGroupIds.TryGetValue(GlobalObjectId.GetGlobalObjectIdSlow(self), out groupId);
+            return LocalizationHelper.ReferenceGroupIds.TryGetValue(self, out groupId);
         }
 
         public static int GetRuntimeGroupId(this LocalizeTextureEvent self) {
@@ -41,7 +41,7 @@ namespace HoshinoLabs.Localization {
         }
 
         public static bool TryGetRuntimeGroupId(this LocalizeSpriteEvent self, out int groupId) {
-            return LocalizationHelper.ReferenceGroupIds.TryGetValue(GlobalObjectId.GetGlobalObjectIdSlow(self), out groupId);
+            return LocalizationHelper.ReferenceGroupIds.TryGetValue(self, out groupId);
         }
 
         public static int GetRuntimeGroupId(this LocalizeSpriteEvent self) {

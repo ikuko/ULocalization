@@ -158,10 +158,9 @@ namespace HoshinoLabs.Localization {
 
         (VariableType[] _0, object[] _1) BuildVariableData() {
             var variableData = LocalizationHelper.ReferenceVariableIds
-                .OrderBy(x => x.Value)
-                .Select(x => x.Key)
+                .Keys
                 .Select(x => (
-                    group: GlobalObjectId.GlobalObjectIdentifierToObjectSlow(x.group) as LocalizeStringEvent,
+                    group: x.group as LocalizeStringEvent,
                     x.index
                 ))
                 .Select(x => x.group.StringReference.Values.ElementAt(x.index).ToVariable())
@@ -174,9 +173,8 @@ namespace HoshinoLabs.Localization {
 
         DataDictionary BuildGroupValues(LocalizeStringEvent localizeString) {
             var values = new DataDictionary();
-            var group = GlobalObjectId.GetGlobalObjectIdSlow(localizeString);
             foreach (var (x, i) in localizeString.StringReference.Keys.Select((v, i) => (v, i))) {
-                if (LocalizationHelper.ReferenceVariableIds.TryGetValue((group, i), out var variableId)) {
+                if (LocalizationHelper.ReferenceVariableIds.TryGetValue((localizeString, i), out var variableId)) {
                     values.Add(x, variableId);
                 }
             }
@@ -266,7 +264,7 @@ namespace HoshinoLabs.Localization {
 
         (int _0, bool[] _1, int[] _2, DataDictionary[] _3, (int[] _0, string[][] _1, object[][] _2, object[][] _3) _4) BuildGroupData() {
             var groupData = LocalizationHelper.ReferenceGroupIds
-                .Select(x => GlobalObjectId.GlobalObjectIdentifierToObjectSlow(x.Key))
+                .Keys
                 .Select(x => {
                     switch (x) {
                         case LocalizeStringEvent localizeString: {
