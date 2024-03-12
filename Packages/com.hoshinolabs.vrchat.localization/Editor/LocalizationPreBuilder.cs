@@ -19,6 +19,17 @@ namespace HoshinoLabs.Localization {
         public int callbackOrder => -5000;
 
         public void OnProcessScene(Scene scene, BuildReport report) {
+            if (!LocalizationSettings.HasSettings) {
+                LocalizationHelper.AvailableLocales = default;
+                LocalizationHelper.ReferenceGroupIds = default;
+                LocalizationHelper.ReferenceVariableIds = default;
+                LocalizationHelper.ReferenceStringIds = default;
+                LocalizationHelper.ReferenceAssetIds = default;
+                LocalizationHelper.StringDatabase = default;
+                LocalizationHelper.AssetDatabase = default;
+                return;
+            }
+
             LocalizationHelper.AvailableLocales = BuildAvailableLocales();
             LocalizationHelper.ReferenceGroupIds = BuildGroupIds();
             LocalizationHelper.ReferenceVariableIds = BuildReferenceVariableIds();
