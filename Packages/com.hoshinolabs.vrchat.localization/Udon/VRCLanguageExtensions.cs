@@ -13,32 +13,38 @@ namespace HoshinoLabs.Localization {
         /// <returns></returns>
         public static string VRCLanguageToLocale(string language) {
             switch (language) {
-                case "English":
+                case "English":// com.vrchat.worlds >= 3.5.1
                     return "en";
-                case "French":
+                case "French":// com.vrchat.worlds >= 3.5.1
                     return "fr";
-                case "Spanish":
-                    return "es";
-                case "Italian":
-                    return "it";
-                case "Korean":
-                    return "ko";
-                case "German":
+                case "German":// com.vrchat.worlds >= 3.5.1
                     return "de";
-                case "Japanese":
+                case "Italian":// com.vrchat.worlds >= 3.5.1
+                    return "it";
+                case "Japanese":// com.vrchat.worlds >= 3.5.1
                     return "ja";
-                case "Polish":
+                case "Korean":// com.vrchat.worlds >= 3.5.1
+                    return "ko";
+                case "Spanish":// com.vrchat.worlds >= 3.5.1
+                    return "es";
+                case "Portuguese":// com.vrchat.worlds >= 3.5.2-beta.1
+                    return "pt";
+                case "Brazilian":// com.vrchat.worlds >= 3.5.2-beta.1
+                    return "br";
+                case "Hebrew":// com.vrchat.worlds >= 3.5.2-beta.1
+                    return "he";
+                case "Polish":// com.vrchat.worlds >= 3.5.2-beta.1
                     return "pl";
-                case "Russian":
-                    return "ru";
-                case "Portuguese, Brazilian":
-                    return "pt-BR";
-                case "Chinese Simplified":
-                    return "zh-CN";
-                case "Chinese Traditional":
-                    return "zh-HK";
-                case "Toki Pona":// Violation of RFC5646
+                case "Toki Pona":// com.vrchat.worlds >= 3.5.2-beta.1
                     return "tp";
+                case "Indonesian":// com.vrchat.worlds >= 3.5.2-beta.1
+                    return "id";
+                case "Chinese Simplified":// com.vrchat.worlds >= 3.5.2-beta.1
+                    return "zh-CN";
+                case "Chinese Traditional":// com.vrchat.worlds >= 3.5.2-beta.1
+                    return "zh-HK";
+                case "Russian":// com.vrchat.worlds >= 3.5.2-beta.1
+                    return "ru";
             }
             return null;
         }
@@ -51,31 +57,29 @@ namespace HoshinoLabs.Localization {
         public static string LocaleToVRCLanguage(string locale) {
             switch (locale) {
                 case "en":
-                    return "English";
+                    return "English";// vrchat >= 2024.1.1p2-1407
                 case "fr":
-                    return "French";
+                    return "French";// vrchat >= 2024.1.1p2-1407
                 case "es":
-                    return "Spanish";
+                    return "Spanish";// vrchat >= 2024.1.1p2-1407
                 case "it":
-                    return "Italian";
+                    return "Italian";// vrchat >= 2024.1.1p2-1407
                 case "ko":
-                    return "Korean";
+                    return "Korean";// vrchat >= 2024.1.1p2-1407
                 case "de":
-                    return "German";
+                    return "German";// vrchat >= 2024.1.1p2-1407
                 case "ja":
-                    return "Japanese";
+                    return "Japanese";// vrchat >= 2024.1.1p2-1407
                 case "pl":
-                    return "Polish";
+                    return "Polish";// vrchat >= 2024.1.1p2-1407
                 case "ru":
-                    return "Russian";
+                    return "Russian";// vrchat >= 2024.1.1p2-1407
                 case "pt-BR":
-                    return "Portuguese, Brazilian";
+                    return "Portuguese, Brazilian";// vrchat >= 2024.1.1p2-1407
                 case "zh-CN":
-                    return "Chinese Simplified";
+                    return "Chinese Simplified";// vrchat >= 2024.1.1p2-1407
                 case "zh-HK":
-                    return "Chinese Traditional";
-                case "tp":// Violation of RFC5646
-                    return "Toki Pona";
+                    return "Chinese Traditional";// vrchat >= 2024.1.1p2-1407
             }
             return null;
         }
