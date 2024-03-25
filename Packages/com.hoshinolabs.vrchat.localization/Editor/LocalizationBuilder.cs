@@ -98,23 +98,6 @@ namespace HoshinoLabs.Localization {
                     .WithParameter("groups_4_3", groupData._4._3);
                 builder.AddEntryPoint<ILocalization>();
             });
-
-            if (EditorApplication.isPlayingOrWillChangePlaymode) {
-                ProjectContext.Enqueue(builder => {
-                    builder.AddOnNewGameObject<VRCClientSimConnector>(
-                        Lifetime.Cached,
-                        $"{typeof(VRCClientSimConnector).Name}"
-                    )
-                        .UnderTransform(GetOrBuildGO().transform);
-                    builder.AddEntryPoint<VRCClientSimConnector>();
-                    builder.AddOnNewGameObject<UnityLocalizationConnector>(
-                        Lifetime.Cached,
-                        $"{typeof(UnityLocalizationConnector).Name}"
-                    )
-                        .UnderTransform(GetOrBuildGO().transform);
-                    builder.AddEntryPoint<UnityLocalizationConnector>();
-                });
-            }
         }
 
         Udon.IStartupLocaleSelector[] BuildStartupSelectors() {

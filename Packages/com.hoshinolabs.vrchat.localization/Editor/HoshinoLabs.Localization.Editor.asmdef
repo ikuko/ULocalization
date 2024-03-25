@@ -2,6 +2,8 @@
     "name": "HoshinoLabs.Localization.Editor",
     "rootNamespace": "",
     "references": [
+        "GUID:f51ebe6a0ceec4240a699833d6309b23",
+        "GUID:5c01796d064528144a599661eaab93a6",
         "GUID:3456780c4fb2d324ab9c633d6f1b0ddb",
         "GUID:6490804aa441dfe4b88eb56cccbdf081",
         "GUID:3c1bc1267eab5884ebe7f232c09ee0d9",
