@@ -4,6 +4,7 @@ sidebar_position: 5
 
 # Udon Variables
 
+ローカライズテキストに埋め込んでいる変数を動的に書き換えることができます。  
 Udon からローカル変数の値を書き換えることができます。  
 
 ### Udon からローカル変数の値を書き換える
@@ -46,7 +47,7 @@ public class ClickCounterBuilder : IProcessSceneWithReport {
             var groupId = localize.GetRuntimeGroupId();
             var variableId = localize.GetRuntimeVariableId("counter");
 
-            builder.AddInHierarchy<LocalizeReload>()
+            builder.AddInHierarchy<ClickCounter>()
                 .WithParameter("groupId", groupId)
                 .WithParameter("variableId", variableId);
         });
