@@ -4,7 +4,9 @@ sidebar_position: 4
 
 # Udon Refresh
 
-Udon から任意のタイミングでローカライズの更新を行うことができます。  
+Localization は言語切替のタイミングのみローカライズの更新を行います。  
+変数埋め込みを行っているなどで値を更新したい場合は明示的に更新処理を呼び出す必要があります。  
+自作の Udon から任意のタイミングでローカライズの更新を行うことができます。  
 
 ### Udon から更新を実行する
 
@@ -12,7 +14,7 @@ Udon から任意のタイミングでローカライズの更新を行うこと
 この Udon は `ReloadText` メソッドが呼び出されたときに特定のローカライズテキストの更新を要求します。  
 
 ```csharp
-public class LocalizeReload : UdonSharpBehaviour {
+public class LocalizeTextReloader : UdonSharpBehaviour {
     [Inject, SerializeField, HideInInspector]
     ILocalization localization;
     [Inject, SerializeField, HideInInspector]
@@ -37,7 +39,7 @@ public class LocalizeReloadBuilder : IProcessSceneWithReport {
             var localize = go.GetComponent<LocalizeStringEvent>();
             var groupId = localize.GetRuntimeGroupId();
 
-            builder.AddInHierarchy<LocalizeReload>()
+            builder.AddInHierarchy<LocalizeTextReloader>()
                 .WithParameter("groupId", groupId);
         });
         context.Build();
@@ -45,4 +47,4 @@ public class LocalizeReloadBuilder : IProcessSceneWithReport {
 }
 ```
 
-以上で `LocalizeReload.ReloadText` が呼び出されるとローカライズテキストの更新が要求されます。
+以上で `LocalizeTextReloader.ReloadText` が呼び出されるとローカライズテキストの更新が要求されます。
