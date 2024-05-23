@@ -12,13 +12,13 @@ namespace HoshinoLabs.Localization.Udon {
 
         public virtual string SelectedLocale { get; set; }
 
-        public virtual void RefreshString(int groupId) { }
-        public virtual void RefreshAsset(int groupId) { }
+        public virtual void RefreshString(object groupId) { }
+        public virtual void RefreshAsset(object groupId) { }
 
-        public virtual object GetVariable(int variableId) => null;
-        public virtual void SetVariable(int variableId, object value) { }
+        public virtual object GetVariable(object variableId) => null;
+        public virtual void SetVariable(object variableId, object value) { }
 
-        public virtual string GetLocalizedString(int groupId, string locale) => null;
-        public virtual object GetLocalizedAsset(int groupId, string locale) => null;
+        public virtual string GetLocalizedString(object groupId, string locale) => null;
+        public virtual object GetLocalizedAsset(object groupId, string locale) => null;
     }
 }

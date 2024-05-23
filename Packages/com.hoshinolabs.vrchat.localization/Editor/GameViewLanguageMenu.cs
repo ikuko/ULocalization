@@ -68,7 +68,7 @@ namespace HoshinoLabs.Localization {
             ClearViews();
 
             var availableLocales = ClientSimSettings.Instance.availableLanguages
-                .Select(x => new Locale(x, VRCLanguageExtensions.VRCLanguageToLocale(x), null))
+                .Select(x => new Locale(VRCLanguageExtensions.LocaleToVRCLanguage(x), x, null))
                 .ToList();
 
             var assembly = typeof(EditorWindow).Assembly;
@@ -77,12 +77,12 @@ namespace HoshinoLabs.Localization {
                 var menu = new GameViewLanguageMenu(availableLocales);
                 menu.style.backgroundImage = EditorStyles.popup.normal.background;
                 menu.RegisterValueChangedCallback((evt) => {
-                    ClientSimSettings.Instance.currentLanguage = evt.newValue.Name;
+                    ClientSimSettings.Instance.currentLanguage = evt.newValue.Code;
 #if UNITY_EDITOR
                     if (EditorWindow.HasOpenInstances<ClientSimSettingsWindow>()) {
                         var window = EditorWindow.GetWindow<ClientSimSettingsWindow>();
                         var field = typeof(ClientSimSettingsWindow).GetField("selectedLanguageIndex", BindingFlags.Instance | BindingFlags.NonPublic);
-                        field.SetValue(window, Array.IndexOf(ClientSimSettings.Instance.availableLanguages, evt.newValue.Name));
+                        field.SetValue(window, Array.IndexOf(ClientSimSettings.Instance.availableLanguages, evt.newValue.Code));
                     }
 #endif
                 });
@@ -94,7 +94,7 @@ namespace HoshinoLabs.Localization {
                 gameViews.Add(menu);
 
                 UniTaskAsyncEnumerable.EveryValueChanged(gameView, _ => ClientSimSettings.Instance.currentLanguage)
-                    .Select(x => new Locale(x, VRCLanguageExtensions.VRCLanguageToLocale(x), null))
+                    .Select(x => new Locale(VRCLanguageExtensions.LocaleToVRCLanguage(x), x, null))
                     .ForEachAsync(x => OnLanguageChanged(x));
             }
         }

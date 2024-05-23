@@ -22,11 +22,7 @@ namespace HoshinoLabs.Localization.Samples.Udon {
             var language = VRCPlayerApi.GetCurrentLanguage();
             if (prevLanguage != language) {
                 if (language != null) {
-#if UNITY_EDITOR
-                    localization.SelectedLocale = VRCLanguageExtensions.VRCLanguageToLocale(language);
-#else
                     localization.SelectedLocale = language;
-#endif
                 }
 
                 prevLanguage = language;

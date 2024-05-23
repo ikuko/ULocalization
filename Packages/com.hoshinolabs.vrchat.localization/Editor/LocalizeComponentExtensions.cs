@@ -50,5 +50,16 @@ namespace HoshinoLabs.Localization {
             }
             throw new Exception("Group ID could not be found.");
         }
+
+        public static bool TryGetRuntimeGroupId(this LocalizedMonoBehaviour self, out int groupId) {
+            return LocalizationHelper.ReferenceGroupIds.TryGetValue(self, out groupId);
+        }
+
+        public static int GetRuntimeGroupId(this LocalizedMonoBehaviour self) {
+            if (self.TryGetRuntimeGroupId(out var groupId)) {
+                return groupId;
+            }
+            throw new Exception("Group ID could not be found.");
+        }
     }
 }

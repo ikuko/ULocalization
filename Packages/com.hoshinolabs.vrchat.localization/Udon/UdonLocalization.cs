@@ -1,9 +1,12 @@
-﻿using HoshinoLabs.Sardinject;
+﻿using HoshinoLabs.Sardinal;
+using HoshinoLabs.Sardinal.Udon;
+using HoshinoLabs.Sardinject;
 using System;
 using UdonSharp;
 using UnityEngine;
 using VRC.SDK3.Data;
 using VRC.SDKBase;
+using VRC.Udon.Common.Interfaces;
 
 namespace HoshinoLabs.Localization.Udon {
     [AddComponentMenu("")]
@@ -19,7 +22,11 @@ namespace HoshinoLabs.Localization.Udon {
         object[][] assetDatabase;
         [Inject, SerializeField, HideInInspector]
         string projectLocale;
-        // TODO: "onSelectedLocaleChanged" is under consideration for implementation
+
+        [Inject, SerializeField, HideInInspector]
+        ISignalHub signal;
+        [Inject, SignalId(typeof(LocalizationSignal)), SerializeField, HideInInspector]
+        object signalId;
 
         public override string[] AvailableLocales => availableLocales;
         public override string ProjectLocale => projectLocale;
@@ -38,7 +45,7 @@ namespace HoshinoLabs.Localization.Udon {
             selectedLocale = locale;
 
             var localeId = Array.IndexOf(availableLocales, locale);
-            if(localeId < 0) {
+            if (localeId < 0) {
                 // Do nothing when an invalid locale is specified
                 return;
             }
@@ -97,104 +104,111 @@ namespace HoshinoLabs.Localization.Udon {
             startupSelectors = null;
         }
 
-        public override void RefreshString(int groupId) {
-            var assetId = groups_2[groupId];
-            if (assetId < 0) {
+        public override void RefreshString(object groupId) {
+            var groupIdx = (int)groupId;
+            var assetIdx = groups_2[groupIdx];
+            if (assetIdx < 0) {
                 return;
             }
-            listenerString = currentStringDatabase[assetId];
-            var args = groups_3[groupId];
+            listenerString = currentStringDatabase[assetIdx];
+            var args = groups_3[groupIdx];
             if (args != null) {
                 SmartLiteFormat(args);
             }
-            var listenerLength = groups_4_0[groupId];
-            listenerHash = groups_4_1[groupId];
-            listenerTarget = groups_4_2[groupId];
-            listenerArgument = groups_4_3[groupId];
+            var listenerLength = groups_4_0[groupIdx];
+            listenerHash = groups_4_1[groupIdx];
+            listenerTarget = groups_4_2[groupIdx];
+            listenerArgument = groups_4_3[groupIdx];
             for (listenerIdx = 0; listenerIdx < listenerLength; listenerIdx++) {
                 SendCustomEvent(listenerHash[listenerIdx]);
             }
         }
 
-        public override object GetVariable(int variableId) {
-            return variables_1[variableId];
+        public override object GetVariable(object variableId) {
+            var variableIdx = (int)variableId;
+            return variables_1[variableIdx];
         }
 
-        public override void SetVariable(int variableId, object value) {
-            variables_1[variableId] = value;
+        public override void SetVariable(object variableId, object value) {
+            var variableIdx = (int)variableId;
+            variables_1[variableIdx] = value;
         }
 
-        public override void RefreshAsset(int groupId) {
-            var assetId = groups_2[groupId];
-            if (assetId < 0) {
+        public override void RefreshAsset(object groupId) {
+            var groupIdx = (int)groupId;
+            var assetIdx = groups_2[groupIdx];
+            if (assetIdx < 0) {
                 return;
             }
-            listenerAsset = currentAssetDatabase[assetId];
-            var listenerLength = groups_4_0[groupId];
-            listenerHash = groups_4_1[groupId];
-            listenerTarget = groups_4_2[groupId];
-            listenerArgument = groups_4_3[groupId];
+            listenerAsset = currentAssetDatabase[assetIdx];
+            var listenerLength = groups_4_0[groupIdx];
+            listenerHash = groups_4_1[groupIdx];
+            listenerTarget = groups_4_2[groupIdx];
+            listenerArgument = groups_4_3[groupIdx];
             for (listenerIdx = 0; listenerIdx < listenerLength; listenerIdx++) {
                 SendCustomEvent(listenerHash[listenerIdx]);
             }
         }
 
-        public override string GetLocalizedString(int groupId, string locale) {
-            var localeId = Array.IndexOf(availableLocales, locale);
-            if (localeId < 0) {
+        public override string GetLocalizedString(object groupId, string locale) {
+            var localeIdx = Array.IndexOf(availableLocales, locale);
+            if (localeIdx < 0) {
                 return null;
             }
-            var assetId = groups_2[groupId];
-            if (assetId < 0) {
+            var groupIdx = (int)groupId;
+            var assetIdx = groups_2[groupIdx];
+            if (assetIdx < 0) {
                 return null;
             }
-            listenerString = stringDatabase[localeId][assetId];
-            var args = groups_3[groupId];
+            listenerString = stringDatabase[localeIdx][assetIdx];
+            var args = groups_3[groupIdx];
             if (args != null) {
                 SmartLiteFormat(args);
             }
             return listenerString;
         }
 
-        public override object GetLocalizedAsset(int groupId, string locale) {
-            var localeId = Array.IndexOf(availableLocales, locale);
-            if (localeId < 0) {
+        public override object GetLocalizedAsset(object groupId, string locale) {
+            var localeIdx = Array.IndexOf(availableLocales, locale);
+            if (localeIdx < 0) {
                 return null;
             }
-            var assetId = groups_2[groupId];
-            if (assetId < 0) {
+            var groupIdx = (int)groupId;
+            var assetIdx = groups_2[groupIdx];
+            if (assetIdx < 0) {
                 return null;
             }
-            listenerAsset = currentAssetDatabase[assetId];
+            listenerAsset = assetDatabase[localeIdx][assetIdx];
             return listenerAsset;
         }
 
         void InvokeSelectedLocaleChanged() {
-            for (var groupId = 0; groupId < groups_0; groupId++) {
-                var assetId = groups_2[groupId];
-                if (assetId < 0) {
+            for (var groupIdx = 0; groupIdx < groups_0; groupIdx++) {
+                var assetIdx = groups_2[groupIdx];
+                if (assetIdx < 0) {
                     continue;
                 }
-                if (groups_1[groupId]) {
-                    listenerAsset = currentAssetDatabase[assetId];
+                if (groups_1[groupIdx]) {
+                    listenerAsset = currentAssetDatabase[assetIdx];
                 }
                 else {
-                    listenerString = currentStringDatabase[assetId];
-                    var args = groups_3[groupId];
+                    listenerString = currentStringDatabase[assetIdx];
+                    var args = groups_3[groupIdx];
                     if (args != null) {
                         SmartLiteFormat(args);
                     }
                 }
-                var listenerLength = groups_4_0[groupId];
-                listenerHash = groups_4_1[groupId];
-                listenerTarget = groups_4_2[groupId];
-                listenerArgument = groups_4_3[groupId];
+                var listenerLength = groups_4_0[groupIdx];
+                listenerHash = groups_4_1[groupIdx];
+                listenerTarget = groups_4_2[groupIdx];
+                listenerArgument = groups_4_3[groupIdx];
                 for (listenerIdx = 0; listenerIdx < listenerLength; listenerIdx++) {
                     SendCustomEvent(listenerHash[listenerIdx]);
                 }
             }
 
-            // TODO: "onSelectedLocaleChanged" is under consideration for implementation
+            // publish selected locale changed
+            signal.Publish(signalId, selectedLocale);
         }
     }
 }
