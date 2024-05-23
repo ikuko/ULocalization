@@ -26,5 +26,5 @@ public class LocalizeTextReloader : UdonSharpBehaviour {
 }
 ```
 
-インスペクタから対象とする LocalizeString コンポーネントを指定しておきます。
+インスペクタから対象とする LocalizeString コンポーネントを指定しておきます。  
 以上で `LocalizeTextReloader.ReloadText` が呼び出されるとローカライズテキストの更新が要求されます。
