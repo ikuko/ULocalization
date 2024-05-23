@@ -19,10 +19,10 @@ Udon からローカル変数の値を書き換えることができます。
 public class ClickCounter : UdonSharpBehaviour {
     [Inject, SerializeField, HideInInspector]
     ILocalization localization;
-    [Inject, SerializeField, HideInInspector]
-    int groupId;
-    [Inject, SerializeField, HideInInspector]
-    int variableId;
+    [GroupId, SerializeField]
+    string groupId;
+    [VariableId, SerializeField]
+    string variableId;
 
     int counter = 0;
 
@@ -33,29 +33,8 @@ public class ClickCounter : UdonSharpBehaviour {
 }
 ```
 
-以下のようなエディタ拡張スクリプトを用意します。  
-
-```csharp
-public class ClickCounterBuilder : IProcessSceneWithReport {
-    public int callbackOrder => 0;
-
-    public void OnProcessScene(Scene scene, BuildReport report) {
-        var context = ProjectContext.New();
-        context.Enqueue(builder => {
-            var go = GameObject.Find("Canvas/Panel/Text (TMP)");
-            var localize = go.GetComponent<LocalizeStringEvent>();
-            var groupId = localize.GetRuntimeGroupId();
-            var variableId = localize.GetRuntimeVariableId("counter");
-
-            builder.AddInHierarchy<ClickCounter>()
-                .WithParameter("groupId", groupId)
-                .WithParameter("variableId", variableId);
-        });
-        context.Build();
-    }
-}
-```
-
+インスペクタから対象とする LocalizeString コンポーネントを指定しておきます。  
+併せて対象のローカル変数も指定しておきます。  
 以上で `ClickCounter.OnClick` が呼び出されるとカウントが1つずつ上がって表示されます。
 
 <!-- ### ローカライズテキスト変数の値を書き換える
@@ -70,43 +49,16 @@ Udon は `Lottery` メソッドが呼び出されると値を書き換えるこ�
 public class ItemChanger : UdonSharpBehaviour {
     [Inject, SerializeField, HideInInspector]
     ILocalization localization;
-    [Inject, SerializeField, HideInInspector]
-    int groupId;
-    [Inject, SerializeField, HideInInspector]
-    int variableId;
-    [Inject, SerializeField, HideInInspector]
-    int assetIds;
+    [GroupId, SerializeField]
+    string groupId;
+    [VariableId, SerializeField]
+    string variableId;
+    [AssetId, SerializeField]
+    string[] assetIds;
 
     public void Lottery() {
         localization.SetVariable(variableId, assetIds[Random.Range(0, assetIds.Length)]);
         localization.RefreshString(groupId);
-    }
-}
-```
-
-以下のようなエディタ拡張スクリプトを用意します。  
-
-```csharp
-public class ItemChangerBuilder : IProcessSceneWithReport {
-    public int callbackOrder => 0;
-
-    public void OnProcessScene(Scene scene, BuildReport report) {
-        ProjectContext.Enqueue(builder => {
-            var go = GameObject.Find("Canvas/Panel/Text (TMP)");
-            var localize = go.GetComponent<LocalizeStringEvent>();
-            var groupId = localize.GetRuntimeGroupId();
-            var variableId = localize.GetRuntimeVariableId("item");
-            var assetIds = new int[] {
-                localize.GetRuntimeAssetId(___),
-                localize.GetRuntimeAssetId(___),
-                localize.GetRuntimeAssetId(___),
-            };
-
-            builder.AddInHierarchy<LocalizeReload>()
-                .WithParameter("groupId", groupId)
-                .WithParameter("variableId", variableId)
-                .WithParameter("assetIds", assetIds);
-        });
     }
 }
 ```
