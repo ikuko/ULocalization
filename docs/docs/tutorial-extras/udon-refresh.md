@@ -17,8 +17,8 @@ Localization は言語切替のタイミングのみローカライズの更新�
 public class LocalizeTextReloader : UdonSharpBehaviour {
     [Inject, SerializeField, HideInInspector]
     ILocalization localization;
-    [Inject, SerializeField, HideInInspector]
-    int groupId;
+    [GroupId, SerializeField]
+    string groupId;
 
     public void ReloadText() {
         localization.RefreshString(groupId);
@@ -26,25 +26,5 @@ public class LocalizeTextReloader : UdonSharpBehaviour {
 }
 ```
 
-以下のようなエディタ拡張スクリプトを用意します。  
-
-```csharp
-public class LocalizeReloadBuilder : IProcessSceneWithReport {
-    public int callbackOrder => 0;
-
-    public void OnProcessScene(Scene scene, BuildReport report) {
-        var context = ProjectContext.New();
-        context.Enqueue(builder => {
-            var go = GameObject.Find("Canvas/Panel/Text (TMP)");
-            var localize = go.GetComponent<LocalizeStringEvent>();
-            var groupId = localize.GetRuntimeGroupId();
-
-            builder.AddInHierarchy<LocalizeTextReloader>()
-                .WithParameter("groupId", groupId);
-        });
-        context.Build();
-    }
-}
-```
-
+インスペクタから対象とする LocalizeString コンポーネントを指定しておきます。
 以上で `LocalizeTextReloader.ReloadText` が呼び出されるとローカライズテキストの更新が要求されます。
