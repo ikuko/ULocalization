@@ -1,7 +1,7 @@
 {
   "name": "com.hoshinolabs.localization",
   "displayName": "HoshinoLabs - Localization",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "unity": "2022.3",
   "description": "Porting to VRChat of Unity Localization package",
   "vrchatVersion": "2022.1.1",
@@ -16,7 +16,7 @@
   "vpmDependencies": {
     "com.vrchat.worlds": ">=3.6.0",
     "com.unity.scriptablebuildpipeline": "1.21.5",
-    "com.hoshinolabs.vrchat.sardinject": ">=0.3.2",
-    "com.hoshinolabs.sardinal": ">=0.0.8"
+    "com.hoshinolabs.vrchat.sardinject": ">=0.4.0",
+    "com.hoshinolabs.sardinal": ">=0.1.1"
   }
 }
