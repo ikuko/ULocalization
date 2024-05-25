@@ -8,14 +8,14 @@ const config: Config = {
   favicon: "img/favicon.ico",
 
   // Set the production url of your site here
-  url: "https://hoshinolabs-vrchat.github.io/",
+  url: "https://hoshinolabs.github.io/",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: "/Localization/",
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: "hoshinolabs-vrchat", // Usually your GitHub org/user name.
+  organizationName: "hoshinolabs", // Usually your GitHub org/user name.
   projectName: "Localization", // Usually your repo name.
   trailingSlash: false,
 
@@ -71,7 +71,7 @@ const config: Config = {
           label: "Document",
         },
         {
-          href: "https://github.com/hoshinolabs-vrchat/Localization",
+          href: "https://github.com/hoshinolabs/Localization",
           label: "GitHub",
           position: "right",
         },
@@ -103,7 +103,7 @@ const config: Config = {
           items: [
             {
               label: "GitHub",
-              href: "https://github.com/hoshinolabs-vrchat/Localization",
+              href: "https://github.com/hoshinolabs/Localization",
             },
           ],
         },
