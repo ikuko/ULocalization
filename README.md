@@ -1,7 +1,7 @@
 # Localization
 
 ![](https://img.shields.io/badge/unity-2022.3+-000.svg)
-[![Releases](https://img.shields.io/github/release/hoshinolabs-vrchat/Localization.svg)](https://github.com/hoshinolabs-vrchat/Localization/releases)
+[![Releases](https://img.shields.io/github/release/hoshinolabs/Localization.svg)](https://github.com/hoshinolabs/Localization/releases)
 
 Porting to VRChat of Unity Localization package.
 
@@ -13,7 +13,7 @@ Porting to VRChat of Unity Localization package.
 
 ## Documentation
 
-View on [GitHub Pages](https://hoshinolabs-vrchat.github.io/Localization/)
+View on [GitHub Pages](https://hoshinolabs.github.io/Localization/)
 
 ## Installation
 
