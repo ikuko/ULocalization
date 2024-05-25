@@ -43,3 +43,18 @@ public class LanguageChangeBuilder : IProcessSceneWithReport {
 ```
 
 以上で `LanguageChanger.ChangeRandomLang` が呼び出されると言語が変更されます。
+
+### Udon から言語の変更を検知する
+
+以下のような Udon を用意します。
+
+```csharp
+public class LanguageChangeReceiver : UdonSharpBehaviour {
+    [SignalSubscriber(typeof(HoshinoLabs.Localization.Udon.LocalizationSignal))]
+    public void OnSelectedLocaleChanged(string locale) {
+        Debug.Log($"Locale changed to `{locale}`.");
+    }
+}
+```
+
+以上で言語が変更された際に `OnSelectedLocaleChanged` メソッドが呼び出されるようになります。
