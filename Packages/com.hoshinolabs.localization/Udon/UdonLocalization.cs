@@ -24,7 +24,7 @@ namespace HoshinoLabs.Localization.Udon {
         string projectLocale;
 
         [Inject, SerializeField, HideInInspector]
-        ISignalHub signal;
+        ISardinal sardinal;
         [Inject, SignalId(typeof(LocalizationSignal)), SerializeField, HideInInspector]
         object signalId;
 
@@ -208,7 +208,7 @@ namespace HoshinoLabs.Localization.Udon {
             }
 
             // publish selected locale changed
-            signal.Publish(signalId, selectedLocale);
+            sardinal.Publish(signalId, selectedLocale);
         }
     }
 }
