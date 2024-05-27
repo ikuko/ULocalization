@@ -49,7 +49,7 @@ public class LanguageChangeBuilder : IProcessSceneWithReport {
 以下のような Udon を用意します。
 
 ```csharp
-public class LanguageChangeReceiver : UdonSharpBehaviour {
+public class LocalizationSubscriber : UdonSharpBehaviour {
     [SignalSubscriber(typeof(LocalizationSignal))]
     public void OnSelectedLocaleChanged(string locale) {
         Debug.Log($"Locale changed to `{locale}`.");
