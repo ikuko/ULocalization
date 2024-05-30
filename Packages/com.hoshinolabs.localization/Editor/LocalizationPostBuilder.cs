@@ -62,6 +62,9 @@ namespace HoshinoLabs.Localization {
                 return -1;
             }
             var component = GlobalObjectId.GlobalObjectIdentifierToObjectSlow(id) as LocalizedMonoBehaviour;
+            if (component == null) {
+                return -1;
+            }
             return component.GetRuntimeGroupId();
         }
 
@@ -71,6 +74,9 @@ namespace HoshinoLabs.Localization {
                 return -1;
             }
             var component = (LocalizeStringEvent)GlobalObjectId.GlobalObjectIdentifierToObjectSlow(id);
+            if (component == null) {
+                return -1;
+            }
             var variable = value.Substring(idx + 1);
             return component.GetRuntimeVariableId(variable);
         }
