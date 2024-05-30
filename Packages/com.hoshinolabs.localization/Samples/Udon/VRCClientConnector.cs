@@ -15,7 +15,7 @@ namespace HoshinoLabs.Localization.Samples.Udon {
         string prevLanguage = null;
 
         private void Start() {
-            prevLanguage = VRCPlayerApi.GetCurrentLanguage();
+            prevLanguage = localization.SelectedLocale;
         }
 
         private void Update() {
