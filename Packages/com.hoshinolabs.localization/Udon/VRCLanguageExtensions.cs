@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace HoshinoLabs.Localization {
+namespace HoshinoLabs.Localization.Udon {
     public static class VRCLanguageExtensions {
         /// <summary>
         /// Convert VRChat language to Locale.

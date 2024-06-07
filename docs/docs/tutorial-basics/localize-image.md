@@ -23,7 +23,7 @@ sidebar_position: 3
 その中にある "Create Table Collection" を押しましょう。  
 <!-- ![](img/localize-image-03.png)   -->
 
-表示されたウィンドウの `Name` にテーブルに付けたい名前を入力します。  
+表示されたウィンドウの `Type` を "Asset Table Collection" に変更して `Name` にテーブルに付けたい名前を入力します。  
 最後に "Create" を押すと保存先を聞かれるので保存先を選択して保存します。  
 <!-- ![](img/localize-image-04.png) -->
 
@@ -35,11 +35,11 @@ sidebar_position: 3
 <!-- ![](img/localize-image-05.png) -->
 
 次に "Add Table Entry" を押します。  
-<!-- ![](img/localize-image-06.png) -->
+![](img/localize-image-06.png)
 
 これでローカライズ設定が完了しました。  
 言語の部分をに言語に合わせたスプライトをセットする欄が現れるので各言語に対応したスプライトをセットしましょう。  
-<!-- ![](img/localize-image-07.png) -->
+![](img/localize-image-07.png)
 
 ### 設定完了
 

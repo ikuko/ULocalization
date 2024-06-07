@@ -142,11 +142,23 @@ namespace HoshinoLabs.Localization {
         (VariableType[] _0, object[] _1) BuildVariableData() {
             var variableData = LocalizationHelper.ReferenceVariableIds
                 .Keys
-                .Select(x => (
-                    group: x.group as LocalizeStringEvent,
-                    x.index
-                ))
-                .Select(x => x.group.StringReference.Values.ElementAt(x.index).ToVariable())
+                .Select(x => {
+                    switch (x.group) {
+                        case LocalizeStringEvent localizeString: {
+                                return localizeString.StringReference.Values.ElementAt(x.index).ToVariable();
+                            }
+                        case LocalizeDropdownEvent localizeDropdown: {
+                                return localizeDropdown.Options
+                                    .SelectMany(x => x.Text.Values)
+                                    .ElementAt(x.index)
+                                    .ToVariable();
+                            }
+                        default: {
+                                return null;
+                            }
+                    }
+                })
+                .Where(x => x != null)
                 .ToArray();
             return (
                 variableData.Select(x => x.Type).ToArray(),
@@ -154,10 +166,10 @@ namespace HoshinoLabs.Localization {
             );
         }
 
-        DataDictionary BuildGroupValues(LocalizeStringEvent localizeString) {
+        DataDictionary BuildGroupValues(LocalizedMonoBehaviour behaviour, LocalizedString localizedString) {
             var values = new DataDictionary();
-            foreach (var (x, i) in localizeString.StringReference.Keys.Select((v, i) => (v, i))) {
-                if (LocalizationHelper.ReferenceVariableIds.TryGetValue((localizeString, i), out var variableId)) {
+            foreach (var (x, i) in localizedString.Keys.Select((v, i) => (v, i))) {
+                if (LocalizationHelper.ReferenceVariableIds.TryGetValue((behaviour, i), out var variableId)) {
                     values.Add(x, variableId);
                 }
             }
@@ -212,40 +224,44 @@ namespace HoshinoLabs.Localization {
         }
 
         GroupData BuildGroupData(LocalizeStringEvent localizeString) {
-            var localized = localizeString.StringReference;
-            if (localized.TableReference.ReferenceType != TableReference.Type.Guid) {
+            if (!localizeString.StringReference.TryGetRuntimeAssetId(out var assetId)) {
                 return BuildInvalidGroupData();
             }
-            if (localized.TableEntryReference.ReferenceType != TableEntryReference.Type.Id) {
-                return BuildInvalidGroupData();
-            }
-            var tableId = localized.TableReference.TableCollectionName;
-            var entryId = localized.TableEntryReference.KeyId.ToString();
-            LocalizationHelper.ReferenceStringIds.TryGetValue((tableId, entryId), out var assetId);
-            var values = BuildGroupValues(localizeString);
+            var values = BuildGroupValues(localizeString, localizeString.StringReference);
             var listeners = BuildGroupListeners(localizeString, "m_UpdateString");
-            return new GroupData(false, assetId, values, listeners);
+            return new GroupData(GroupMode.String, assetId, values, listeners);
         }
 
         GroupData BuildGroupData<T, U, V>(LocalizedAssetEvent<T, U, V> localizeAsset)
             where T : UnityEngine.Object
             where U : LocalizedAsset<T>, new()
             where V : UnityEvent<T>, new() {
-            var localized = localizeAsset.AssetReference;
-            if (localized.TableReference.ReferenceType != TableReference.Type.Guid) {
+            if (!localizeAsset.AssetReference.TryGetRuntimeAssetId<T, U>(out var assetId)) {
                 return BuildInvalidGroupData();
             }
-            if (localized.TableEntryReference.ReferenceType != TableEntryReference.Type.Id) {
-                return BuildInvalidGroupData();
-            }
-            var tableId = localized.TableReference.TableCollectionName;
-            var entryId = localized.TableEntryReference.KeyId.ToString();
-            LocalizationHelper.ReferenceAssetIds.TryGetValue((tableId, entryId), out var assetId);
             var listeners = BuildGroupListeners(localizeAsset, "m_UpdateAsset");
-            return new GroupData(true, assetId, null, listeners);
+            return new GroupData(GroupMode.Asset, assetId, null, listeners);
         }
 
-        (int _0, bool[] _1, int[] _2, DataDictionary[] _3, (int[] _0, string[][] _1, object[][] _2, object[][] _3) _4) BuildGroupData() {
+        GroupData BuildGroupData(LocalizeDropdownEvent localizeDropdown) {
+            var args = localizeDropdown.Options
+                .ToArray()
+                .Select(x => (
+                    _1: x.Text.GetRuntimeAssetId(),
+                    _2: BuildGroupValues(localizeDropdown, x.Text),
+                    _3: x.Image.GetRuntimeAssetId()
+                ))
+                .ToArray();
+            var values = new DataDictionary();
+            values[0] = args.Length;
+            values[1] = new DataToken(args.Select(x => x._1).ToArray());
+            values[2] = new DataToken(args.Select(x => x._2).ToArray());
+            values[3] = new DataToken(args.Select(x => x._3).ToArray());
+            var listeners = BuildGroupListeners(localizeDropdown, "updateOptions");
+            return new GroupData(GroupMode.Dropdown, -1, values, listeners);
+        }
+
+        (int _0, GroupMode[] _1, int[] _2, DataDictionary[] _3, (int[] _0, string[][] _1, object[][] _2, object[][] _3) _4) BuildGroupData() {
             var groupData = LocalizationHelper.ReferenceGroupIds
                 .Keys
                 .Select(x => {
@@ -261,6 +277,9 @@ namespace HoshinoLabs.Localization {
                             }
                         case LocalizeSpriteEvent localizeSprite: {
                                 return BuildGroupData(localizeSprite);
+                            }
+                        case LocalizeDropdownEvent localizeDropdown: {
+                                return BuildGroupData(localizeDropdown);
                             }
                         default: {
                                 return BuildInvalidGroupData();

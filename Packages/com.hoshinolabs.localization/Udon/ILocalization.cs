@@ -20,5 +20,7 @@ namespace HoshinoLabs.Localization.Udon {
 
         public virtual string GetLocalizedString(object groupId, string locale) => null;
         public virtual object GetLocalizedAsset(object groupId, string locale) => null;
+        public virtual string GetLocalizedString(string locale, object assetId) => null;
+        public virtual object GetLocalizedAsset(string locale, object assetId) => null;
     }
 }

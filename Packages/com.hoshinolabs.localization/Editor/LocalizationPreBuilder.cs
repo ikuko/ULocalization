@@ -69,19 +69,29 @@ namespace HoshinoLabs.Localization {
             ));
         }
 
-        static TableEntry CollectAllStringEntry(LocalizeStringEvent localizeString) {
-            var localized = localizeString.StringReference;
-            if (localized.TableReference.ReferenceType != TableReference.Type.Guid) {
+        static TableEntry CollectAllStringEntry(LocalizedString localizedString) {
+            if (localizedString.TableReference.ReferenceType != TableReference.Type.Guid) {
                 return null;
             }
-            if (localized.TableEntryReference.ReferenceType != TableEntryReference.Type.Id) {
+            if (localizedString.TableEntryReference.ReferenceType != TableEntryReference.Type.Id) {
                 return null;
             }
             return new TableEntry(
-                tableId: localized.TableReference.TableCollectionName,
-                entryId: localized.TableEntryReference.KeyId.ToString(),
-                name: localized.TableEntryReference.Key
+                tableId: localizedString.TableReference.TableCollectionName,
+                entryId: localizedString.TableEntryReference.KeyId.ToString(),
+                name: localizedString.TableEntryReference.Key
             );
+        }
+
+        static IEnumerable<TableEntry> CollectAllStringEntry(LocalizeStringEvent localizeString) {
+            return new[] {
+                CollectAllStringEntry(localizeString.StringReference)
+            };
+        }
+
+        static IEnumerable<TableEntry> CollectAllStringEntry(LocalizeDropdownEvent localizeDropdown) {
+            return localizeDropdown.Options
+                .Select(x => CollectAllStringEntry(x.Text));
         }
 
         static TableEntry[] CollectAllStringEntry() {
@@ -98,11 +108,16 @@ namespace HoshinoLabs.Localization {
                             case LocalizeStringEvent localizeString: {
                                     return CollectAllStringEntry(localizeString);
                                 }
+                            case LocalizeDropdownEvent localizeDropdown: {
+                                    return CollectAllStringEntry(localizeDropdown);
+                                }
                             default: {
                                     return null;
                                 }
                         }
                     })
+                    .Where(x => x != null)
+                    .SelectMany(x => x)
                     .Where(x => x != null),
             }
             .SelectMany(x => x)
@@ -119,22 +134,34 @@ namespace HoshinoLabs.Localization {
             ));
         }
 
-        static TableEntry CollectAllAssetEntry<T, U, V>(LocalizedAssetEvent<T, U, V> localizeAsset)
+        static TableEntry CollectAllAssetEntry<T, U>(LocalizedAsset<T> localizeAsset)
             where T : UnityEngine.Object
-            where U : LocalizedAsset<T>, new()
-            where V : UnityEvent<T>, new() {
-            var localized = localizeAsset.AssetReference;
-            if (localized.TableReference.ReferenceType != TableReference.Type.Guid) {
+            where U : LocalizedAsset<T>, new() {
+            if (localizeAsset.TableReference.ReferenceType != TableReference.Type.Guid) {
                 return null;
             }
-            if (localized.TableEntryReference.ReferenceType != TableEntryReference.Type.Id) {
+            if (localizeAsset.TableEntryReference.ReferenceType != TableEntryReference.Type.Id) {
                 return null;
             }
             return new TableEntry(
-                tableId: localized.TableReference.TableCollectionName,
-                entryId: localized.TableEntryReference.KeyId.ToString(),
-                name: localized.TableEntryReference.Key
+                tableId: localizeAsset.TableReference.TableCollectionName,
+                entryId: localizeAsset.TableEntryReference.KeyId.ToString(),
+                name: localizeAsset.TableEntryReference.Key
             );
+        }
+
+        static IEnumerable<TableEntry> CollectAllAssetEntry<T, U, V>(LocalizedAssetEvent<T, U, V> localizeAsset)
+            where T : UnityEngine.Object
+            where U : LocalizedAsset<T>, new()
+            where V : UnityEvent<T>, new() {
+            return new[] {
+                CollectAllAssetEntry<T, U>(localizeAsset.AssetReference)
+            };
+        }
+
+        static IEnumerable<TableEntry> CollectAllAssetEntry(LocalizeDropdownEvent localizeDropdown) {
+            return localizeDropdown.Options
+                .Select(x => CollectAllAssetEntry<Sprite, LocalizedSprite>(x.Image));
         }
 
         static TableEntry[] CollectAllAssetEntry() {
@@ -157,11 +184,16 @@ namespace HoshinoLabs.Localization {
                             case LocalizeSpriteEvent localizeSprite: {
                                     return CollectAllAssetEntry(localizeSprite);
                                 }
+                            case LocalizeDropdownEvent localizeDropdown: {
+                                    return CollectAllAssetEntry(localizeDropdown);
+                                }
                             default: {
                                     return null;
                                 }
                         }
                     })
+                    .Where(x => x != null)
+                    .SelectMany(x => x)
                     .Where(x => x != null),
             }
             .SelectMany(x => x)
@@ -184,10 +216,11 @@ namespace HoshinoLabs.Localization {
 
         static Dictionary<LocalizedMonoBehaviour, int> BuildGroupIds() {
             return new LocalizedMonoBehaviour[][] {
-                    GameObject.FindObjectsOfType<LocalizeAudioClipEvent>(true),
                     GameObject.FindObjectsOfType<LocalizeStringEvent>(true),
+                    GameObject.FindObjectsOfType<LocalizeAudioClipEvent>(true),
                     GameObject.FindObjectsOfType<LocalizeTextureEvent>(true),
                     GameObject.FindObjectsOfType<LocalizeSpriteEvent>(true),
+                    GameObject.FindObjectsOfType<LocalizeDropdownEvent>(true),
                 }
                 .SelectMany(x => x)
                 .Select((v, i) => (v, i))
@@ -197,38 +230,78 @@ namespace HoshinoLabs.Localization {
         static Dictionary<(LocalizedMonoBehaviour group, int index), int> BuildReferenceVariableIds() {
             return LocalizationHelper.ReferenceGroupIds
                 .Keys
-                .OfType<LocalizeStringEvent>()
-                .Where(x => x != null)
                 .Select(x => {
-                    return x.StringReference.Values
-                        .Where(x => {
-                            switch (x) {
-                                case BoolVariable:
-                                case SByteVariable:
-                                case ByteVariable:
-                                case ShortVariable:
-                                case UShortVariable:
-                                case IntVariable:
-                                case UIntVariable:
-                                case LongVariable:
-                                case ULongVariable:
-                                case StringVariable:
-                                case FloatVariable:
-                                case DoubleVariable:
-                                case ObjectVariable:
-                                case LocalizedString:
-                                //case CurrentTime:
-                                //case DateTimeVariable:
-                                case UdonVariable: {
-                                        return true;
-                                    }
-                                default: {
-                                        return false;
-                                    }
+                    switch (x) {
+                        case LocalizeStringEvent localizeString: {
+                                return localizeString.StringReference.Values
+                                    .Where(x => {
+                                        switch (x) {
+                                            case BoolVariable:
+                                            case SByteVariable:
+                                            case ByteVariable:
+                                            case ShortVariable:
+                                            case UShortVariable:
+                                            case IntVariable:
+                                            case UIntVariable:
+                                            case LongVariable:
+                                            case ULongVariable:
+                                            case StringVariable:
+                                            case FloatVariable:
+                                            case DoubleVariable:
+                                            case ObjectVariable:
+                                            case LocalizedString:
+                                            //case CurrentTime:
+                                            //case DateTimeVariable:
+                                            case UdonVariable: {
+                                                    return true;
+                                                }
+                                            default: {
+                                                    return false;
+                                                }
+                                        }
+                                    })
+                                    .Select((_, i) => ((LocalizedMonoBehaviour)x, i));
+
                             }
-                        })
-                        .Select((_, i) => ((LocalizedMonoBehaviour)x, i));
+                        case LocalizeDropdownEvent localizeDropdown: {
+                                return localizeDropdown.Options
+                                    .SelectMany(x => {
+                                        return x.Text.Values
+                                            .Where(x => {
+                                                switch (x) {
+                                                    case BoolVariable:
+                                                    case SByteVariable:
+                                                    case ByteVariable:
+                                                    case ShortVariable:
+                                                    case UShortVariable:
+                                                    case IntVariable:
+                                                    case UIntVariable:
+                                                    case LongVariable:
+                                                    case ULongVariable:
+                                                    case StringVariable:
+                                                    case FloatVariable:
+                                                    case DoubleVariable:
+                                                    case ObjectVariable:
+                                                    case LocalizedString:
+                                                    //case CurrentTime:
+                                                    //case DateTimeVariable:
+                                                    case UdonVariable: {
+                                                            return true;
+                                                        }
+                                                    default: {
+                                                            return false;
+                                                        }
+                                                }
+                                            })
+                                            .Select((_, i) => ((LocalizedMonoBehaviour)localizeDropdown, i));
+                                    });
+                            }
+                        default: {
+                                return null;
+                            }
+                    }
                 })
+                .Where(x => x != null)
                 .SelectMany(x => x)
                 .Select((v, i) => (v, i))
                 .ToDictionary(x => x.v, x => x.i);

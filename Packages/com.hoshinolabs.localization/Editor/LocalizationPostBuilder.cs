@@ -10,6 +10,7 @@ using UnityEditor.Build;
 using UnityEditor.Build.Reporting;
 using UnityEngine;
 using UnityEngine.Localization.Components;
+using UnityEngine.Localization.Settings;
 using UnityEngine.SceneManagement;
 using VRC.Udon;
 using VRC.Udon.Common.Interfaces;
@@ -19,7 +20,11 @@ namespace HoshinoLabs.Localization {
         public int callbackOrder => 100;
 
         public void OnProcessScene(Scene scene, BuildReport report) {
-            foreach(var usharp in GameObject.FindObjectsOfType<UdonSharpBehaviour>()) {
+            if (!LocalizationSettings.HasSettings) {
+                return;
+            }
+
+            foreach (var usharp in GameObject.FindObjectsOfType<UdonSharpBehaviour>()) {
                 var type = usharp.GetType();
                 var fields = type.GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic)
                     .ToArray();

@@ -75,7 +75,7 @@ namespace HoshinoLabs.Localization.Udon {
         [Inject, SerializeField, HideInInspector]
         int groups_0;
         [Inject, SerializeField, HideInInspector]
-        bool[] groups_1;
+        GroupMode[] groups_1;
         [Inject, SerializeField, HideInInspector]
         int[] groups_2;
         [Inject, SerializeField, HideInInspector]
@@ -91,10 +91,8 @@ namespace HoshinoLabs.Localization.Udon {
 
         string listenerString;
         object listenerAsset;
-        string[] listenerHash;
-        object[] listenerTarget;
-        object[] listenerArgument;
-        int listenerIdx;
+        object listenerTarget;
+        object listenerArgument;
 
         private void Start() {
             SetSelectedLocale(SelectLocaleUsingStartupSelectors(), true);
@@ -106,6 +104,9 @@ namespace HoshinoLabs.Localization.Udon {
 
         public override void RefreshString(object groupId) {
             var groupIdx = (int)groupId;
+            if (groupIdx < 0) {
+                return;
+            }
             var assetIdx = groups_2[groupIdx];
             if (assetIdx < 0) {
                 return;
@@ -116,38 +117,51 @@ namespace HoshinoLabs.Localization.Udon {
                 SmartLiteFormat(args);
             }
             var listenerLength = groups_4_0[groupIdx];
-            listenerHash = groups_4_1[groupIdx];
-            listenerTarget = groups_4_2[groupIdx];
-            listenerArgument = groups_4_3[groupIdx];
-            for (listenerIdx = 0; listenerIdx < listenerLength; listenerIdx++) {
-                SendCustomEvent(listenerHash[listenerIdx]);
+            var listenerHashs = groups_4_1[groupIdx];
+            var listenerTargets = groups_4_2[groupIdx];
+            var listenerArguments = groups_4_3[groupIdx];
+            for (var listenerIdx = 0; listenerIdx < listenerLength; listenerIdx++) {
+                listenerTarget = listenerTargets[listenerIdx];
+                listenerArgument = listenerArguments[listenerIdx];
+                SendCustomEvent(listenerHashs[listenerIdx]);
             }
-        }
-
-        public override object GetVariable(object variableId) {
-            var variableIdx = (int)variableId;
-            return variables_1[variableIdx];
-        }
-
-        public override void SetVariable(object variableId, object value) {
-            var variableIdx = (int)variableId;
-            variables_1[variableIdx] = value;
         }
 
         public override void RefreshAsset(object groupId) {
             var groupIdx = (int)groupId;
+            if (groupIdx < 0) {
+                return;
+            }
             var assetIdx = groups_2[groupIdx];
             if (assetIdx < 0) {
                 return;
             }
             listenerAsset = currentAssetDatabase[assetIdx];
             var listenerLength = groups_4_0[groupIdx];
-            listenerHash = groups_4_1[groupIdx];
-            listenerTarget = groups_4_2[groupIdx];
-            listenerArgument = groups_4_3[groupIdx];
-            for (listenerIdx = 0; listenerIdx < listenerLength; listenerIdx++) {
-                SendCustomEvent(listenerHash[listenerIdx]);
+            var listenerHashs = groups_4_1[groupIdx];
+            var listenerTargets = groups_4_2[groupIdx];
+            var listenerArguments = groups_4_3[groupIdx];
+            for (var listenerIdx = 0; listenerIdx < listenerLength; listenerIdx++) {
+                listenerTarget = listenerTargets[listenerIdx];
+                listenerArgument = listenerArguments[listenerIdx];
+                SendCustomEvent(listenerHashs[listenerIdx]);
             }
+        }
+
+        public override object GetVariable(object variableId) {
+            var variableIdx = (int)variableId;
+            if (variableIdx < 0) {
+                return null;
+            }
+            return variables_1[variableIdx];
+        }
+
+        public override void SetVariable(object variableId, object value) {
+            var variableIdx = (int)variableId;
+            if (variableIdx < 0) {
+                return;
+            }
+            variables_1[variableIdx] = value;
         }
 
         public override string GetLocalizedString(object groupId, string locale) {
@@ -156,6 +170,9 @@ namespace HoshinoLabs.Localization.Udon {
                 return null;
             }
             var groupIdx = (int)groupId;
+            if (groupIdx < 0) {
+                return null;
+            }
             var assetIdx = groups_2[groupIdx];
             if (assetIdx < 0) {
                 return null;
@@ -174,6 +191,9 @@ namespace HoshinoLabs.Localization.Udon {
                 return null;
             }
             var groupIdx = (int)groupId;
+            if (groupIdx < 0) {
+                return null;
+            }
             var assetIdx = groups_2[groupIdx];
             if (assetIdx < 0) {
                 return null;
@@ -182,28 +202,77 @@ namespace HoshinoLabs.Localization.Udon {
             return listenerAsset;
         }
 
+        public override string GetLocalizedString(string locale, object assetId) {
+            return null;
+        }
+
+        public override object GetLocalizedAsset(string locale, object assetId) {
+            return null;
+        }
+
         void InvokeSelectedLocaleChanged() {
             for (var groupIdx = 0; groupIdx < groups_0; groupIdx++) {
-                var assetIdx = groups_2[groupIdx];
-                if (assetIdx < 0) {
-                    continue;
-                }
-                if (groups_1[groupIdx]) {
-                    listenerAsset = currentAssetDatabase[assetIdx];
-                }
-                else {
-                    listenerString = currentStringDatabase[assetIdx];
-                    var args = groups_3[groupIdx];
-                    if (args != null) {
-                        SmartLiteFormat(args);
-                    }
+                switch (groups_1[groupIdx]) {
+                    case GroupMode.String: {
+                            var assetIdx = groups_2[groupIdx];
+                            if (assetIdx < 0) {
+                                continue;
+                            }
+                            listenerString = currentStringDatabase[assetIdx];
+                            var args = groups_3[groupIdx];
+                            if (args != null) {
+                                SmartLiteFormat(args);
+                            }
+                            break;
+                        }
+                    case GroupMode.Asset: {
+                            var assetIdx = groups_2[groupIdx];
+                            if (assetIdx < 0) {
+                                continue;
+                            }
+                            listenerAsset = currentAssetDatabase[assetIdx];
+                            break;
+                        }
+                    case GroupMode.Dropdown: {
+                            var args = groups_3[groupIdx];
+                            var _0 = args[0].Int;
+                            var _1 = (int[])args[1].Reference;
+                            var _2 = (DataDictionary[])args[2].Reference;
+                            var _3 = (int[])args[3].Reference;
+                            var options = new TMPro.TMP_Dropdown.OptionData[_0];
+                            for (var optionIdx = 0; optionIdx < _0; optionIdx++) {
+                                var __1 = _1[optionIdx];
+                                if (__1 < 0) {
+                                    listenerString = null;
+                                }
+                                else {
+                                    listenerString = currentStringDatabase[__1];
+                                    var __2 = _2[optionIdx];
+                                    if (__2 != null) {
+                                        SmartLiteFormat(__2);
+                                    }
+                                }
+                                var __3 = _3[optionIdx];
+                                if (__3 < 0) {
+                                    listenerAsset = null;
+                                }
+                                else {
+                                    listenerAsset = currentAssetDatabase[__3];
+                                }
+                                options[optionIdx] = new TMPro.TMP_Dropdown.OptionData(listenerString, (Sprite)listenerAsset);
+                            }
+                            listenerAsset = options;
+                            break;
+                        }
                 }
                 var listenerLength = groups_4_0[groupIdx];
-                listenerHash = groups_4_1[groupIdx];
-                listenerTarget = groups_4_2[groupIdx];
-                listenerArgument = groups_4_3[groupIdx];
-                for (listenerIdx = 0; listenerIdx < listenerLength; listenerIdx++) {
-                    SendCustomEvent(listenerHash[listenerIdx]);
+                var listenerHashs = groups_4_1[groupIdx];
+                var listenerTargets = groups_4_2[groupIdx];
+                var listenerArguments = groups_4_3[groupIdx];
+                for (var listenerIdx = 0; listenerIdx < listenerLength; listenerIdx++) {
+                    listenerTarget = listenerTargets[listenerIdx];
+                    listenerArgument = listenerArguments[listenerIdx];
+                    SendCustomEvent(listenerHashs[listenerIdx]);
                 }
             }
 

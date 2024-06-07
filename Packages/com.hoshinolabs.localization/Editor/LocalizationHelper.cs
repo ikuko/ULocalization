@@ -26,7 +26,7 @@ namespace HoshinoLabs.Localization {
             set => referenceVariableIds = value;
         }
         internal static Dictionary<(string tableId, string entryId), int> ReferenceStringIds {
-            get=>referenceStringIds;
+            get => referenceStringIds;
             set => referenceStringIds = value;
         }
         internal static Dictionary<(string tableId, string entryId), int> ReferenceAssetIds {

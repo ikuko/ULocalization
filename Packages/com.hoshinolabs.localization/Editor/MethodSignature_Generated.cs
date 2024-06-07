@@ -556,6 +556,15 @@ namespace HoshinoLabs.Localization {
 				["get_name"] = "UnityEngineRenderingPostProcessingPostProcessVolume.__get_name__SystemString",
 				["set_name"] = "UnityEngineRenderingPostProcessingPostProcessVolume.__set_name__SystemString__SystemVoid",
 			},
+			[typeof(global::HoshinoLabs.Localization.TMP_DropdownProxy)] = new Dictionary<string, string> {
+				["set_options"] = "HoshinoLabsLocalizationUdonTMP_DropdownExtensions.__set_options__TMProTMP_DropdownOptionDataArray__SystemVoid",
+			},
+			[typeof(global::HoshinoLabs.Localization.VRCPickupProxy)] = new Dictionary<string, string> {
+				["get_InteractionText"] = "VRCSDK3ComponentsVRCPickup.__get_InteractionText__SystemString",
+				["set_InteractionText"] = "VRCSDK3ComponentsVRCPickup.__get_InteractionText__SystemString",
+				["get_UseText"] = "VRCSDK3ComponentsVRCPickup.__get_UseText__SystemString",
+				["set_UseText"] = "VRCSDK3ComponentsVRCPickup.__get_UseText__SystemString",
+			},
 			[typeof(global::TMPro.TextContainer)] = new Dictionary<string, string> {
 				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
 				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
@@ -583,6 +592,8 @@ namespace HoshinoLabs.Localization {
 				["SetNativeSize"] = "UnityEngineUIMaskableGraphic.__SetNativeSize__SystemVoid",
 			},
 			[typeof(global::TMPro.TMP_Text)] = new Dictionary<string, string> {
+				["get_text"] = "TMProTMP_Text.__get_text__SystemString",
+				["set_text"] = "TMProTMP_Text.__set_text__SystemString__SystemVoid",
 				["get_mainTexture"] = "UnityEngineUIMaskableGraphic.__get_mainTexture__UnityEngineTexture",
 				["get_name"] = "UnityEngineUIMaskableGraphic.__get_name__SystemString",
 				["set_name"] = "UnityEngineUIMaskableGraphic.__set_name__SystemString__SystemVoid",
@@ -647,6 +658,10 @@ namespace HoshinoLabs.Localization {
 				["SetNativeSize"] = "UnityEngineUIMaskableGraphic.__SetNativeSize__SystemVoid",
 			},
 			[typeof(global::TMPro.TMP_Dropdown)] = new Dictionary<string, string> {
+				["RefreshShownValue"] = "TMProTMP_Dropdown.__RefreshShownValue__SystemVoid",
+				["ClearOptions"] = "TMProTMP_Dropdown.__ClearOptions__SystemVoid",
+				["Show"] = "TMProTMP_Dropdown.__Show__SystemVoid",
+				["Hide"] = "TMProTMP_Dropdown.__Hide__SystemVoid",
 				["get_name"] = "UnityEngineUISelectable.__get_name__SystemString",
 				["set_name"] = "UnityEngineUISelectable.__set_name__SystemString__SystemVoid",
 				["Select"] = "UnityEngineUISelectable.__Select__SystemVoid",
@@ -657,6 +672,9 @@ namespace HoshinoLabs.Localization {
 				["Select"] = "UnityEngineUISelectable.__Select__SystemVoid",
 			},
 			[typeof(global::TMPro.TMP_InputField)] = new Dictionary<string, string> {
+				["get_text"] = "TMProTMP_InputField.__get_text__SystemString",
+				["set_text"] = "TMProTMP_InputField.__set_text__SystemString__SystemVoid",
+				["SetTextWithoutNotify"] = "TMProTMP_InputField.__SetTextWithoutNotify__SystemString__SystemVoid",
 				["get_name"] = "UnityEngineUISelectable.__get_name__SystemString",
 				["set_name"] = "UnityEngineUISelectable.__set_name__SystemString__SystemVoid",
 				["Select"] = "UnityEngineUISelectable.__Select__SystemVoid",
@@ -734,14 +752,6 @@ namespace HoshinoLabs.Localization {
 				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::VRC.SDK3.Components.VRCInteractable)] = new Dictionary<string, string> {
-				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
-				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
-			},
-			[typeof(global::HoshinoLabs.Localization.VRCPickupProxy)] = new Dictionary<string, string> {
-				["get_InteractionText"] = "VRCSDK3ComponentsVRCPickup.__get_InteractionText__SystemString",
-				["set_InteractionText"] = "VRCSDK3ComponentsVRCPickup.__get_InteractionText__SystemString",
-				["get_UseText"] = "VRCSDK3ComponentsVRCPickup.__get_UseText__SystemString",
-				["set_UseText"] = "VRCSDK3ComponentsVRCPickup.__get_UseText__SystemString",
 				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
 				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
 			},

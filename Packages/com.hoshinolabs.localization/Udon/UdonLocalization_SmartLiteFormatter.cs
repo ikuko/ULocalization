@@ -26,7 +26,7 @@ namespace HoshinoLabs.Localization.Udon {
 
                 if (!args.TryGetValue(o, out var _variableId)) {
                     // Displays a warning when a formatting error occurs
-                    Debug.LogWarning($"[<color=#47F1FF>UdonLocalization</color>] Error parsing format string: Could not evaluate the selector \"{v}\" at {i}");
+                    Debug.LogWarning($"[<color=#47F1FF>UdonLocalization</color>] Error parsing format string: Could not evaluate the selector \"{v}\" at {l + 1}");
                     i = r + 1;
                     continue;
                 }
@@ -116,10 +116,13 @@ namespace HoshinoLabs.Localization.Udon {
                     case VariableType.Udon: {
                             var udon = (UdonBehaviour)variables_1[variableId];
                             if (string.IsNullOrEmpty(m)) {
-                                listenerString = listenerString.Replace($"{{{v}}}", udon.ToString());
-                                break;
+                                listenerString = listenerString.Replace($"{{{v}}}", udon ? udon.ToString() : string.Empty);
                             }
                             else {
+                                if (udon == null) {
+                                    // Displays a warning when a formatting error occurs
+                                    Debug.LogError($"[<color=#47F1FF>UdonLocalization</color>] Error parsing format string: Could not evaluate the selector \"{m}\" at {l + 1 + d}");
+                                }
                                 var value = udon.GetProgramVariable(m);
                                 listenerString = listenerString.Replace($"{{{v}}}", value.ToString());
                             }

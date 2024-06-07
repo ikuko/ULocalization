@@ -61,7 +61,7 @@ namespace HoshinoLabs.Localization {
         public static Variable ToVariable(this ObjectVariable self) {
             if (typeof(UdonSharpBehaviour).IsAssignableFrom(self.Value.GetType())) {
                 var usharp = (UdonSharpBehaviour)self.Value;
-                var udon = UdonSharpEditorUtility.GetBackingUdonBehaviour(usharp);
+                var udon = usharp ? UdonSharpEditorUtility.GetBackingUdonBehaviour(usharp) : null;
                 return new Variable(VariableType.Udon, udon);
             }
             if (self.Value.GetType() == typeof(UdonBehaviour)) {
@@ -87,7 +87,8 @@ namespace HoshinoLabs.Localization {
         //}
 
         public static Variable ToVariable(this UdonVariable self) {
-            var udon = UdonSharpEditorUtility.GetBackingUdonBehaviour(self.Value);
+            var usharp = self.Value;
+            var udon = usharp ? UdonSharpEditorUtility.GetBackingUdonBehaviour(usharp) : null;
             return new Variable(VariableType.Udon, udon);
         }
 

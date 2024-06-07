@@ -1,4 +1,5 @@
 using Cysharp.Threading.Tasks.Linq;
+using HoshinoLabs.Localization.Udon;
 using System;
 using System.Collections;
 using System.Collections.Generic;

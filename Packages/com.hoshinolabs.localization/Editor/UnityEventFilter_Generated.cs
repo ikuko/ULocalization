@@ -556,6 +556,18 @@ namespace HoshinoLabs.Localization {
 				"get_name",
 				"set_name",
 			},
+			[typeof(global::HoshinoLabs.Localization.TMP_DropdownProxy)] = new HashSet<string> {
+				"get_name",
+				"set_name",
+			},
+			[typeof(global::HoshinoLabs.Localization.VRCPickupProxy)] = new HashSet<string> {
+				"get_InteractionText",
+				"set_InteractionText",
+				"get_UseText",
+				"set_UseText",
+				"get_name",
+				"set_name",
+			},
 			[typeof(global::TMPro.TextContainer)] = new HashSet<string> {
 				"get_name",
 				"set_name",
@@ -583,6 +595,8 @@ namespace HoshinoLabs.Localization {
 				"SetNativeSize",
 			},
 			[typeof(global::TMPro.TMP_Text)] = new HashSet<string> {
+				"get_text",
+				"set_text",
 				"get_mainTexture",
 				"get_name",
 				"set_name",
@@ -647,6 +661,10 @@ namespace HoshinoLabs.Localization {
 				"SetNativeSize",
 			},
 			[typeof(global::TMPro.TMP_Dropdown)] = new HashSet<string> {
+				"RefreshShownValue",
+				"ClearOptions",
+				"Show",
+				"Hide",
 				"get_name",
 				"set_name",
 				"Select",
@@ -657,6 +675,9 @@ namespace HoshinoLabs.Localization {
 				"Select",
 			},
 			[typeof(global::TMPro.TMP_InputField)] = new HashSet<string> {
+				"get_text",
+				"set_text",
+				"SetTextWithoutNotify",
 				"get_name",
 				"set_name",
 				"Select",
@@ -734,14 +755,6 @@ namespace HoshinoLabs.Localization {
 				"set_name",
 			},
 			[typeof(global::VRC.SDK3.Components.VRCInteractable)] = new HashSet<string> {
-				"get_name",
-				"set_name",
-			},
-			[typeof(global::HoshinoLabs.Localization.VRCPickupProxy)] = new HashSet<string> {
-				"get_InteractionText",
-				"set_InteractionText",
-				"get_UseText",
-				"set_UseText",
 				"get_name",
 				"set_name",
 			},

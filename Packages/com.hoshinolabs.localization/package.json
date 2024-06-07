@@ -1,7 +1,7 @@
 {
   "name": "com.hoshinolabs.localization",
   "displayName": "HoshinoLabs - Localization",
-  "version": "0.5.2",
+  "version": "0.6.0",
   "unity": "2022.3",
   "description": "Porting to VRChat of Unity Localization package",
   "vrchatVersion": "2022.1.1",

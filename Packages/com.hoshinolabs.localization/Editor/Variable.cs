@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace HoshinoLabs.Localization {
-    internal struct Variable {
+    internal sealed class Variable {
         VariableType type;
         object value;
 
