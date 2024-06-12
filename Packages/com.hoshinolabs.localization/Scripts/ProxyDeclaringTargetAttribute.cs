@@ -8,7 +8,7 @@ namespace HoshinoLabs.Localization {
     public sealed class ProxyDeclaringTargetAttribute : PropertyAttribute {
         public Type DeclaringType { get; }
 
-        public ProxyDeclaringTargetAttribute(System.Type declaringType) {
+        public ProxyDeclaringTargetAttribute(Type declaringType) {
             DeclaringType = declaringType;
         }
     }
