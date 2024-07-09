@@ -1,9 +1,9 @@
-# Localization
+# ULocalization
 
 ![](https://img.shields.io/badge/unity-2022.3+-000.svg)
-[![Releases](https://img.shields.io/github/release/hoshinolabs/Localization.svg)](https://github.com/hoshinolabs/Localization/releases)
+[![Releases](https://img.shields.io/github/release/hoshinolabs/ULocalization.svg)](https://github.com/hoshinolabs/ULocalization/releases)
 
-Porting to VRChat of Unity Localization package.
+Porting to VRChat Udon of Unity Localization package.
 
 ## Features
 
@@ -13,7 +13,7 @@ Porting to VRChat of Unity Localization package.
 
 ## Documentation
 
-View on [GitHub Pages](https://hoshinolabs.github.io/Localization/)
+View on [GitHub Pages](https://hoshinolabs.github.io/ULocalization/)
 
 ## Installation
 
@@ -24,7 +24,7 @@ View on [GitHub Pages](https://hoshinolabs.github.io/Localization/)
 1. 次のページを開き、「Add to VCC」を押します。  
   [HoshinoLabs VPM Repository](https://vpm.hoshinolabs.com/)
 2. VCCの「Manage Project」を押す。
-3. `HoshinoLabs - Localization` の横の「+」ボタンを押す。
+3. `HoshinoLabs - ULocalization` の横の「+」ボタンを押す。
 
 ## Basic Usage
 
