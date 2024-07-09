@@ -52,8 +52,8 @@ jobs:
       # Copy required files
       - name: Copy Required Files
         run: |
-          cp -f README.md Packages/com.hoshinolabs.localization/README.md
-          cp -f LICENSE Packages/com.hoshinolabs.localization/LICENSE.md
+          cp -f README.md Packages/com.hoshinolabs.ulocalization/README.md
+          cp -f LICENSE Packages/com.hoshinolabs.ulocalization/LICENSE.md
     
       # Configure the Environment Variables needed for releasing the Package
       - name: Set Environment Variables
