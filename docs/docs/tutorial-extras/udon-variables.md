@@ -19,10 +19,10 @@ Udon からローカル変数の値を書き換えることができます。
 public class ClickCounter : UdonSharpBehaviour {
     [Inject, SerializeField, HideInInspector]
     ILocalization localization;
-    [GroupId, SerializeField]
-    string groupId;
-    [VariableId, SerializeField]
-    string variableId;
+    [SerializeField]
+    GroupId<LocalizeStringEvent> groupId;
+    [SerializeField]
+    VariableId<LocalizeStringEvent> variableId;
 
     int counter = 0;
 
@@ -49,10 +49,10 @@ Udon は `Lottery` メソッドが呼び出されると値を書き換えるこ�
 public class ItemChanger : UdonSharpBehaviour {
     [Inject, SerializeField, HideInInspector]
     ILocalization localization;
-    [GroupId, SerializeField]
-    string groupId;
-    [VariableId, SerializeField]
-    string variableId;
+    [SerializeField]
+    GroupId<LocalizeStringEvent> groupId;
+    [SerializeField]
+    VariableId<LocalizeStringEvent> variableId;
     [AssetId, SerializeField]
     string[] assetIds;
 

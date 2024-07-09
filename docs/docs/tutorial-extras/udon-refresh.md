@@ -17,8 +17,8 @@ ULocalization は言語切替のタイミングのみローカライズの更新
 public class LocalizeTextReloader : UdonSharpBehaviour {
     [Inject, SerializeField, HideInInspector]
     ILocalization localization;
-    [GroupId, SerializeField]
-    string groupId;
+    [SerializeField]
+    GroupId groupId;
 
     public void ReloadText() {
         localization.RefreshString(groupId);

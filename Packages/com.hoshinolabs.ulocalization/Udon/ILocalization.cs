@@ -1,5 +1,6 @@
 ﻿using UdonSharp;
 using UnityEngine;
+using UnityEngine.Localization.Components;
 using VRC.SDKBase;
 using VRC.Udon;
 
@@ -12,12 +13,18 @@ namespace HoshinoLabs.ULocalization.Udon {
 
         public virtual string SelectedLocale { get; set; }
 
-        public virtual void RefreshString(object groupId) { }
-        public virtual void RefreshAsset(object groupId) { }
+        // TODO: 型で判別できるのでRefresh()にする
+        public virtual void RefreshString(GroupId id) { }
+        public virtual void RefreshString(GroupId<LocalizeStringEvent> id) { }
+        public virtual void RefreshString(GroupId<LocalizeDropdownEvent> id) { }
+        public virtual void RefreshAsset(GroupId id) { }
 
-        public virtual object GetVariable(object variableId) => null;
-        public virtual void SetVariable(object variableId, object value) { }
+        public virtual object GetVariable(VariableId<LocalizeStringEvent> variableId) => null;
+        public virtual object GetVariable(VariableId<LocalizeDropdownEvent> variableId) => null;
+        public virtual void SetVariable(VariableId<LocalizeStringEvent> variableId, object value) { }
+        public virtual void SetVariable(VariableId<LocalizeDropdownEvent> variableId, object value) { }
 
+        // TODO: GetLocalizedText()orGetLocalizedAsset()にする
         public virtual string GetLocalizedString(object groupId, string locale) => null;
         public virtual object GetLocalizedAsset(object groupId, string locale) => null;
         public virtual string GetLocalizedString(string locale, object assetId) => null;

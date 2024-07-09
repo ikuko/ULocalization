@@ -4,6 +4,7 @@ using HoshinoLabs.Sardinject;
 using System;
 using UdonSharp;
 using UnityEngine;
+using UnityEngine.Localization.Components;
 using VRC.SDK3.Data;
 using VRC.SDKBase;
 using VRC.Udon.Common.Interfaces;
@@ -102,8 +103,9 @@ namespace HoshinoLabs.ULocalization.Udon {
             startupSelectors = null;
         }
 
-        public override void RefreshString(object groupId) {
-            var groupIdx = (int)groupId;
+        public override void RefreshString(GroupId id) {
+            // TODO: 型で分岐するようにする
+            var groupIdx = (int)((object[])(object)id)[0];
             if (groupIdx < 0) {
                 return;
             }
@@ -127,8 +129,37 @@ namespace HoshinoLabs.ULocalization.Udon {
             }
         }
 
-        public override void RefreshAsset(object groupId) {
-            var groupIdx = (int)groupId;
+        public override void RefreshString(GroupId<LocalizeStringEvent> id) {
+            var groupIdx = (int)((object[])(object)id)[0];
+            if (groupIdx < 0) {
+                return;
+            }
+            var assetIdx = groups_2[groupIdx];
+            if (assetIdx < 0) {
+                return;
+            }
+            listenerString = currentStringDatabase[assetIdx];
+            var args = groups_3[groupIdx];
+            if (args != null) {
+                SmartLiteFormat(args);
+            }
+            var listenerLength = groups_4_0[groupIdx];
+            var listenerHashs = groups_4_1[groupIdx];
+            var listenerTargets = groups_4_2[groupIdx];
+            var listenerArguments = groups_4_3[groupIdx];
+            for (var listenerIdx = 0; listenerIdx < listenerLength; listenerIdx++) {
+                listenerTarget = listenerTargets[listenerIdx];
+                listenerArgument = listenerArguments[listenerIdx];
+                SendCustomEvent(listenerHashs[listenerIdx]);
+            }
+        }
+
+        public override void RefreshString(GroupId<LocalizeDropdownEvent> id) {
+            var groupIdx = (int)((object[])(object)id)[0];
+        }
+
+        public override void RefreshAsset(GroupId id) {
+            var groupIdx = (int)((object[])(object)id)[0];
             if (groupIdx < 0) {
                 return;
             }
@@ -148,16 +179,32 @@ namespace HoshinoLabs.ULocalization.Udon {
             }
         }
 
-        public override object GetVariable(object variableId) {
-            var variableIdx = (int)variableId;
+        public override object GetVariable(VariableId<LocalizeStringEvent> id) {
+            var variableIdx = (int)((object[])(object)id)[0];
             if (variableIdx < 0) {
                 return null;
             }
             return variables_1[variableIdx];
         }
 
-        public override void SetVariable(object variableId, object value) {
-            var variableIdx = (int)variableId;
+        public override object GetVariable(VariableId<LocalizeDropdownEvent> id) {
+            var variableIdx = (int)((object[])(object)id)[0];
+            if (variableIdx < 0) {
+                return null;
+            }
+            return variables_1[variableIdx];
+        }
+
+        public override void SetVariable(VariableId<LocalizeStringEvent> id, object value) {
+            var variableIdx = (int)((object[])(object)id)[0];
+            if (variableIdx < 0) {
+                return;
+            }
+            variables_1[variableIdx] = value;
+        }
+
+        public override void SetVariable(VariableId<LocalizeDropdownEvent> id, object value) {
+            var variableIdx = (int)((object[])(object)id)[0];
             if (variableIdx < 0) {
                 return;
             }

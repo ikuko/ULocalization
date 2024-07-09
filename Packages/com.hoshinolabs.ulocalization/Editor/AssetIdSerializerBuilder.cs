@@ -5,18 +5,18 @@ using UdonSharp.Serialization;
 using UnityEditor.Build;
 using UnityEditor.Build.Reporting;
 using UnityEngine;
-using UnityEngine.Localization.Components;
+using UnityEngine.Localization;
 using UnityEngine.SceneManagement;
 
 namespace HoshinoLabs.ULocalization {
-    internal sealed class VariableIdSerializerBuilder : IProcessSceneWithReport {
+    internal sealed class AssetIdSerializerBuilder : IProcessSceneWithReport {
         public int callbackOrder => -5001;
 
         public void OnProcessScene(Scene scene, BuildReport report) {
             var typeCheckSerializersField = typeof(Serializer).GetField("_typeCheckSerializers", BindingFlags.Static | BindingFlags.NonPublic);
             var typeCheckSerializers = (List<Serializer>)typeCheckSerializersField.GetValue(null);
-            typeCheckSerializers.RemoveAll(x => x.GetType() == typeof(VariableIdSerializer<LocalizedMonoBehaviour>));
-            typeCheckSerializers.Insert(0, new VariableIdSerializer<LocalizedMonoBehaviour>(null));
+            typeCheckSerializers.RemoveAll(x => x.GetType() == typeof(AssetIdSerializer<LocalizedReference>));
+            typeCheckSerializers.Insert(0, new AssetIdSerializer<LocalizedReference>(null));
         }
     }
 }

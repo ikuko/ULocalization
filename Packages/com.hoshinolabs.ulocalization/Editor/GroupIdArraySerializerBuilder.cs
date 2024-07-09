@@ -13,9 +13,8 @@ namespace HoshinoLabs.ULocalization {
         public int callbackOrder => -5001;
 
         public void OnProcessScene(Scene scene, BuildReport report) {
-            var _serializer = typeof(Serializer);
-            var _typeCheckSerializers = _serializer.GetField("_typeCheckSerializers", BindingFlags.Static | BindingFlags.NonPublic);
-            var typeCheckSerializers = (List<Serializer>)_typeCheckSerializers.GetValue(_serializer);
+            var typeCheckSerializersField = typeof(Serializer).GetField("_typeCheckSerializers", BindingFlags.Static | BindingFlags.NonPublic);
+            var typeCheckSerializers = (List<Serializer>)typeCheckSerializersField.GetValue(null);
             typeCheckSerializers.RemoveAll(x => x.GetType() == typeof(GroupIdArraySerializer<LocalizedMonoBehaviour>));
             typeCheckSerializers.RemoveAll(x => x.GetType() == typeof(GroupIdArraySerializer));
             typeCheckSerializers.Insert(0, new GroupIdArraySerializer<LocalizedMonoBehaviour>(null));
