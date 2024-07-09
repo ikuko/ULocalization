@@ -3,20 +3,20 @@ import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
 
 const config: Config = {
-  title: "Localization",
-  tagline: "Porting to VRChat of Unity Localization package.",
+  title: "ULocalization",
+  tagline: "Porting to VRChat Udon of Unity Localization package.",
   favicon: "img/favicon.ico",
 
   // Set the production url of your site here
   url: "https://hoshinolabs.github.io/",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: "/Localization/",
+  baseUrl: "/ULocalization/",
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: "hoshinolabs", // Usually your GitHub org/user name.
-  projectName: "Localization", // Usually your repo name.
+  projectName: "ULocalization", // Usually your repo name.
   trailingSlash: false,
 
   onBrokenLinks: "throw",
@@ -58,7 +58,7 @@ const config: Config = {
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: "Localization",
+      title: "ULocalization",
       logo: {
         alt: "My Site Logo",
         src: "img/logo.svg",
@@ -71,7 +71,7 @@ const config: Config = {
           label: "Document",
         },
         {
-          href: "https://github.com/hoshinolabs/Localization",
+          href: "https://github.com/hoshinolabs/ULocalization",
           label: "GitHub",
           position: "right",
         },
@@ -103,7 +103,7 @@ const config: Config = {
           items: [
             {
               label: "GitHub",
-              href: "https://github.com/hoshinolabs/Localization",
+              href: "https://github.com/hoshinolabs/ULocalization",
             },
           ],
         },

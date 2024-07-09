@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Localization API
+# ULocalization API
 
 `interface ILocalization`
 

@@ -50,7 +50,7 @@ public class LanguageChangeBuilder : IProcessSceneWithReport {
 
 ```csharp
 public class LocalizationSubscriber : UdonSharpBehaviour {
-    [Subscriber(typeof(LocalizationSignal))]
+    [Subscriber(typeof(ILocalization))]
     public void OnSelectedLocaleChanged(string locale) {
         Debug.Log($"Locale changed to `{locale}`.");
     }
