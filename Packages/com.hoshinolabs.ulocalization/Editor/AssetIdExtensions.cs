@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Localization;
+using UnityEngine.Localization.SmartFormat.PersistentVariables;
+using VRC.SDK3.Data;
 
 namespace HoshinoLabs.ULocalization {
     internal static class AssetIdExtensions {
@@ -12,26 +14,33 @@ namespace HoshinoLabs.ULocalization {
                 || !self.LocalizedReference.TryGetRuntimeAssetId(out var assetId)) {
                 return null;
             }
-            LocalizationPreBuilder.RegisterAssetId(self);
-            var variableIds = new List<int>();
             switch (self.LocalizedReference) {
                 case LocalizedString localizedString: {
-                        foreach (var variable in localizedString.Values) {
-                            if (!variable.TryGetRuntimeVariableId(out var variableId)) {
-                                return null;
+                        LocalizationPreBuilder.RegisterAssetId(self);
+                        var values = new DataDictionary();
+                        foreach (KeyValuePair<string, IVariable> x in localizedString) {
+                            if (x.Value != null && LocalizationHelper.ReferenceVariableIds.TryGetValue(x.Value, out var variableId)) {
+                                values.Add(x.Key, variableId);
                             }
-                            variableIds.Add(variableId);
                         }
-                        break;
+                        return new object[] {
+                            assetId,
+                            values.Count == 0 ? null : values,
+                        };
+                    }
+                default: {
+                        return new object[] {
+                            assetId,
+                        };
                     }
             }
-            return new object[] {
-                assetId,
-                variableIds.ToArray(),
-            };
         }
 
         public static AssetId<T> UnPack<T>(object obj) where T : LocalizedReference {
+            return null;
+        }
+
+        public static AssetId UnPack(object obj) {
             return null;
         }
     }

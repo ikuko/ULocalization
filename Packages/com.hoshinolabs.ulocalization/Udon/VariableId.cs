@@ -20,4 +20,7 @@ namespace HoshinoLabs.ULocalization.Udon {
 
         }
     }
+
+    [Serializable]
+    public class VariableId : VariableId<LocalizedMonoBehaviour> { }
 }

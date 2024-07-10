@@ -37,4 +37,24 @@ namespace HoshinoLabs.ULocalization {
             return VariableIdExtensions.UnPack<T>(sourceObject);
         }
     }
+
+    internal sealed class VariableIdArraySerializer : ArraySerializer<VariableId> {
+        public VariableIdArraySerializer(TypeSerializationMetadata typeMetadata)
+            : base(typeMetadata) {
+
+        }
+
+        protected override Serializer MakeSerializer(TypeSerializationMetadata typeMetadata) {
+            VerifyTypeCheckSanity();
+            return new VariableIdArraySerializer(typeMetadata);
+        }
+
+        public override object Serialize(in VariableId sourceObject) {
+            return sourceObject.Pack();
+        }
+
+        public override VariableId Deserialize(object sourceObject) {
+            return VariableIdExtensions.UnPack(sourceObject);
+        }
+    }
 }

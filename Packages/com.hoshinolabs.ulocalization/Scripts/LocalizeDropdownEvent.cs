@@ -3,11 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Localization;
 using UnityEngine.Localization.Components;
+using UnityEngine.Localization.Settings;
 
 namespace HoshinoLabs.ULocalization {
     [AddComponentMenu("Localization/Localize Dropdown Event")]
@@ -68,13 +71,16 @@ namespace HoshinoLabs.ULocalization {
         }
 
         public void RefreshOptions() {
-            if (EditorApplication.isPlayingOrWillChangePlaymode) {
-                return;
-            }
+#if UNITY_EDITOR
+            EditorApplication.update -= RefreshOptions;
+#endif
             var args = options.Options
                 .Select(x => {
-                    var text = x.Text.IsEmpty ? "" : x.Text.GetLocalizedString();
-                    return new TMP_Dropdown.OptionData(text);
+                    var locale = LocalizationSettings.ProjectLocale;
+                    LocalizationSettings.StringDatabase.GetTable(x.Text.TableReference, locale);
+                    var text = x.Text.IsEmpty ? null : LocalizationSettings.StringDatabase.GetLocalizedString(x.Text.TableReference, x.Text.TableEntryReference, x.Text.Arguments, locale);
+                    var image = x.Image.IsEmpty ? null : LocalizationSettings.AssetDatabase.GetLocalizedAsset<Sprite>(x.Image.TableReference, x.Image.TableEntryReference, locale);
+                    return new TMP_Dropdown.OptionData(text, image);
                 })
                 .ToArray();
             OnUpdateOptions.Invoke(args);
@@ -92,9 +98,14 @@ namespace HoshinoLabs.ULocalization {
             RefreshOptions();
         }
 
+#if UNITY_EDITOR
         private void OnValidate() {
-            RefreshOptions();
+            if (!isActiveAndEnabled) {
+                return;
+            }
+            EditorApplication.update += RefreshOptions;
         }
+#endif
 
         void RegisterChangeHandler() {
             foreach (var option in options.Options) {

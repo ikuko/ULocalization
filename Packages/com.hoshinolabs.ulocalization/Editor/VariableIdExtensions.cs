@@ -48,5 +48,9 @@ namespace HoshinoLabs.ULocalization {
         public static VariableId<T> UnPack<T>(object obj) where T : LocalizedMonoBehaviour {
             return null;
         }
+
+        public static VariableId UnPack(object obj) {
+            return null;
+        }
     }
 }

@@ -17,7 +17,8 @@ namespace HoshinoLabs.ULocalization {
         }
 
         public override float GetPropertyHeight(SerializedProperty property, GUIContent label) {
-            return EditorGUIUtility.singleLineHeight;
+            var localizedEventProperty = property.FindPropertyRelative("LocalizedEvent");
+            return EditorGUI.GetPropertyHeight(localizedEventProperty, true);
         }
     }
 }

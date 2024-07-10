@@ -16,7 +16,9 @@ namespace HoshinoLabs.ULocalization {
             var typeCheckSerializersField = typeof(Serializer).GetField("_typeCheckSerializers", BindingFlags.Static | BindingFlags.NonPublic);
             var typeCheckSerializers = (List<Serializer>)typeCheckSerializersField.GetValue(null);
             typeCheckSerializers.RemoveAll(x => x.GetType() == typeof(AssetIdArraySerializer<LocalizedReference>));
+            typeCheckSerializers.RemoveAll(x => x.GetType() == typeof(AssetIdArraySerializer));
             typeCheckSerializers.Insert(0, new AssetIdArraySerializer<LocalizedReference>(null));
+            typeCheckSerializers.Insert(0, new AssetIdArraySerializer(null));
         }
     }
 }

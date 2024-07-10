@@ -16,7 +16,9 @@ namespace HoshinoLabs.ULocalization {
             var typeCheckSerializersField = typeof(Serializer).GetField("_typeCheckSerializers", BindingFlags.Static | BindingFlags.NonPublic);
             var typeCheckSerializers = (List<Serializer>)typeCheckSerializersField.GetValue(null);
             typeCheckSerializers.RemoveAll(x => x.GetType() == typeof(VariableIdArraySerializer<LocalizedMonoBehaviour>));
+            typeCheckSerializers.RemoveAll(x => x.GetType() == typeof(VariableIdArraySerializer));
             typeCheckSerializers.Insert(0, new VariableIdArraySerializer<LocalizedMonoBehaviour>(null));
+            typeCheckSerializers.Insert(0, new VariableIdArraySerializer(null));
         }
     }
 }

@@ -13,21 +13,12 @@ namespace HoshinoLabs.ULocalization.Udon {
         public AssetId() {
 
         }
-
-        public AssetId(T localizedReference) {
-            LocalizedReference = localizedReference;
-        }
     }
 
-    //[Serializable]
-    //public class StringAssetId : AssetId<LocalizedString> { }
+    [Serializable]
+    public class AssetId : AssetId<LocalizedReference> {
+        internal AssetId() {
 
-    //[Serializable]
-    //public class AudioClipAssetId : AssetId<LocalizedAsset<AudioClip>> { }
-
-    //[Serializable]
-    //public class TextureAssetId : AssetId<LocalizedAsset<Texture>> { }
-
-    //[Serializable]
-    //public class SpriteAssetId : AssetId<LocalizedAsset<Sprite>> { }
+        }
+    }
 }

@@ -37,4 +37,24 @@ namespace HoshinoLabs.ULocalization {
             return AssetIdExtensions.UnPack<T>(sourceObject);
         }
     }
+
+    internal sealed class AssetIdArraySerializer : ArraySerializer<AssetId> {
+        public AssetIdArraySerializer(TypeSerializationMetadata typeMetadata)
+            : base(typeMetadata) {
+
+        }
+
+        protected override Serializer MakeSerializer(TypeSerializationMetadata typeMetadata) {
+            VerifyTypeCheckSanity();
+            return new AssetIdArraySerializer(typeMetadata);
+        }
+
+        public override object Serialize(in AssetId sourceObject) {
+            return sourceObject.Pack();
+        }
+
+        public override AssetId Deserialize(object sourceObject) {
+            return AssetIdExtensions.UnPack(sourceObject);
+        }
+    }
 }
