@@ -233,11 +233,15 @@ namespace HoshinoLabs.ULocalization {
             var args = localizeDropdown
                 .Options
                 .ToArray()
-                .Select(x => (
-                    _1: x.Text.GetRuntimeAssetId(),
-                    _2: BuildGroupValues(x.Text),
-                    _3: x.Image.GetRuntimeAssetId()
-                ))
+                .Select(x => {
+                    x.Text.TryGetRuntimeAssetId(out var textAssetId);
+                    x.Image.TryGetRuntimeAssetId(out var imageAssetId);
+                    return (
+                        _1: textAssetId,
+                        _2: BuildGroupValues(x.Text),
+                        _3: imageAssetId
+                    );
+                })
                 .ToArray();
             var values = new DataDictionary();
             values[0] = args.Length;
