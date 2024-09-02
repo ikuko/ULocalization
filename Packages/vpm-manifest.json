@@ -3,14 +3,14 @@
     "com.vrchat.worlds": {
       "version": "3.6.1"
     },
-    "com.hoshinolabs.sardinject": {
-      "version": "0.6.1"
-    },
-    "com.hoshinolabs.sardinal": {
-      "version": "0.5.2"
-    },
     "com.unity.scriptablebuildpipeline": {
       "version": "1.21.5"
+    },
+    "com.hoshinolabs.sardinject": {
+      "version": "0.6.2"
+    },
+    "com.hoshinolabs.sardinal": {
+      "version": "0.6.1"
     }
   },
   "locked": {
@@ -24,22 +24,22 @@
       "version": "3.6.1",
       "dependencies": {}
     },
+    "com.unity.scriptablebuildpipeline": {
+      "version": "1.21.5",
+      "dependencies": {}
+    },
     "com.hoshinolabs.sardinject": {
-      "version": "0.6.1",
+      "version": "0.6.2",
       "dependencies": {
         "com.vrchat.worlds": ">=3.6.1"
       }
     },
     "com.hoshinolabs.sardinal": {
-      "version": "0.5.2",
+      "version": "0.6.1",
       "dependencies": {
         "com.vrchat.worlds": ">=3.6.1",
         "com.hoshinolabs.sardinject": ">=0.6.1"
       }
-    },
-    "com.unity.scriptablebuildpipeline": {
-      "version": "1.21.5",
-      "dependencies": {}
     }
   }
 }

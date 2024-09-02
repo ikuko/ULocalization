@@ -1,22 +1,35 @@
 {
   "name": "com.hoshinolabs.ulocalization",
   "displayName": "HoshinoLabs - ULocalization",
-  "version": "0.7.4",
+  "version": "0.7.5",
   "unity": "2022.3",
   "description": "Porting to VRChat Udon of Unity Localization package",
+  "documentationUrl": "https://hoshinolabs.github.io/ULocalization/",
   "vrchatVersion": "2022.1.1",
   "author": {
     "name": "ikuko",
     "email": "magi.ikuko@gmail.com",
     "url": "https://hoshinolabs.com"
   },
+  "samples": [
+    {
+      "displayName": "VRC Client Connector",
+      "description": "Automatic language switching to match the user's language preferences",
+      "path": "Samples~/VRCClientConnector"
+    },
+    {
+      "displayName": "Language Setting Menu",
+      "description": "Menu that allows users to switch to any language",
+      "path": "Samples~/LanguageSettingMenu"
+    }
+  ],
   "dependencies": {
     "com.unity.localization": "1.4.5"
   },
   "vpmDependencies": {
     "com.vrchat.worlds": ">=3.6.1",
     "com.unity.scriptablebuildpipeline": "1.21.5",
-    "com.hoshinolabs.sardinject": ">=0.6.1",
-    "com.hoshinolabs.sardinal": ">=0.5.2"
+    "com.hoshinolabs.sardinject": ">=0.6.2",
+    "com.hoshinolabs.sardinal": ">=0.6.1"
   }
 }
