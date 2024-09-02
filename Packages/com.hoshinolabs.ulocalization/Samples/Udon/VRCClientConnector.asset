@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c333ccfdd0cbdbc4ca30cef2dd6e6b9b, type: 3}
   m_Name: VRCClientConnector
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: 01a34210cc3777549b83831891d3b5dc,
+  serializedUdonProgramAsset: {fileID: 11400000, guid: 545413c7039c83147ab18be242fbe152,
     type: 2}
   udonAssembly: 
   assemblyError: 
