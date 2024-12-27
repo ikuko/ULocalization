@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using System.Reflection;
 using UdonSharp;
 using UnityEditor;
@@ -41,14 +39,14 @@ namespace HoshinoLabs.ULocalization {
             SetupForLocalizationVRCPickup(target);
         }
 
-        static void BuildVRCPickupProxy(VRCPickup target, VRCPickupProxy proxy) {
-            var field = typeof(VRCPickupProxy).GetField("target", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+        static void BuildVRCPickupProxy(VRCPickup target, VRCPickupExtension proxy) {
+            var field = typeof(VRCPickupExtension).GetField("target", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
             field.SetValue(proxy, target);
         }
 
         public static MonoBehaviour SetupForLocalizationVRCPickup(VRCPickup target) {
             var groupIndex = Undo.GetCurrentGroup();
-            var proxy = Undo.AddComponent<VRCPickupProxy>(target.gameObject);
+            var proxy = Undo.AddComponent<VRCPickupExtension>(target.gameObject);
             BuildVRCPickupProxy(target, proxy);
             Undo.IncrementCurrentGroup();
             var comp = Undo.AddComponent<LocalizeStringEvent>(target.gameObject);

@@ -1,44 +1,51 @@
 {
   "dependencies": {
-    "com.vrchat.worlds": {
-      "version": "3.6.1"
-    },
     "com.unity.scriptablebuildpipeline": {
       "version": "1.21.5"
     },
-    "com.hoshinolabs.sardinject": {
-      "version": "0.6.2"
+    "com.vrchat.worlds": {
+      "version": "3.7.2"
+    },
+    "com.vrchat.core.vpm-resolver": {
+      "version": "0.1.29"
     },
     "com.hoshinolabs.sardinal": {
-      "version": "0.6.1"
+      "version": "0.9.1"
+    },
+    "com.hoshinolabs.sardinject": {
+      "version": "0.8.5"
     }
   },
   "locked": {
-    "com.vrchat.worlds": {
-      "version": "3.6.1",
-      "dependencies": {
-        "com.vrchat.base": "3.6.1"
-      }
-    },
-    "com.vrchat.base": {
-      "version": "3.6.1",
-      "dependencies": {}
-    },
     "com.unity.scriptablebuildpipeline": {
       "version": "1.21.5",
       "dependencies": {}
     },
-    "com.hoshinolabs.sardinject": {
-      "version": "0.6.2",
+    "com.vrchat.worlds": {
+      "version": "3.7.2",
       "dependencies": {
-        "com.vrchat.worlds": ">=3.6.1"
+        "com.vrchat.base": "3.7.2"
       }
     },
+    "com.vrchat.base": {
+      "version": "3.7.2",
+      "dependencies": {}
+    },
+    "com.vrchat.core.vpm-resolver": {
+      "version": "0.1.29",
+      "dependencies": {}
+    },
     "com.hoshinolabs.sardinal": {
-      "version": "0.6.1",
+      "version": "0.9.1",
       "dependencies": {
-        "com.vrchat.worlds": ">=3.6.1",
-        "com.hoshinolabs.sardinject": ">=0.6.1"
+        "com.vrchat.worlds": ">=3.7.2",
+        "com.hoshinolabs.sardinject": ">=0.8.4"
+      }
+    },
+    "com.hoshinolabs.sardinject": {
+      "version": "0.8.5",
+      "dependencies": {
+        "com.vrchat.worlds": ">=3.7.2"
       }
     }
   }

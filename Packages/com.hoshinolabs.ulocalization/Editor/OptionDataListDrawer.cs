@@ -1,15 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEditor;
 using UnityEditorInternal;
 using UnityEngine;
 
 namespace HoshinoLabs.ULocalization {
-    [CustomPropertyDrawer(typeof(LocalizeDropdownEvent.OptionDataList), true)]
-    class OptionDataListDrawer : PropertyDrawer {
+    [CustomPropertyDrawer(typeof(LocalizeDropdownEvent.LocalizedOptionDataList), true)]
+    internal sealed class OptionDataListDrawer : PropertyDrawer {
         ReorderableList reorderableList;
 
-        void Init(SerializedProperty property) {
+        void Init(SerializedProperty property, GUIContent label) {
             if (reorderableList != null) {
                 return;
             }
@@ -17,42 +15,26 @@ namespace HoshinoLabs.ULocalization {
             var optionsProperty = property.FindPropertyRelative("options");
             reorderableList = new ReorderableList(property.serializedObject, optionsProperty);
             reorderableList.drawHeaderCallback = (Rect rect) => {
-                GUI.Label(rect, optionsProperty.displayName);
+                EditorGUI.LabelField(rect, label);
             };
             reorderableList.drawElementCallback = (Rect rect, int index, bool isActive, bool isFocused) => {
-                var property = reorderableList.serializedProperty.GetArrayElementAtIndex(index);
-                var textProperty = property.FindPropertyRelative("text");
-                var imageProperty = property.FindPropertyRelative("image");
-
-                using (new EditorGUI.IndentLevelScope()) {
-                    var offset = new RectOffset(0, 0, -1, -3);
-                    rect = offset.Add(rect);
-
-                    rect.height = EditorGUI.GetPropertyHeight(textProperty, true);
-                    EditorGUI.PropertyField(rect, textProperty);
-                    rect.y += rect.height + EditorGUIUtility.standardVerticalSpacing;
-                    rect.height = EditorGUI.GetPropertyHeight(imageProperty, true);
-                    EditorGUI.PropertyField(rect, imageProperty);
-                }
+                var element = reorderableList.serializedProperty.GetArrayElementAtIndex(index);
+                EditorGUI.PropertyField(rect, element, GUIContent.none);
             };
             reorderableList.elementHeightCallback = (int index) => {
-                var property = reorderableList.serializedProperty.GetArrayElementAtIndex(index);
-                var textProperty = property.FindPropertyRelative("text");
-                var imageProperty = property.FindPropertyRelative("image");
-
-                return EditorGUI.GetPropertyHeight(textProperty, true)
-                    + EditorGUIUtility.standardVerticalSpacing + EditorGUI.GetPropertyHeight(imageProperty, true);
+                var element = reorderableList.serializedProperty.GetArrayElementAtIndex(index);
+                return EditorGUI.GetPropertyHeight(element, GUIContent.none);
             };
         }
 
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
-            Init(property);
+            Init(property, label);
 
             reorderableList.DoList(position);
         }
 
         public override float GetPropertyHeight(SerializedProperty property, GUIContent label) {
-            Init(property);
+            Init(property, label);
 
             return reorderableList.GetHeight();
         }

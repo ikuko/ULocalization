@@ -1,26 +1,12 @@
 {
     "name": "HoshinoLabs.ULocalization.Editor",
-    "rootNamespace": "",
+    "rootNamespace": "HoshinoLabs.ULocalization",
     "references": [
-        "GUID:f51ebe6a0ceec4240a699833d6309b23",
-        "GUID:5c01796d064528144a599661eaab93a6",
-        "GUID:3456780c4fb2d324ab9c633d6f1b0ddb",
-        "GUID:6490804aa441dfe4b88eb56cccbdf081",
         "GUID:3c1bc1267eab5884ebe7f232c09ee0d9",
-        "GUID:627c4d5cd580ddf41bd320e784fe8b9d",
-        "GUID:fbe77e2f7bc98c64b9a0829b88843fc6",
-        "GUID:96e35a33b2567c04bae44e25e4994158",
         "GUID:99835874ee819da44948776e0df4ff1d",
-        "GUID:84265b35cca3905448e623ef3903f0ff",
         "GUID:6055be8ebefd69e48b49212b09b47b2f",
-        "GUID:d60799ab2a985554ea1a39cd38695018",
-        "GUID:8c4dd21966739024fbd72155091d199e",
-        "GUID:4307f53044263cf4b835bd812fc161a4",
         "GUID:eec0964c48f6f4e40bc3ec2257ccf8c5",
-        "GUID:2e77701fe0ceda44fb763f03ee704c37",
-        "GUID:bd3affea4e3a52b43b7883ccd9d911ab",
-        "GUID:b0f807221103f754abc2045148ac9068",
-        "GUID:b660f7bd767948e4ead9950a7cec5057"
+        "GUID:b0f807221103f754abc2045148ac9068"
     ],
     "includePlatforms": [
         "Editor"

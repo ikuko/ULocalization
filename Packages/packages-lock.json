@@ -22,7 +22,7 @@
     },
     "com.unity.addressables": {
       "version": "1.21.19",
-      "depth": 2,
+      "depth": 1,
       "source": "registry",
       "dependencies": {
         "com.unity.modules.assetbundle": "1.0.0",
@@ -115,14 +115,13 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.localization": {
-      "version": "1.4.5",
-      "depth": 1,
-      "source": "registry",
+      "version": "file:com.unity.localization@1.4.5",
+      "depth": 0,
+      "source": "embedded",
       "dependencies": {
         "com.unity.addressables": "1.21.8",
         "com.unity.nuget.newtonsoft-json": "3.0.2"
-      },
-      "url": "https://packages.unity.com"
+      }
     },
     "com.unity.mathematics": {
       "version": "1.2.6",
@@ -255,6 +254,14 @@
         "com.unity.nuget.newtonsoft-json": "2.0.2"
       }
     },
+    "com.vrchat.core.vpm-resolver": {
+      "version": "file:com.vrchat.core.vpm-resolver",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {
+        "com.unity.nuget.newtonsoft-json": "3.0.2"
+      }
+    },
     "com.vrchat.worlds": {
       "version": "file:com.vrchat.worlds",
       "depth": 0,
@@ -263,7 +270,8 @@
         "com.unity.cinemachine": "2.9.7",
         "com.unity.textmeshpro": "3.0.6",
         "com.unity.inputsystem": "1.2.0",
-        "com.unity.ai.navigation": "1.1.5"
+        "com.unity.ai.navigation": "1.1.5",
+        "com.unity.ugui": "1.0.0"
       }
     },
     "com.unity.modules.ai": {

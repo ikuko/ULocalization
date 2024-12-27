@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
@@ -18,7 +16,7 @@ namespace HoshinoLabs.ULocalization {
         public override void OnInspectorGUI() {
             serializedObject.Update();
 
-            EditorGUILayout.PropertyField(optionsProperty);
+            EditorGUILayout.PropertyField(optionsProperty, new GUIContent($"Options"));
             EditorGUILayout.PropertyField(updateOptionsProperty);
 
             serializedObject.ApplyModifiedProperties();

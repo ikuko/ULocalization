@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using System.Reflection;
 using TMPro;
 using UnityEditor;
@@ -14,14 +12,14 @@ namespace HoshinoLabs.ULocalization {
             SetupForLocalizationTMPDropdown(target);
         }
 
-        static void BuildTMPDropdownProxy(TMP_Dropdown target, TMP_DropdownProxy proxy) {
-            var field = typeof(TMP_DropdownProxy).GetField("target", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+        static void BuildTMPDropdownProxy(TMP_Dropdown target, TMP_DropdownExtension proxy) {
+            var field = typeof(TMP_DropdownExtension).GetField("target", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
             field.SetValue(proxy, target);
         }
 
         public static MonoBehaviour SetupForLocalizationTMPDropdown(TMP_Dropdown target) {
             var groupIndex = Undo.GetCurrentGroup();
-            var proxy = Undo.AddComponent<TMP_DropdownProxy>(target.gameObject);
+            var proxy = Undo.AddComponent<TMP_DropdownExtension>(target.gameObject);
             BuildTMPDropdownProxy(target, proxy);
             Undo.IncrementCurrentGroup();
             var comp = Undo.AddComponent<LocalizeDropdownEvent>(target.gameObject);

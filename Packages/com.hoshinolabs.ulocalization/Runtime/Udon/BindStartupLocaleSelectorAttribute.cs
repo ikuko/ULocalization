@@ -1,9 +1,6 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
-namespace HoshinoLabs.ULocalization {
+namespace HoshinoLabs.ULocalization.Udon {
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = false, Inherited = false)]
     public sealed class BindStartupLocaleSelectorAttribute : Attribute {
         public Type BindTo { get; }

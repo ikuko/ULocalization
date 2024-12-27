@@ -1,18 +1,17 @@
-﻿using System;
+﻿using HoshinoLabs.Sardinject.Udon;
+using System;
 using UdonSharp;
 using UnityEngine;
-using VRC.SDKBase;
-using VRC.Udon;
 
 namespace HoshinoLabs.ULocalization.Udon {
     [AddComponentMenu("")]
     [UdonBehaviourSyncMode(BehaviourSyncMode.None)]
-    [BindStartupLocaleSelector(typeof(global::UnityEngine.Localization.Settings.SpecificLocaleSelector))]
+    [BindStartupLocaleSelector(typeof(UnityEngine.Localization.Settings.SpecificLocaleSelector))]
     public sealed class SpecificLocaleSelector : IStartupLocaleSelector {
-#if UNITY_EDITOR
-        [BindStartupLocaleSelectorInitializer]
-        public static void Initializer(SpecificLocaleSelector self, UnityEngine.Localization.Settings.SpecificLocaleSelector original) {
-            self.locale = original.LocaleId.Code;
+#if !COMPILER_UDONSHARP && UNITY_EDITOR
+        [Inject]
+        public void InitializeInjection(UnityEngine.Localization.Settings.SpecificLocaleSelector specificLocaleSelector) {
+            locale = specificLocaleSelector.LocaleId.Code;
         }
 #endif
 
