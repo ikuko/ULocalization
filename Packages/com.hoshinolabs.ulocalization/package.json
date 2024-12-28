@@ -1,7 +1,7 @@
 {
   "name": "com.hoshinolabs.ulocalization",
   "displayName": "HoshinoLabs - ULocalization",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "unity": "2022.3",
   "description": "ULocalization is a localization system for VRChat Udon(U#).",
   "documentationUrl": "https://hoshinolabs.github.io/ULocalization/",
@@ -29,7 +29,7 @@
   "vpmDependencies": {
     "com.vrchat.worlds": ">=3.7.5",
     "com.unity.scriptablebuildpipeline": "1.21.5",
-    "com.hoshinolabs.sardinject": ">=0.8.5",
-    "com.hoshinolabs.sardinal": ">=0.9.1"
+    "com.hoshinolabs.sardinject": ">=0.8.6",
+    "com.hoshinolabs.sardinal": ">=0.9.2"
   }
 }
