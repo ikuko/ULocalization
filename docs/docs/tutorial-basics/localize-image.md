@@ -1,8 +1,8 @@
 ---
-sidebar_position: 3
+sidebar_position: 4
 ---
 
-# Localize Image
+# テクスチャのローカライズ
 
 画像のローカライズもとても簡単に行えます。  
 以下のようなスプライトがワールドに存在するとします。  

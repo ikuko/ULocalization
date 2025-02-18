@@ -1,8 +1,8 @@
 ---
-sidebar_position: 5
+sidebar_position: 6
 ---
 
-# Initialization World
+# ワールドの連携設定
 
 アセット導入時点で本アセットの導入は完了しています。  
 ここでは言語設定の切り替えを連携させるためのメニューなどの設置方法を説明します。  

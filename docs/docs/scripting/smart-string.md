@@ -1,5 +1,5 @@
 ---
-sidebar_position: 6
+sidebar_position: 4
 ---
 
 # Smart String
@@ -24,9 +24,3 @@ sidebar_position: 6
 
 他のローカライズテキストを埋め込むこともできます。  
 ![](img/smart-string-04.png)
-
-### Udon 変数の埋め込み
-
-外部の Udon 変数を直接埋め込むこともできます。  
-例ではセットされた Udon の "str" という変数の中身を埋め込んでいます。  
-![](img/smart-string-03.png)

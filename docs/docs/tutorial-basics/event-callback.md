@@ -1,8 +1,8 @@
 ---
-sidebar_position: 6
+sidebar_position: 7
 ---
 
-# Event Callback
+# イベントコールバック
 
 言語の切り替えやローカライズの再処理などが発生したときに処理を呼び出すことができます。  
 デフォルトではテキストでは `Text.text` や `TextMeshProUGUI.text` などのプロパティに値をセットするように設定されています。  

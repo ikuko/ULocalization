@@ -1,8 +1,8 @@
 ---
-sidebar_position: 3
+sidebar_position: 1
 ---
 
-# Udon Change Language
+# Udon で言語設定を制御する
 
 `VRCClientConnector` プレハブをワールドに設置することで自動的に言語設定に追従させることができます。  
 言語切替の挙動をカスタマイズしたい場合はこのプレハブを使わずに自作の Udon から言語の変更を行うことができます。  
@@ -15,34 +15,32 @@ sidebar_position: 3
 ```csharp
 public class LanguageChanger : UdonSharpBehaviour {
     [Inject, SerializeField, HideInInspector]
-    ILocalization localization;
+    Localization localization;
 
-    public void ChangeRandomLang() {
-        var availableLocales = localization.AvailableLocales;
-        var lang = availableLocales[Random.Range(0, availableLocales.Length)];
-        localization.SelectedLocale = lang;
+    private void Update() {
+        if (Input.GetKeyDown(KeyCode.Alpha1)) {
+            var availableLocales = localization.AvailableLocales;
+            var locale = availableLocales[Random.Range(0, availableLocales.Length)];
+            localization.SelectedLocale = locale;
+        }
     }
 }
 ```
 
-以下のようなエディタ拡張スクリプトを用意します。  
-このエディタ拡張は `LanguageChange` クラスの `localization` フィールドを解決するために必要です。  
+以下のようなスクリプトを用意します。  
+`LanguageChanger` と同じ場所にスクリプトを追加します。  
+合わせて `SceneScope` コンポーネントも追加しておきます。  
 
 ```csharp
-public class LanguageChangeBuilder : IProcessSceneWithReport {
-    public int callbackOrder => 0;
-
-    public void OnProcessScene(Scene scene, BuildReport report) {
-        var context = ProjectContext.New();
-        context.Enqueue(builder => {
-            builder.AddInHierarchy<LanguageChanger>();
-        });
-        context.Build();
+public class LanguageChangerInstaller : MonoBehaviour, IInstaller {
+    public void Install(ContainerBuilder builder) {
+        builder.RegisterComponentInHierarchy<LanguageChanger>()
+            .UnderTransform(transform);
     }
 }
 ```
 
-以上で `LanguageChanger.ChangeRandomLang` が呼び出されると言語が変更されます。
+以上で `1キー` を押すと変更可能な言語の中からランダムに言語が変更されます。
 
 ### Udon から言語の変更を検知する
 
@@ -50,8 +48,8 @@ public class LanguageChangeBuilder : IProcessSceneWithReport {
 
 ```csharp
 public class LocalizationSubscriber : UdonSharpBehaviour {
-    [Subscriber(typeof(ILocalization))]
-    public void OnSelectedLocaleChanged(string locale) {
+    [Subscriber(typeof(Localization))]
+    public void OnLocalizationLocaleChanged(string locale) {
         Debug.Log($"Locale changed to `{locale}`.");
     }
 }

@@ -1,8 +1,8 @@
 ---
-sidebar_position: 4
+sidebar_position: 5
 ---
 
-# Localize Dropdown
+# ドロップダウンのローカライズ
 
 ドロップダウンのローカライズもとても簡単に行えます。  
 以下のようなドロップダウンがワールドに存在するとします。  

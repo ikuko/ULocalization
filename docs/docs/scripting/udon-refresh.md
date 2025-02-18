@@ -1,8 +1,8 @@
 ---
-sidebar_position: 4
+sidebar_position: 2
 ---
 
-# Udon Refresh
+# Udon でローカライズの強制更新を行う
 
 ULocalization は言語切替のタイミングのみローカライズの更新を行います。  
 変数埋め込みを行っているなどで値を更新したい場合は明示的に更新処理を呼び出す必要があります。  
@@ -15,16 +15,16 @@ ULocalization は言語切替のタイミングのみローカライズの更新
 
 ```csharp
 public class LocalizeTextReloader : UdonSharpBehaviour {
-    [Inject, SerializeField, HideInInspector]
-    ILocalization localization;
     [SerializeField]
-    GroupId groupId;
+    LocalizeStringEvent localizeStringEvent;
 
-    public void ReloadText() {
-        localization.RefreshString(groupId);
+    private void Update() {
+        if (Input.GetKeyDown(KeyCode.Alpha2)) {
+            localizeStringEvent.RefreshString();
+        }
     }
 }
 ```
 
 インスペクタから対象とする LocalizeString コンポーネントを指定しておきます。  
-以上で `LocalizeTextReloader.ReloadText` が呼び出されるとローカライズテキストの更新が要求されます。
+以上で `2キー` を押すとローカライズテキストの強制更新が要求されます。

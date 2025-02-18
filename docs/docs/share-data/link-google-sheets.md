@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# Link Google Sheets
+# Google スプレッドシートで連携
 
 Google Sheets と連携することも可能です。  
 CSV と比べて更にシームレスに連携することが可能になります。  
