@@ -19,7 +19,7 @@ namespace HoshinoLabs.ULocalization.Udon {
             builder.OverrideLocalizationInjection()
                 .UnderTransform(() => {
                     var rootGo = new GameObject($"__{typeof(LocalizationInstaller).Namespace.Replace('.', '_')}__");
-                    //rootGo.hideFlags = HideFlags.HideInHierarchy;
+                    rootGo.hideFlags = HideFlags.HideInHierarchy;
                     return rootGo.transform;
                 });
         }

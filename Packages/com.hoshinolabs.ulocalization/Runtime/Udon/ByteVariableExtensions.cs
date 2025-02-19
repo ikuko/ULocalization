@@ -1,6 +1,6 @@
 namespace HoshinoLabs.ULocalization.Udon {
     public static class ByteVariableExtensions {
-        public static bool GetValue(this ByteVariable self) {
+        public static byte GetValue(this ByteVariable self) {
             if (self == null) {
                 Logger.LogError("Attempting to use an invalid ByteVariable.");
                 return default;
@@ -8,10 +8,10 @@ namespace HoshinoLabs.ULocalization.Udon {
             var _self = (object[])(object)self;
             var _localization = (LocalizationShim)_self[0];
             var _variable = (int)_self[1];
-            return (bool)_localization.GetVariable(_variable);
+            return (byte)_localization.GetVariable(_variable);
         }
 
-        public static void SetValue(this ByteVariable self, bool value) {
+        public static void SetValue(this ByteVariable self, byte value) {
             if (self == null) {
                 Logger.LogError("Attempting to use an invalid ByteVariable.");
                 return;
