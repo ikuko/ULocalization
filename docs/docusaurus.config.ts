@@ -71,6 +71,10 @@ const config: Config = {
           label: "Document",
         },
         {
+          type: "localeDropdown",
+          position: "left",
+        },
+        {
           href: "https://github.com/ikuko/ULocalization",
           label: "GitHub",
           position: "right",

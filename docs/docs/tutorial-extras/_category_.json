@@ -1,6 +1,6 @@
 {
-  "label": "チュートリアル",
-  "position": 2,
+  "label": "高度な使い方",
+  "position": 3,
   "link": {
     "type": "generated-index",
     "description": "5 minutes to learn the most important Docusaurus concepts."

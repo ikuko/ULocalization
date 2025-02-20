@@ -29,7 +29,7 @@ View on [GitHub Pages](https://ikuko.github.io/ULocalization/)
 ```bash
 vpm add repo https://vpm.hoshinolabs.com/vpm.json
 cd /your-unity-project
-vpm add com.hoshinolabs.sardinal
+vpm add com.hoshinolabs.ulocalization
 ```
 
 ### Install manually (using .unitypackage)
