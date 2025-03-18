@@ -227,7 +227,7 @@ namespace HoshinoLabs.ULocalization.Udon {
 
         static List<LocalizedMonoBehaviour> BuildLocalizeEvents(Scene scene) {
             var localizeEvents = scene.GetRootGameObjects()
-                .SelectMany(x => x.GetComponentsInChildren<UnityEngine.Localization.Components.LocalizedMonoBehaviour>());
+                .SelectMany(x => x.GetComponentsInChildren<UnityEngine.Localization.Components.LocalizedMonoBehaviour>(true));
             foreach (var localizeEvent in localizeEvents) {
                 switch (localizeEvent) {
                     case UnityEngine.Localization.Components.LocalizeStringEvent localizeStringEvent: {
