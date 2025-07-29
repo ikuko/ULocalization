@@ -1,7 +1,6 @@
 using UnityEditor;
 using UnityEditor.Localization;
 using UnityEngine.Localization;
-using UnityEngine.Localization.Settings;
 using UnityEngine.Localization.Tables;
 
 namespace HoshinoLabs.ULocalization.Udon {
@@ -28,13 +27,14 @@ namespace HoshinoLabs.ULocalization.Udon {
             if (tableReference.ReferenceType == TableReference.Type.Empty) {
                 return null;
             }
-            var entry = LocalizationSettings.AssetDatabase.GetTableEntry(tableReference, tableEntryReference, locale);
-            if (string.IsNullOrEmpty(entry.Entry?.Guid)) {
+            var tableCollection = LocalizationEditorSettings.GetAssetTableCollection(tableReference);
+            var table = tableCollection.GetTable(locale.Identifier) as AssetTable;
+            var entry = table.GetEntryFromReference(tableEntryReference);
+            if (string.IsNullOrEmpty(entry?.Guid)) {
                 return null;
             }
-            var table = LocalizationEditorSettings.GetAssetTableCollection(tableReference);
-            var assetType = table.GetEntryAssetType(tableEntryReference);
-            var assetPath = AssetDatabase.GUIDToAssetPath(entry.Entry.Guid);
+            var assetType = tableCollection.GetEntryAssetType(tableEntryReference);
+            var assetPath = AssetDatabase.GUIDToAssetPath(entry.Guid);
             return AssetDatabase.LoadAssetAtPath(assetPath, assetType);
         }
     }

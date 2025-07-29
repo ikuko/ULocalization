@@ -25,10 +25,9 @@ namespace HoshinoLabs.ULocalization.Udon {
 
         public LocalizationResolver(ComponentDestination destination) {
             Destination = destination;
-        }
 
-        [InitializeOnLoadMethod]
-        static void OnLoad() {
+            localization = null;
+
             UnityInjector.OnSceneContainerBuilt -= SceneContainerBuilt;
             UnityInjector.OnSceneContainerBuilt += SceneContainerBuilt;
         }
@@ -281,9 +280,13 @@ namespace HoshinoLabs.ULocalization.Udon {
         static List<KeyValuePair<long, ITableEntry>> BuildEntries(List<LocalizedReference> localizeds) {
             var stringEntries = LocalizationEditorSettings.GetStringTableCollections()
                 .SelectMany(x => x.SharedData.Entries.Select(entry => new StringTableEntry(x.TableCollectionNameReference, entry.Id)))
+                .GroupBy(x => x.Id)
+                .Select(x => x.First())
                 .ToDictionary(x => x.Id, x => x);
             var assetEntries = LocalizationEditorSettings.GetAssetTableCollections()
                 .SelectMany(x => x.SharedData.Entries.Select(entry => new AssetTableEntry(x.TableCollectionNameReference, entry.Id)))
+                .GroupBy(x => x.Id)
+                .Select(x => x.First())
                 .ToDictionary(x => x.Id, x => x);
             foreach (var localized in localizeds) {
                 switch (localized) {

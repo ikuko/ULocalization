@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Reflection;
+using UnityEditor.Localization;
 using UnityEngine.Localization;
 using UnityEngine.Localization.Settings;
 using UnityEngine.Localization.SmartFormat;
@@ -22,17 +23,24 @@ namespace HoshinoLabs.ULocalization.Udon {
         }
 
         public bool GetIsSmart(Locale locale) {
-            var entry = LocalizationSettings.StringDatabase.GetTableEntry(tableReference, tableEntryReference, locale);
-            return entry.Entry?.IsSmart ?? false;
+            var tableCollection = LocalizationEditorSettings.GetStringTableCollection(tableReference);
+            var table = tableCollection.GetTable(locale.Identifier) as StringTable;
+            var entry = table.GetEntryFromReference(tableEntryReference);
+            if (entry == null) {
+                return false;
+            }
+            return entry.IsSmart;
         }
 
         public object GetValue(Locale locale) {
-            var entry = LocalizationSettings.StringDatabase.GetTableEntry(tableReference, tableEntryReference, locale);
-            if (string.IsNullOrEmpty(entry.Entry?.Value)) {
+            var tableCollection = LocalizationEditorSettings.GetStringTableCollection(tableReference);
+            var table = tableCollection.GetTable(locale.Identifier) as StringTable;
+            var entry = table.GetEntryFromReference(tableEntryReference);
+            if (string.IsNullOrEmpty(entry?.Value)) {
                 var dict = new Dictionary<string, object>();
-                dict["key"] = entry.Entry?.Key;
-                dict["keyId"] = entry.Entry?.KeyId;
-                dict["table"] = entry.Table;
+                dict["key"] = entry?.Key;
+                dict["keyId"] = entry?.KeyId;
+                dict["table"] = table;
                 dict["locale"] = locale;
                 var noTranslationFoundMessage = LocalizationSettings.StringDatabase.NoTranslationFoundMessage;
                 var defaultNoTranslationMessageField = typeof(LocalizedStringDatabase).GetField("k_DefaultNoTranslationMessage", BindingFlags.Static | BindingFlags.NonPublic);
@@ -40,7 +48,7 @@ namespace HoshinoLabs.ULocalization.Udon {
                 var format = string.IsNullOrEmpty(noTranslationFoundMessage) ? k_DefaultNoTranslationMessage : noTranslationFoundMessage;
                 return format.FormatSmart(dict);
             }
-            return entry.Entry.Value;
+            return entry.Value;
         }
     }
 }
