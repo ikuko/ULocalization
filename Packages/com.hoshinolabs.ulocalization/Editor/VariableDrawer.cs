@@ -22,7 +22,7 @@ namespace HoshinoLabs.ULocalization {
         }
 
         public override float GetPropertyHeight(SerializedProperty property, GUIContent label) {
-            var variableProperty = property.FindPropertyRelative("variable");
+            var variableProperty = property.FindPropertyRelative("m_Value");
             return EditorGUI.GetPropertyHeight(variableProperty, true);
         }
     }
