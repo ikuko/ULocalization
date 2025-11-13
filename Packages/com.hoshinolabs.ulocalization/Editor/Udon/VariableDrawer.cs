@@ -8,14 +8,18 @@ namespace HoshinoLabs.ULocalization.Udon {
     internal sealed class VariableDrawer : PropertyDrawer {
         public override VisualElement CreatePropertyGUI(SerializedProperty property) {
             var variableProperty = property.FindPropertyRelative("variable");
-            return new PropertyField(variableProperty, variableProperty.propertyType.ToString());
+            var propertyField = new PropertyField(variableProperty, variableProperty.propertyType.ToString());
+            propertyField.SetEnabled(!EditorApplication.isPlayingOrWillChangePlaymode && !EditorApplication.isPlaying);
+            return propertyField;
         }
 
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
             using (new EditorGUI.PropertyScope(position, label, property)) {
                 var variableProperty = property.FindPropertyRelative("variable");
                 variableProperty.serializedObject.Update();
-                EditorGUI.PropertyField(position, variableProperty, label, true);
+                using (new EditorGUI.DisabledScope(EditorApplication.isPlayingOrWillChangePlaymode || EditorApplication.isPlaying)) {
+                    EditorGUI.PropertyField(position, variableProperty, label, true);
+                }
                 variableProperty.serializedObject.ApplyModifiedProperties();
             }
         }

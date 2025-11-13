@@ -31,12 +31,24 @@ namespace HoshinoLabs.ULocalization.Udon {
 
         static void CleanupScene(Scene scene) {
             foreach (var localizeEvent in LocalizeEventCache.GetAll()) {
-                GameObject.DestroyImmediate(localizeEvent);
+                localizeEvent.hideFlags = HideFlags.NotEditable | HideFlags.DontSaveInBuild;
+
+                var fields = localizeEvent.GetType().GetFields(System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)
+                    .Where(x => x.FieldType.IsSubclassOf(typeof(UnityEngine.Events.UnityEventBase)));
+                foreach(var field in fields) {
+                    var unityEventBase = (UnityEngine.Events.UnityEventBase)field.GetValue(localizeEvent);
+                    if (unityEventBase == null) {
+                        return;
+                    }
+                    // Clear all persistent listeners
+                    field.SetValue(localizeEvent, System.Activator.CreateInstance(unityEventBase.GetType()));
+                }
+
             }
             var behaviourExtensions = scene.GetRootGameObjects()
                 .SelectMany(x => x.GetComponentsInChildren(typeof(IBehaviourExtension)));
             foreach (var behaviourExtension in behaviourExtensions) {
-                GameObject.DestroyImmediate(behaviourExtension);
+                behaviourExtension.hideFlags = HideFlags.NotEditable | HideFlags.DontSaveInBuild;
             }
         }
     }

@@ -8,7 +8,9 @@ namespace HoshinoLabs.ULocalization.Udon {
             using (new EditorGUI.PropertyScope(position, label, property)) {
                 var variablesGroupProperty = property.FindPropertyRelative("variablesGroup");
                 variablesGroupProperty.serializedObject.Update();
-                EditorGUI.ObjectField(position, variablesGroupProperty, typeof(UnityEngine.Localization.SmartFormat.PersistentVariables.VariablesGroupAsset), label);
+                using (new EditorGUI.DisabledScope(EditorApplication.isPlayingOrWillChangePlaymode || EditorApplication.isPlaying)) {
+                    EditorGUI.ObjectField(position, variablesGroupProperty, typeof(UnityEngine.Localization.SmartFormat.PersistentVariables.VariablesGroupAsset), label);
+                }
                 variablesGroupProperty.serializedObject.ApplyModifiedProperties();
             }
         }

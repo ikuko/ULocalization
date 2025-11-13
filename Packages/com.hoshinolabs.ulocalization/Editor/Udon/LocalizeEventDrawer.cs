@@ -8,7 +8,9 @@ namespace HoshinoLabs.ULocalization.Udon {
             using (new EditorGUI.PropertyScope(position, label, property)) {
                 var localizeEventProperty = property.FindPropertyRelative("localizeEvent");
                 localizeEventProperty.serializedObject.Update();
-                EditorGUI.PropertyField(position, localizeEventProperty, label, true);
+                using (new EditorGUI.DisabledScope(EditorApplication.isPlayingOrWillChangePlaymode || EditorApplication.isPlaying)) {
+                    EditorGUI.PropertyField(position, localizeEventProperty, label, true);
+                }
                 localizeEventProperty.serializedObject.ApplyModifiedProperties();
             }
         }
