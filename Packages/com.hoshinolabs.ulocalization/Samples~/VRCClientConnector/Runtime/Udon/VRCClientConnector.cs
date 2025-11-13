@@ -1,9 +1,9 @@
-﻿using HoshinoLabs.Sardinject;
+﻿using HoshinoLabs.Sardinject.Udon;
 using HoshinoLabs.ULocalization.Udon;
 using UdonSharp;
 using UnityEngine;
 
-namespace HoshinoLabs.ULocalization.Samples.Udon {
+namespace HoshinoLabs.ULocalizationSamples.VRCClientConnector.Udon {
     [AddComponentMenu("")]
     [UdonBehaviourSyncMode(BehaviourSyncMode.None)]
     public sealed class VRCClientConnector : UdonSharpBehaviour {

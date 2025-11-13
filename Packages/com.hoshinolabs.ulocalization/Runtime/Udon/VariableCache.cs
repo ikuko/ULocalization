@@ -64,8 +64,8 @@ namespace HoshinoLabs.ULocalization.Udon {
             return AddOrGet((UnityEngine.Localization.SmartFormat.PersistentVariables.IVariable)nestedVariablesGroup);
         }
 
-        public static int AddOrGet(ULocalization.LocalizeDropdownEvent.LocalizedOptionDataList localizedOptionDataList) {
-            foreach (var localizedOptionData in localizedOptionDataList ?? Enumerable.Empty<ULocalization.LocalizeDropdownEvent.LocalizedOptionData>()) {
+        public static int AddOrGet(ULocalization.LocalizedOptionDataList localizedOptionDataList) {
+            foreach (var localizedOptionData in localizedOptionDataList ?? Enumerable.Empty<ULocalization.LocalizedOptionData>()) {
                 LocalizedCache.AddOrGet(localizedOptionData?.Text);
                 AddOrGet(localizedOptionData?.Text, localizedOptionDataList);
                 LocalizedCache.AddOrGet(localizedOptionData?.Image);

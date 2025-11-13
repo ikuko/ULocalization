@@ -7,6 +7,7 @@ namespace HoshinoLabs.ULocalization {
         static event Action<ContainerBuilder> Installers;
 
         public void Install(ContainerBuilder builder) {
+            builder.OverrideLocalizationInjection();
             Installers?.Invoke(builder);
         }
     }

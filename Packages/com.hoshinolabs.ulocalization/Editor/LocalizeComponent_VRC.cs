@@ -1,3 +1,4 @@
+#if VRC_SDK_VRCSDK3
 using System.Reflection;
 using UdonSharp;
 using UnityEditor;
@@ -21,6 +22,7 @@ namespace HoshinoLabs.ULocalization {
             return comp;
         }
 
+#if UDONSHARP
         [MenuItem("CONTEXT/UdonSharpBehaviour/Localize")]
         static void LocalizeUdonSharpBehaviour(MenuCommand command) {
             var target = command.context as UdonSharpBehaviour;
@@ -32,6 +34,7 @@ namespace HoshinoLabs.ULocalization {
             AddPersistentListener(target, comp, "InteractionText", 0);
             return comp;
         }
+#endif
 
         [MenuItem("CONTEXT/VRCPickup/Localize")]
         static void LocalizeVRCPickup(MenuCommand command) {
@@ -64,3 +67,4 @@ namespace HoshinoLabs.ULocalization {
         }
     }
 }
+#endif

@@ -1,5 +1,16 @@
 namespace HoshinoLabs.ULocalization.Udon {
     public static class LocalizeDropdownEventExtensions {
+        public static void RefreshOptions(this LocalizeDropdownEvent self) {
+            if (self == null) {
+                Logger.LogError("Attempting to use an invalid LocalizeDropdownEvent.");
+                return;
+            }
+            var _self = (object[])(object)self;
+            var _localization = (LocalizationShim)_self[0];
+            var _localizeEvent = (int)_self[1];
+            _localization.RefreshLocalizeEvent(_localizeEvent);
+        }
+
         public static LocalizedOptionDataList GetOptions(this LocalizeDropdownEvent self) {
             if (self == null) {
                 Logger.LogError("Attempting to use an invalid LocalizeDropdownEvent.");

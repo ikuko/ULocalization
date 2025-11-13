@@ -20,7 +20,7 @@ namespace HoshinoLabs.ULocalization.Udon {
                 case UnityEngine.Localization.SmartFormat.PersistentVariables.NestedVariablesGroup:
                 case UnityEngine.Localization.SmartFormat.PersistentVariables.VariablesGroupAsset:
                 case UnityEngine.Localization.LocalizedString:
-                case ULocalization.LocalizeDropdownEvent.LocalizedOptionDataList: {
+                case ULocalization.LocalizedOptionDataList: {
                         return true;
                     }
             }

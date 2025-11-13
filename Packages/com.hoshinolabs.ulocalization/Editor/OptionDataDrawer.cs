@@ -2,7 +2,7 @@ using UnityEditor;
 using UnityEngine;
 
 namespace HoshinoLabs.ULocalization {
-    [CustomPropertyDrawer(typeof(LocalizeDropdownEvent.LocalizedOptionData), true)]
+    [CustomPropertyDrawer(typeof(LocalizedOptionData), true)]
     internal sealed class OptionDataDrawer : PropertyDrawer {
         bool expanded;
 

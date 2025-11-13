@@ -42,7 +42,7 @@ namespace HoshinoLabs.ULocalization.Udon {
             return AddOrGet((LocalizedReference)localized, localizeEvent);
         }
 
-        public static int AddOrGet(ULocalization.LocalizeDropdownEvent.LocalizedOptionDataList localized, LocalizedMonoBehaviour localizeEvent = default) {
+        public static int AddOrGet(ULocalization.LocalizedOptionDataList localized, LocalizedMonoBehaviour localizeEvent = default) {
             VariableCache.AddOrGet(localized);
             return AddOrGet((LocalizedReference)localized, localizeEvent);
         }

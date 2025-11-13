@@ -22,7 +22,7 @@ namespace HoshinoLabs.ULocalization.Udon {
                 for (var j = 0; j < kl; j++) {
                     var k = ks[j].Trim();
                     if (d == null || !d.TryGetValue(k, out var _v)) {
-                        Logger.LogError($"Error parsing format string. Could not evaluate the variable \"{k}\" at {g.Index}");
+                        Logger.LogError($"Error parsing format string. Could not evaluate the variable \"{k}\" at {g.Index - 2}");
                         return format;
                     }
                     var v = _v.Int;

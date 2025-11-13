@@ -3,7 +3,7 @@ using UnityEditorInternal;
 using UnityEngine;
 
 namespace HoshinoLabs.ULocalization {
-    [CustomPropertyDrawer(typeof(LocalizeDropdownEvent.LocalizedOptionDataList), true)]
+    [CustomPropertyDrawer(typeof(LocalizedOptionDataList), true)]
     internal sealed class OptionDataListDrawer : PropertyDrawer {
         ReorderableList reorderableList;
 

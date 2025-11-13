@@ -460,7 +460,7 @@ namespace HoshinoLabs.ULocalization.Udon {
 
         static int BuildLocalizedEntry(LocalizedReference localized, List<long> entryKeys) {
             switch (localized) {
-                case ULocalization.LocalizeDropdownEvent.LocalizedOptionDataList localizedOptionDataList: {
+                case ULocalization.LocalizedOptionDataList localizedOptionDataList: {
                         return -1;
                     }
                 case LocalizedReference localizedReference: {
@@ -538,7 +538,7 @@ namespace HoshinoLabs.ULocalization.Udon {
                         return localizedString
                             .ToDataDictionary(x => x.Key, x => variables.IndexOf(x.Value));
                     }
-                case ULocalization.LocalizeDropdownEvent.LocalizedOptionDataList localizedOptionDataList: {
+                case ULocalization.LocalizedOptionDataList localizedOptionDataList: {
                         return localizedOptionDataList
                             .Select(x => new[] { localizeds.IndexOf(x.Text), localizeds.IndexOf(x.Image) })
                             .ToDataList();

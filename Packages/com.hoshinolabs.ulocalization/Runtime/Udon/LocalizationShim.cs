@@ -209,7 +209,6 @@ namespace HoshinoLabs.ULocalization.Udon {
             __9_3.Add(variable);
             var __12 = (DataList)_17[variable];
             __12.Add(new DataToken(new[] { localizedText, localizedImage }));
-            RefreshLocalized(variable);
         }
 
         public void RemoveAtVariable(int variable, int index) {
@@ -218,7 +217,6 @@ namespace HoshinoLabs.ULocalization.Udon {
             __12.RemoveAt(index);
             var __9_3 = _16[localizedText];
             __9_3.RemoveAll(variable);
-            RefreshLocalized(variable);
         }
 
         public void InsertVariable(int variable, int index, int localizedText, int localizedImage) {
@@ -226,7 +224,6 @@ namespace HoshinoLabs.ULocalization.Udon {
             __9_3.Add(variable);
             var __12 = (DataList)_17[variable];
             __12.Insert(index, new DataToken(new[] { localizedText, localizedImage }));
-            RefreshLocalized(variable);
         }
 
         public void ClearVariable(int variable) {
@@ -238,7 +235,6 @@ namespace HoshinoLabs.ULocalization.Udon {
                 __9_3.RemoveAll(variable);
             }
             __12.Clear();
-            RefreshLocalized(variable);
         }
 
         [RecursiveMethod]

@@ -6,13 +6,13 @@ namespace HoshinoLabs.ULocalization.Udon {
     [Serializable]
     public sealed class LocalizedOptionDataList : Localized, ISerializable {
         [Inject, SerializeField]
-        ULocalization.LocalizeDropdownEvent.LocalizedOptionDataList localized;
+        ULocalization.LocalizedOptionDataList localized;
 
         public LocalizedOptionDataList() {
 
         }
 
-        public LocalizedOptionDataList(ULocalization.LocalizeDropdownEvent.LocalizedOptionDataList localized) {
+        public LocalizedOptionDataList(ULocalization.LocalizedOptionDataList localized) {
             this.localized = localized;
         }
 

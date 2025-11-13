@@ -1,7 +1,7 @@
 {
   "name": "com.hoshinolabs.ulocalization",
   "displayName": "HoshinoLabs - ULocalization",
-  "version": "0.8.4",
+  "version": "0.8.5",
   "unity": "2022.3",
   "description": "ULocalization is a localization system for VRChat Udon(U#).",
   "documentationUrl": "https://hoshinolabs.github.io/ULocalization/",
@@ -18,9 +18,9 @@
       "path": "Samples~/VRCClientConnector"
     },
     {
-      "displayName": "Language Setting Menu",
+      "displayName": "Language Menu",
       "description": "Menu that allows users to switch to any language",
-      "path": "Samples~/LanguageSettingMenu"
+      "path": "Samples~/LanguageMenu"
     }
   ],
   "dependencies": {
@@ -30,6 +30,6 @@
     "com.vrchat.worlds": ">=3.7.6",
     "com.unity.scriptablebuildpipeline": "1.21.5",
     "com.hoshinolabs.sardinject": ">=0.8.12",
-    "com.hoshinolabs.sardinal": ">=0.9.6"
+    "com.hoshinolabs.sardinal": ">=0.9.7"
   }
 }
