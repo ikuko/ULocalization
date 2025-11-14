@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace HoshinoLabs.ULocalization.Udon {
     internal static class TypeExtensions {
@@ -16,6 +17,16 @@ namespace HoshinoLabs.ULocalization.Udon {
                 return false;
             }
             return IsAssignableToGenericType(baseType, type);
+        }
+
+        public static IEnumerable<Type> GetBaseTypes(this Type self) {
+            if (self == null) {
+                throw new ArgumentNullException(nameof(self));
+            }
+            while (self != typeof(object)) {
+                yield return self;
+                self = self.BaseType;
+            }
         }
     }
 }

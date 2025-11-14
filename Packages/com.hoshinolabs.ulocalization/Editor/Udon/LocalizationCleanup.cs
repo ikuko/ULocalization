@@ -1,6 +1,9 @@
+using System;
 using System.Linq;
+using System.Reflection;
 using UnityEditor.SceneManagement;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Localization.Settings;
 using UnityEngine.SceneManagement;
 
@@ -32,16 +35,18 @@ namespace HoshinoLabs.ULocalization.Udon {
         static void CleanupScene(Scene scene) {
             foreach (var localizeEvent in LocalizeEventCache.GetAll()) {
                 localizeEvent.hideFlags = HideFlags.NotEditable | HideFlags.DontSaveInBuild;
+                localizeEvent.enabled = false;
 
-                var fields = localizeEvent.GetType().GetFields(System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)
-                    .Where(x => x.FieldType.IsSubclassOf(typeof(UnityEngine.Events.UnityEventBase)));
-                foreach(var field in fields) {
-                    var unityEventBase = (UnityEngine.Events.UnityEventBase)field.GetValue(localizeEvent);
+                var fields = localizeEvent.GetType().GetBaseTypes()
+                    .SelectMany(x => x.GetFields(BindingFlags.Instance | BindingFlags.NonPublic))
+                    .Where(x => x.FieldType.IsSubclassOf(typeof(UnityEventBase)));
+                foreach (var field in fields) {
+                    var unityEventBase = (UnityEventBase)field.GetValue(localizeEvent);
                     if (unityEventBase == null) {
-                        return;
+                        continue;
                     }
                     // Clear all persistent listeners
-                    field.SetValue(localizeEvent, System.Activator.CreateInstance(unityEventBase.GetType()));
+                    field.SetValue(localizeEvent, Activator.CreateInstance(unityEventBase.GetType()));
                 }
 
             }
