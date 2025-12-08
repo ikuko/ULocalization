@@ -14,6 +14,7 @@ using UnityEngine.Localization;
 using UnityEngine.Localization.Components;
 using UnityEngine.Localization.Settings;
 using UnityEngine.SceneManagement;
+using VRC.SDK3.Components;
 using VRC.SDK3.Data;
 
 namespace HoshinoLabs.ULocalization.Udon {
@@ -94,10 +95,11 @@ namespace HoshinoLabs.ULocalization.Udon {
                 .Select(x => BuildEventListenerArguments(x))
                 .ToArray();
 
-            var _13 = localizedRefs
+            var _13 = localizeds.Count;
+            var _14 = localizedRefs
                 .Select(x => BuildLocalizedRefs(x, localizeEvents))
                 .ToArray();
-            var _14 = localizeds
+            var _15 = localizeds
                 .Select(x => BuildLocalizedEntry(x, entryKeys))
                 .ToArray();
 
@@ -109,15 +111,18 @@ namespace HoshinoLabs.ULocalization.Udon {
                 .Select(x => x.Value)
                 .ToList();
 
-            var _15 = variables
+            var _16 = variables.Count;
+            var _17 = variables
                 .Select(x => BuildVariableId(x))
                 .ToArray();
-            var _16 = variableRefs
+            var _18 = variableRefs
                 .Select(x => BuildVariableRefs(x, variables))
                 .ToArray();
-            var _17 = variables
+            var _19 = variables
                 .Select(x => BuildVariableValue(x, localizeds, variables))
                 .ToArray();
+
+            var cloneDetectorData = BuildCloneDetectors(container, scene, localizeEvents);
 
             var builder = new ContainerBuilder();
             builder.RegisterComponentInstance(localization)
@@ -139,7 +144,15 @@ namespace HoshinoLabs.ULocalization.Udon {
                 .WithParameter("_14", _14)
                 .WithParameter("_15", _15)
                 .WithParameter("_16", _16)
-                .WithParameter("_17", _17);
+                .WithParameter("_17", _17)
+                .WithParameter("_18", _18)
+                .WithParameter("_19", _19)
+                .WithParameter("_20", cloneDetectorData._0)
+                .WithParameter("_21", cloneDetectorData._1)
+                .WithParameter("_22", cloneDetectorData._2)
+                .WithParameter("_23", cloneDetectorData._3)
+                .WithParameter("_24", cloneDetectorData._4)
+                .WithParameter("_25", cloneDetectorData._5);
             builder.Build()
                 .Resolve<Localization>();
         }
@@ -158,11 +171,19 @@ namespace HoshinoLabs.ULocalization.Udon {
             var _10 = Array.Empty<string[]>();
             var _11 = Array.Empty<object[]>();
             var _12 = Array.Empty<object[]>();
-            var _13 = Array.Empty<DataList>();
-            var _14 = Array.Empty<int>();
-            var _15 = Array.Empty<string>();
-            var _16 = Array.Empty<DataList>();
-            var _17 = Array.Empty<object>();
+            var _13 = 0;
+            var _14 = Array.Empty<DataList>();
+            var _15 = Array.Empty<int>();
+            var _16 = 0;
+            var _17 = Array.Empty<string>();
+            var _18 = Array.Empty<DataList>();
+            var _19 = Array.Empty<object>();
+            var _20 = Array.Empty<object[]>();
+            var _21 = Array.Empty<int[]>();
+            var _22 = Array.Empty<string>();
+            var _23 = Array.Empty<int>();
+            var _24 = Array.Empty<string[]>();
+            var _25 = Array.Empty<string[]>();
 
             var builder = new ContainerBuilder();
             builder.RegisterComponentOnNewGameObject(
@@ -192,7 +213,15 @@ namespace HoshinoLabs.ULocalization.Udon {
                 .WithParameter("_14", _14)
                 .WithParameter("_15", _15)
                 .WithParameter("_16", _16)
-                .WithParameter("_17", _17);
+                .WithParameter("_17", _17)
+                .WithParameter("_18", _18)
+                .WithParameter("_19", _19)
+                .WithParameter("_20", _20)
+                .WithParameter("_21", _21)
+                .WithParameter("_22", _22)
+                .WithParameter("_23", _23)
+                .WithParameter("_24", _24)
+                .WithParameter("_25", _25);
             localization = builder.Build()
                 .Resolve<Localization>();
             return localization;
@@ -290,22 +319,24 @@ namespace HoshinoLabs.ULocalization.Udon {
                 .ToDictionary(x => x.Id, x => x);
             foreach (var localized in localizeds) {
                 switch (localized) {
-                    case UnityEngine.Localization.LocalizedString localizedString: {
-                            if (!stringEntries.TryGetValue(localized.TableEntryReference.KeyId, out var entry)) {
-                                var tableReference = localized.TableReference;
-                                var tableEntryReference = localized.TableEntryReference;
-                                var tableEntry = new StringTableEntry(tableReference, tableEntryReference);
-                                stringEntries.Add(localized.TableEntryReference.KeyId, tableEntry);
+                    case UnityEngine.Localization.LocalizedString: {
+                            if (localized.IsEmpty || stringEntries.ContainsKey(localized.TableEntryReference.KeyId)) {
+                                continue;
                             }
+                            var tableReference = localized.TableReference;
+                            var tableEntryReference = localized.TableEntryReference;
+                            var tableEntry = new StringTableEntry(tableReference, tableEntryReference);
+                            stringEntries.Add(localized.TableEntryReference.KeyId, tableEntry);
                             break;
                         }
-                    case LocalizedAssetBase localizedAsset: {
-                            if (!assetEntries.TryGetValue(localized.TableEntryReference.KeyId, out var entry)) {
-                                var tableReference = localized.TableReference;
-                                var tableEntryReference = localized.TableEntryReference;
-                                var tableEntry = new AssetTableEntry(tableReference, tableEntryReference);
-                                assetEntries.Add(localized.TableEntryReference.KeyId, tableEntry);
+                    case LocalizedAssetBase: {
+                            if (localized.IsEmpty || assetEntries.ContainsKey(localized.TableEntryReference.KeyId)) {
+                                continue;
                             }
+                            var tableReference = localized.TableReference;
+                            var tableEntryReference = localized.TableEntryReference;
+                            var tableEntry = new AssetTableEntry(tableReference, tableEntryReference);
+                            assetEntries.Add(localized.TableEntryReference.KeyId, tableEntry);
                             break;
                         }
                 }
@@ -545,6 +576,62 @@ namespace HoshinoLabs.ULocalization.Udon {
                     }
             }
             return default;
+        }
+
+        static (object[][] _0, int[][] _1, string[] _2, int[] _3, string[][] _4, string[][] _5) BuildCloneDetectors(Container container, Scene scene, List<LocalizedMonoBehaviour> localizeEvents) {
+            var markers = scene.GetRootGameObjects()
+                .SelectMany(x => x.GetComponentsInChildren(typeof(VRCPlayerObject), true))
+                .ToArray();
+            var refs = markers
+                .Select(x => {
+                    return x.GetComponentsInChildren<Transform>(true)
+                        .SelectMany(x => new object[] { x.gameObject, x }.Concat(x.GetComponents<Component>()))
+                        .ToArray();
+                })
+                .ToArray();
+            var ids = refs
+                .Select(x => x.Select(x => localizeEvents.IndexOf(x as LocalizedMonoBehaviour)).ToArray())
+                .ToArray();
+            var infos = markers
+                .SelectMany(x => x.gameObject.GetComponentsInChildren<UdonSharpBehaviour>(true))
+                .Select(x => x.GetType())
+                .Distinct()
+                .ToDictionary(x => x, x => {
+                    var fields = x.GetLocalizationFields();
+                    return fields
+                        .Select(x => {
+                            return typeof(LocalizeEvent).IsAssignableFrom(x.FieldType)
+                                ? x.FieldType.GetField("localizeEvent", BindingFlags.Instance | BindingFlags.NonPublic)?.FieldType ?? x.FieldType
+                                : typeof(Localized).IsAssignableFrom(x.FieldType)
+                                    ? x.FieldType.GetField("localized", BindingFlags.Instance | BindingFlags.NonPublic)?.FieldType ?? x.FieldType
+                                    : typeof(Variable<>).IsAssignableFrom(x.FieldType)
+                                        ? x.FieldType.GetField("variable", BindingFlags.Instance | BindingFlags.NonPublic).FieldType
+                                        : x.FieldType.GetField("variablesGroup", BindingFlags.Instance | BindingFlags.NonPublic)?.FieldType ?? x.FieldType;
+                        })
+                        .Zip(fields.Select(x => x.Name), (FieldType, Name) => (Name, FieldType))
+                        .ToArray();
+                });
+
+            for (var i = 0; i < markers.Length; i++) {
+                container.Scope(builder => {
+                    builder.RegisterEntryPoint(
+                        CloneDetectorUtility.ImplementationType,
+                        Lifetime.Transient
+                    )
+                        .UnderTransform(markers[i].transform)
+                        .WithParameter("_0", i)
+                        .WithParameter("_1", refs[i].ToArray());
+                });
+            }
+
+            return (
+                _0: refs.Select(x => x.ToArray()).ToArray(),
+                _1: ids.ToArray(),
+                _2: infos.Select(x => x.Key.FullName).ToArray(),
+                _3: infos.Select(x => x.Value.Length).ToArray(),
+                _4: infos.Select(x => x.Value.Select(x => x.Name).ToArray()).ToArray(),
+                _5: infos.Select(x => x.Value.Select(x => $"__{x.FieldType.FullName.Replace(".", "").ComputeHashMD5()}").ToArray()).ToArray()
+            );
         }
     }
 }

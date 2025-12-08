@@ -26,70 +26,70 @@ namespace HoshinoLabs.ULocalization.Udon {
                         return format;
                     }
                     var v = _v.Int;
-                    switch (_15[v]) {
+                    switch (_17[v]) {
                         case "__f8cfba77af0119c086592e79c73223e5": {
                                 d = null;
-                                s = ((bool)_17[v]).ToString(culture);
+                                s = ((bool)_19[v]).ToString(culture);
                                 break;
                             }
                         case "__6bac394d6972c8d339cc1ce54df77912": {
                                 d = null;
-                                s = ((sbyte)_17[v]).ToString(f, culture);
+                                s = ((sbyte)_19[v]).ToString(f, culture);
                                 break;
                             }
                         case "__7e161907af17a8f682d768188abd5951": {
                                 d = null;
-                                s = ((byte)_17[v]).ToString(f, culture);
+                                s = ((byte)_19[v]).ToString(f, culture);
                                 break;
                             }
                         case "__87ef78382d22f90afacdd86d7c2c3e65": {
                                 d = null;
-                                s = ((short)_17[v]).ToString(f, culture);
+                                s = ((short)_19[v]).ToString(f, culture);
                                 break;
                             }
                         case "__e2c64e0a94ccfc78d9209d4d9aaffce7": {
                                 d = null;
-                                s = ((ushort)_17[v]).ToString(f, culture);
+                                s = ((ushort)_19[v]).ToString(f, culture);
                                 break;
                             }
                         case "__8417c01a3ee51184c42f97c8f6e41b4a": {
                                 d = null;
-                                s = ((int)_17[v]).ToString(f, culture);
+                                s = ((int)_19[v]).ToString(f, culture);
                                 break;
                             }
                         case "__9843bf736c4a3f95db46565832dc7167": {
                                 d = null;
-                                s = ((uint)_17[v]).ToString(f, culture);
+                                s = ((uint)_19[v]).ToString(f, culture);
                                 break;
                             }
                         case "__261e9c8a98d5bc34284778a40dbcf076": {
                                 d = null;
-                                s = ((long)_17[v]).ToString(f, culture);
+                                s = ((long)_19[v]).ToString(f, culture);
                                 break;
                             }
                         case "__012ee6846df47c4946e18c2d71a61ca1": {
                                 d = null;
-                                s = ((ulong)_17[v]).ToString(f, culture);
+                                s = ((ulong)_19[v]).ToString(f, culture);
                                 break;
                             }
                         case "__2e798db3630c1fd3c89877775b600ffe": {
                                 d = null;
-                                s = ((string)_17[v]).ToString(culture);
+                                s = ((string)_19[v]).ToString(culture);
                                 break;
                             }
                         case "__73eb38c4d216f0260fa5dd939499ea3b": {
                                 d = null;
-                                s = ((float)_17[v]).ToString(f, culture);
+                                s = ((float)_19[v]).ToString(f, culture);
                                 break;
                             }
                         case "__7a160556cb5c2de9039d3b53bdde58a7": {
                                 d = null;
-                                s = ((double)_17[v]).ToString(f, culture);
+                                s = ((double)_19[v]).ToString(f, culture);
                                 break;
                             }
                         case "__d3be8ac28dfa83b00c677fa0937010c8": {
                                 d = null;
-                                var o = _17[v];
+                                var o = _19[v];
                                 if (o == null) {
                                     s = "null";
                                 }
@@ -173,7 +173,7 @@ namespace HoshinoLabs.ULocalization.Udon {
                                 break;
                             }
                         case "__6c640a4ed53d954835db21cc931dc34e": {
-                                d = (DataDictionary)_17[(int)_17[v]];
+                                d = (DataDictionary)_19[(int)_19[v]];
                                 break;
                             }
                         case "__8a40d06f0f1ef4f691875d86a3c4c58c": {

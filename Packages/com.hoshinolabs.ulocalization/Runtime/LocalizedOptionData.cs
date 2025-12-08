@@ -1,10 +1,12 @@
 using System;
 using UnityEngine;
 using UnityEngine.Localization;
+using UnityEngine.Localization.SmartFormat.Core.Extensions;
+using UnityEngine.Localization.SmartFormat.PersistentVariables;
 
 namespace HoshinoLabs.ULocalization {
     [Serializable]
-    public sealed class LocalizedOptionData {
+    public sealed class LocalizedOptionData : LocalizedReference, IVariable, IDisposable {
         event ChangeHandler changeHandler;
 
         public delegate void ChangeHandler();
@@ -61,6 +63,14 @@ namespace HoshinoLabs.ULocalization {
             this.image = image;
         }
 
+        protected override void ForceUpdate() {
+
+        }
+
+        protected override void Reset() {
+
+        }
+
         void UpdateString(string value) {
             changeHandler?.Invoke();
         }
@@ -85,6 +95,14 @@ namespace HoshinoLabs.ULocalization {
             if (image != null) {
                 image.AssetChanged -= UpdateAsset;
             }
+        }
+
+        public object GetSourceValue(ISelectorInfo selector) {
+            return this;
+        }
+
+        void IDisposable.Dispose() {
+            GC.SuppressFinalize(this);
         }
     }
 }

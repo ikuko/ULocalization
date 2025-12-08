@@ -1,5 +1,3 @@
-using UnityEngine.Localization.SmartFormat.PersistentVariables;
-
 namespace HoshinoLabs.ULocalization.Udon {
     internal static class VariableExtensions {
         public static bool IsSupported(this UnityEngine.Localization.SmartFormat.PersistentVariables.IVariable self) {

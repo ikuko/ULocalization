@@ -11,7 +11,7 @@ using UnityEngine.Localization.SmartFormat.PersistentVariables;
 
 namespace HoshinoLabs.ULocalization {
     [Serializable]
-    public sealed class LocalizedOptionDataList : LocalizedReference, IList<LocalizedOptionData>, IVariable, IDisposable {
+    public sealed class LocalizedOptionDataList : LocalizedReference, IList<LocalizedOptionData>, IVariableGroup, IVariable, IDisposable {
         event ChangeHandler changeHandler;
 
         public delegate void ChangeHandler();
@@ -142,6 +142,16 @@ namespace HoshinoLabs.ULocalization {
 
         public object GetSourceValue(ISelectorInfo selector) {
             return options;
+        }
+
+        public bool TryGetValue(string key, out IVariable value) {
+            if (int.TryParse(key, out var index)) {
+                value = options[index];
+                return true;
+            }
+
+            value = default;
+            return false;
         }
 
         void IDisposable.Dispose() {

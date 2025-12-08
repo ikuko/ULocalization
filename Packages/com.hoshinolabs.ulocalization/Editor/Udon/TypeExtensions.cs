@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 
 namespace HoshinoLabs.ULocalization.Udon {
     internal static class TypeExtensions {
@@ -27,6 +29,13 @@ namespace HoshinoLabs.ULocalization.Udon {
                 yield return self;
                 self = self.BaseType;
             }
+        }
+
+        public static FieldInfo[] GetLocalizationFields(this Type self) {
+            return self.GetFields(BindingFlags.DeclaredOnly | BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic)
+                .Where(x => x.FieldType.Namespace.StartsWith(typeof(Localization).Namespace))
+                .Concat(self.BaseType?.GetLocalizationFields() ?? Array.Empty<FieldInfo>())
+                .ToArray();
         }
     }
 }

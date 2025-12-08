@@ -8,39 +8,51 @@ namespace HoshinoLabs.ULocalization.Udon {
         public static DataList ToDataList(this IEnumerable<string> self) {
             return new DataList(self.Select(x => new DataToken(x)).ToArray());
         }
+
         public static DataList ToDataList(this IEnumerable<object> self) {
             return new DataList(self.Select(x => new DataToken(x)).ToArray());
         }
+
         public static DataList ToDataList(this IEnumerable<bool> self) {
             return new DataList(self.Select(x => new DataToken(x)).ToArray());
         }
+
         public static DataList ToDataList(this IEnumerable<sbyte> self) {
             return new DataList(self.Select(x => new DataToken(x)).ToArray());
         }
+
         public static DataList ToDataList(this IEnumerable<byte> self) {
             return new DataList(self.Select(x => new DataToken(x)).ToArray());
         }
+
         public static DataList ToDataList(this IEnumerable<short> self) {
             return new DataList(self.Select(x => new DataToken(x)).ToArray());
         }
+
         public static DataList ToDataList(this IEnumerable<ushort> self) {
             return new DataList(self.Select(x => new DataToken(x)).ToArray());
         }
+
         public static DataList ToDataList(this IEnumerable<int> self) {
             return new DataList(self.Select(x => new DataToken(x)).ToArray());
         }
+
         public static DataList ToDataList(this IEnumerable<uint> self) {
             return new DataList(self.Select(x => new DataToken(x)).ToArray());
         }
+
         public static DataList ToDataList(this IEnumerable<long> self) {
             return new DataList(self.Select(x => new DataToken(x)).ToArray());
         }
+
         public static DataList ToDataList(this IEnumerable<ulong> self) {
             return new DataList(self.Select(x => new DataToken(x)).ToArray());
         }
+
         public static DataList ToDataList(this IEnumerable<float> self) {
             return new DataList(self.Select(x => new DataToken(x)).ToArray());
         }
+
         public static DataList ToDataList(this IEnumerable<double> self) {
             return new DataList(self.Select(x => new DataToken(x)).ToArray());
         }
