@@ -1,11 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using TMPro;
 using UnityEngine;
 using UnityEngine.Localization;
-using UnityEngine.Localization.Settings;
 using UnityEngine.Localization.SmartFormat.Core.Extensions;
 using UnityEngine.Localization.SmartFormat.PersistentVariables;
 
@@ -21,10 +18,14 @@ namespace HoshinoLabs.ULocalization {
                 if (value == null) {
                     throw new ArgumentNullException();
                 }
+                ClearChangeHandler();
                 changeHandler += value;
+                RegisterChangeHandler();
             }
             remove {
+                ClearChangeHandler();
                 changeHandler -= value;
+                RegisterChangeHandler();
             }
         }
 
@@ -53,16 +54,8 @@ namespace HoshinoLabs.ULocalization {
             }
         }
 
-        public TMP_Dropdown.OptionData[] GetLocalizedOptionData() {
-            return options
-                .Select(x => {
-                    var locale = LocalizationSettings.SelectedLocale ?? LocalizationSettings.ProjectLocale;
-                    LocalizationSettings.StringDatabase.GetTable(x.Text.TableReference, locale);
-                    var text = x.Text.IsEmpty ? null : LocalizationSettings.StringDatabase.GetLocalizedString(x.Text.TableReference, x.Text.TableEntryReference, x.Text.Arguments, locale);
-                    var image = x.Image.IsEmpty ? null : LocalizationSettings.AssetDatabase.GetLocalizedAsset<Sprite>(x.Image.TableReference, x.Image.TableEntryReference, locale);
-                    return new TMP_Dropdown.OptionData(text, image);
-                })
-                .ToArray();
+        public LocalizedOptionDataList() {
+
         }
 
         public int IndexOf(LocalizedOptionData item) {

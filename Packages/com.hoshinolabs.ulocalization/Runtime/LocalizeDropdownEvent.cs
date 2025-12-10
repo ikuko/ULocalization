@@ -1,7 +1,9 @@
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Localization.Components;
+using UnityEngine.Localization.Settings;
 
 namespace HoshinoLabs.ULocalization {
     [AddComponentMenu("Localization/Localize Dropdown Event")]
@@ -30,9 +32,24 @@ namespace HoshinoLabs.ULocalization {
 
         public void RefreshOptions() {
 #if UNITY_EDITOR
-            UnityEditor.EditorApplication.update -= RefreshOptions;
+            UnityEditor.EditorApplication.update -= RefreshOptionsInternal;
+            if (!UnityEditor.EditorApplication.isPlayingOrWillChangePlaymode) {
+                UnityEditor.EditorApplication.update += RefreshOptionsInternal;
+                return;
+            }
 #endif
-            var translatedOptions = options.GetLocalizedOptionData();
+            RefreshOptionsInternal();
+        }
+
+        void RefreshOptionsInternal() {
+            var translatedOptions = options
+                .Select(x => {
+                    var locale = LocalizationSettings.SelectedLocale ?? LocalizationSettings.ProjectLocale;
+                    var text = x.Text.IsEmpty ? null : LocalizationSettings.StringDatabase.GetLocalizedStringAsync(x.Text.TableReference, x.Text.TableEntryReference, x.Text.Arguments, locale, x.Text.FallbackState, x.Text.Count > 0 ? x.Text : null).WaitForCompletion();
+                    var image = x.Image.IsEmpty ? null : LocalizationSettings.AssetDatabase.GetLocalizedAsset<Sprite>(x.Image.TableReference, x.Image.TableEntryReference, locale);
+                    return new TMP_Dropdown.OptionData(text, image);
+                })
+                .ToArray();
             updateOptions?.Invoke(translatedOptions);
         }
 
@@ -44,43 +61,18 @@ namespace HoshinoLabs.ULocalization {
             ClearChangeHandler();
         }
 
-        void UpdateString(string value) {
-            RefreshOptions();
-        }
-
-        void UpdateAsset(Sprite value) {
-            RefreshOptions();
-        }
-
 #if UNITY_EDITOR
         private void OnValidate() {
-            if (!isActiveAndEnabled) {
-                return;
-            }
-            UnityEditor.EditorApplication.update += RefreshOptions;
+            RefreshOptions();
         }
 #endif
 
         void RegisterChangeHandler() {
-            foreach (var option in options.Options) {
-                if (option.Text != null) {
-                    option.Text.StringChanged += UpdateString;
-                }
-                if (option.Image != null) {
-                    option.Image.AssetChanged += UpdateAsset;
-                }
-            }
+            options.OptionsChanged += RefreshOptions;
         }
 
         void ClearChangeHandler() {
-            foreach (var option in options.Options) {
-                if (option.Text != null) {
-                    option.Text.StringChanged -= UpdateString;
-                }
-                if (option.Image != null) {
-                    option.Image.AssetChanged -= UpdateAsset;
-                }
-            }
+            options.OptionsChanged -= RefreshOptions;
         }
     }
 }

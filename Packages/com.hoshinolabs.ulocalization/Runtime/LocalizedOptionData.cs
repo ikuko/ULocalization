@@ -16,10 +16,14 @@ namespace HoshinoLabs.ULocalization {
                 if (value == null) {
                     throw new ArgumentNullException();
                 }
+                ClearChangeHandler();
                 changeHandler += value;
+                RegisterChangeHandler();
             }
             remove {
+                ClearChangeHandler();
                 changeHandler -= value;
+                RegisterChangeHandler();
             }
         }
 
