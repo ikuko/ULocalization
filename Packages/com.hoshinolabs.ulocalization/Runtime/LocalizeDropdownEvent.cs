@@ -32,16 +32,12 @@ namespace HoshinoLabs.ULocalization {
 
         public void RefreshOptions() {
 #if UNITY_EDITOR
-            UnityEditor.EditorApplication.update -= RefreshOptionsInternal;
+            UnityEditor.EditorApplication.update -= RefreshOptions;
             if (!UnityEditor.EditorApplication.isPlayingOrWillChangePlaymode) {
-                UnityEditor.EditorApplication.update += RefreshOptionsInternal;
                 return;
             }
 #endif
-            RefreshOptionsInternal();
-        }
 
-        void RefreshOptionsInternal() {
             var translatedOptions = options
                 .Select(x => {
                     var locale = LocalizationSettings.SelectedLocale ?? LocalizationSettings.ProjectLocale;
@@ -63,7 +59,7 @@ namespace HoshinoLabs.ULocalization {
 
 #if UNITY_EDITOR
         private void OnValidate() {
-            RefreshOptions();
+            UnityEditor.EditorApplication.update += RefreshOptions;
         }
 #endif
 
