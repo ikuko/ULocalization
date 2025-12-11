@@ -8,6 +8,7 @@ namespace HoshinoLabs.ULocalization.Udon {
                 case UnityEngine.Localization.LocalizedAudioClip:
                 case UnityEngine.Localization.LocalizedTexture:
                 case UnityEngine.Localization.LocalizedSprite:
+                case ULocalization.LocalizedOptionData:
                 case ULocalization.LocalizedOptionDataList: {
                         return true;
                     }

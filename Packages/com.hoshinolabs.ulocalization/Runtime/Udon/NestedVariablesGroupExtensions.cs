@@ -13,7 +13,7 @@ namespace HoshinoLabs.ULocalization.Udon {
             }
             var variable = new object[2];
             variable[0] = _localization;
-            variable[1] = (int)_localization.GetVariable(_variablesGroup);
+            variable[1] = (int)_localization.GetValue(_variablesGroup);
             return (VariablesGroupAsset)(object)variable;
         }
 
@@ -26,7 +26,7 @@ namespace HoshinoLabs.ULocalization.Udon {
             var _localization = (LocalizationShim)_self[0];
             var _variable = (int)_self[1];
             var _variablesGroup = value == null ? -1 : (int)((object[])(object)value)[1];
-            _localization.SetVariable(_variable, _variablesGroup);
+            _localization.SetValue(_variable, _variablesGroup);
         }
     }
 }

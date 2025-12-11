@@ -19,8 +19,7 @@ namespace HoshinoLabs.ULocalization.Udon {
         public void Serialize(IDataWriter writer) {
 #if !COMPILER_UDONSHARP && UNITY_EDITOR
             writer.WriteReference("", LocalizationResolver.Resolve());
-            writer.WriteInt32("", LocalizedCache.AddOrGet(localized.Text));
-            writer.WriteInt32("", LocalizedCache.AddOrGet(localized.Image));
+            writer.WriteInt32("", LocalizedCache.AddOrGet(localized));
 #endif
         }
 

@@ -18,14 +18,11 @@ namespace HoshinoLabs.ULocalization {
                 if (value == null) {
                     throw new ArgumentNullException();
                 }
-                ClearChangeHandler();
                 changeHandler += value;
-                RegisterChangeHandler();
+                ForceUpdate();
             }
             remove {
-                ClearChangeHandler();
                 changeHandler -= value;
-                RegisterChangeHandler();
             }
         }
 
@@ -110,7 +107,7 @@ namespace HoshinoLabs.ULocalization {
         }
 
         protected override void ForceUpdate() {
-
+            changeHandler?.Invoke();
         }
 
         protected override void Reset() {

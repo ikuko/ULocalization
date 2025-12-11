@@ -10,7 +10,7 @@ namespace HoshinoLabs.ULocalization.Udon {
             var _self = (object[])(object)self;
             var _localization = (LocalizationShim)_self[0];
             var _localized = (int)_self[1];
-            _localization.RefreshLocalized(_localized);
+            _localization.RefreshVariable(_localized);
         }
 
         public static string GetLocalizedString(this LocalizedString self) {
@@ -38,7 +38,7 @@ namespace HoshinoLabs.ULocalization.Udon {
             var _self = (object[])(object)self;
             var _localization = (LocalizationShim)_self[0];
             var _localized = (int)_self[1];
-            var variables = (DataDictionary)_localization.GetVariable(_localized);
+            var variables = (DataDictionary)_localization.GetValue(_localized);
             if (!variables.TryGetValue(name, out var _variable)) {
                 value = default;
                 return false;
@@ -64,7 +64,7 @@ namespace HoshinoLabs.ULocalization.Udon {
             var _self = (object[])(object)self;
             var _localization = (LocalizationShim)_self[0];
             var _localized = (int)_self[1];
-            var variables = (DataDictionary)_localization.GetVariable(_localized);
+            var variables = (DataDictionary)_localization.GetValue(_localized);
             if (!variables.TryGetValue(name, out var _variable)) {
                 value = default;
                 return false;
@@ -143,7 +143,7 @@ namespace HoshinoLabs.ULocalization.Udon {
             var _self = (object[])(object)self;
             var _localization = (LocalizationShim)_self[0];
             var _localized = (int)_self[1];
-            var variables = (DataDictionary)_localization.GetVariable(_localized);
+            var variables = (DataDictionary)_localization.GetValue(_localized);
             return variables.ContainsKey(name);
         }
     }

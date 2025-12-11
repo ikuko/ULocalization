@@ -1,6 +1,7 @@
 using HoshinoLabs.Sardinject;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using UnityEditor;
 using UnityEngine.Localization;
@@ -38,6 +39,11 @@ namespace HoshinoLabs.ULocalization.Udon {
 
         public static int AddOrGet<T>(T localized, LocalizedMonoBehaviour localizeEvent = default)
             where T : LocalizedReference, UnityEngine.Localization.SmartFormat.PersistentVariables.IVariable, IVariableGroup, IDictionary<string, UnityEngine.Localization.SmartFormat.PersistentVariables.IVariable> {
+            VariableCache.AddOrGet(localized);
+            return AddOrGet((LocalizedReference)localized, localizeEvent);
+        }
+
+        public static int AddOrGet(ULocalization.LocalizedOptionData localized, LocalizedMonoBehaviour localizeEvent = default) {
             VariableCache.AddOrGet(localized);
             return AddOrGet((LocalizedReference)localized, localizeEvent);
         }

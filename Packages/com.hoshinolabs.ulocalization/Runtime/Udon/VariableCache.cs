@@ -64,11 +64,17 @@ namespace HoshinoLabs.ULocalization.Udon {
             return AddOrGet((UnityEngine.Localization.SmartFormat.PersistentVariables.IVariable)nestedVariablesGroup);
         }
 
+        public static int AddOrGet(ULocalization.LocalizedOptionData localizedOptionData) {
+            LocalizedCache.AddOrGet(localizedOptionData?.Text);
+            LocalizedCache.AddOrGet(localizedOptionData?.Image);
+            AddOrGet(localizedOptionData?.Text, localizedOptionData);
+            return AddOrGet((UnityEngine.Localization.SmartFormat.PersistentVariables.IVariable)localizedOptionData);
+        }
+
         public static int AddOrGet(ULocalization.LocalizedOptionDataList localizedOptionDataList) {
             foreach (var localizedOptionData in localizedOptionDataList ?? Enumerable.Empty<ULocalization.LocalizedOptionData>()) {
-                LocalizedCache.AddOrGet(localizedOptionData?.Text);
-                AddOrGet(localizedOptionData?.Text, localizedOptionDataList);
-                LocalizedCache.AddOrGet(localizedOptionData?.Image);
+                LocalizedCache.AddOrGet(localizedOptionData);
+                AddOrGet(localizedOptionData, localizedOptionDataList);
             }
             return AddOrGet((UnityEngine.Localization.SmartFormat.PersistentVariables.IVariable)localizedOptionDataList);
         }

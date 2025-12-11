@@ -153,17 +153,17 @@ namespace HoshinoLabs.ULocalization.Udon {
             if (localized < 0) {
                 return;
             }
-            var __14 = _15[localized];
-            if (__14 < 0) {
-                var __17 = (DataList)_19[localized];
-                var __17_count = __17.Count;
-                var options = new TMPro.TMP_Dropdown.OptionData[__17_count];
-                for (var i = 0; i < __17_count; i++) {
-                    var ___17 = (int[])__17[i].Reference;
-                    var ___17_0 = ___17[0];
-                    var ___17_1 = ___17[1];
-                    var text = ___17_0 < 0 ? string.Empty : (string)GetLocalizedValue(___17_0);
-                    var image = ___17_1 < 0 ? null : (Sprite)GetLocalizedValue(___17_1);
+            var __15 = _15[localized];
+            if (__15 < 0) {
+                var __19 = (DataList)_19[localized];
+                var __19_count = __19.Count;
+                var options = new TMPro.TMP_Dropdown.OptionData[__19_count];
+                for (var i = 0; i < __19_count; i++) {
+                    var ___19 = (int[])_19[__19[i].Int];
+                    var ___19_0 = ___19[0];
+                    var ___19_1 = ___19[1];
+                    var text = ___19_0 < 0 ? string.Empty : (string)GetLocalizedValue(___19_0);
+                    var image = ___19_1 < 0 ? null : (Sprite)GetLocalizedValue(___19_1);
                     options[i] = new TMPro.TMP_Dropdown.OptionData(text, image);
                 }
                 _l_p = options;
@@ -171,23 +171,43 @@ namespace HoshinoLabs.ULocalization.Udon {
             else {
                 _l_p = GetLocalizedValue(localized);
             }
-            var __6_0 = _9[localizeEvent];
-            var __6_1 = _10[localizeEvent];
-            var __6_2 = _11[localizeEvent];
-            var __6_3 = _12[localizeEvent];
-            for (var i = 0; i < __6_0; i++) {
-                _l_t = __6_2[i];
-                _l_a = __6_3[i];
-                SendCustomEvent(__6_1[i]);
+            var __9 = _9[localizeEvent];
+            var __10 = _10[localizeEvent];
+            var __11 = _11[localizeEvent];
+            var __12 = _12[localizeEvent];
+            for (var i = 0; i < __9; i++) {
+                _l_t = __11[i];
+                _l_a = __12[i];
+                SendCustomEvent(__10[i]);
             }
         }
 
         public void RefreshLocalized(int localized) {
-            var __13 = _14[localized];
-            var __13_count = __13.Count;
-            for (var i = 0; i < __13_count; i++) {
-                RefreshLocalizeEvent(__13[i].Int);
+            var __14 = _14[localized];
+            var __14_count = __14.Count;
+            for (var i = 0; i < __14_count; i++) {
+                RefreshLocalizeEvent(__14[i].Int);
             }
+        }
+
+        public int NewLocalized(string id) {
+            var _variable = NewVariable(id);
+            var _localized = _variable;
+
+            var __13 = _localized + 1;
+
+            var __14 = new DataList[__13];
+            Array.Copy(_14, __14, _13);
+            __14[_localized] = new DataList();
+            _14 = __14;
+            var __15 = new int[__13];
+            Array.Copy(_15, __15, _13);
+            __15[_localized] = -1;
+            _15 = __15;
+
+            _13 = __13;
+
+            return _localized;
         }
 
         [RecursiveMethod]
@@ -203,64 +223,13 @@ namespace HoshinoLabs.ULocalization.Udon {
             return value;
         }
 
-        public object GetVariable(int variable) {
+        public object GetValue(int variable) {
             return _19[variable];
         }
 
-        public void SetVariable(int variable, object value) {
+        public void SetValue(int variable, object value) {
             _19[variable] = value;
             RefreshVariable(variable);
-        }
-
-        public void AddVariable(int variablesGroup, string name, int variable) {
-            var __16 = _18[variable];
-            __16.Add(variablesGroup);
-            var __17 = (DataDictionary)_19[variablesGroup];
-            __17.Add(name, variable);
-        }
-
-        public bool RemoveVariable(int variablesGroup, string name) {
-            var __17 = (DataDictionary)_19[variablesGroup];
-            if (!__17.TryGetValue(name, out var _variable)) {
-                return false;
-            }
-            var r = __17.Remove(name);
-            var __16 = _18[_variable.Int];
-            __16.RemoveAll(variablesGroup);
-            return r;
-        }
-
-        public void AddVariable(int variable, int localizedText, int localizedImage) {
-            var __16 = _18[localizedText];
-            __16.Add(variable);
-            var __17 = (DataList)_19[variable];
-            __17.Add(new DataToken(new[] { localizedText, localizedImage }));
-        }
-
-        public void RemoveAtVariable(int variable, int index) {
-            var __17 = (DataList)_19[variable];
-            var localizedText = ((int[])__17[index].Reference)[0];
-            __17.RemoveAt(index);
-            var __16 = _18[localizedText];
-            __16.RemoveAll(variable);
-        }
-
-        public void InsertVariable(int variable, int index, int localizedText, int localizedImage) {
-            var __16 = _18[localizedText];
-            __16.Add(variable);
-            var __17 = (DataList)_19[variable];
-            __17.Insert(index, new DataToken(new[] { localizedText, localizedImage }));
-        }
-
-        public void ClearVariable(int variable) {
-            var __17 = (DataList)_19[variable];
-            var __17_count = __17.Count;
-            for (var i = 0; i < __17_count; i++) {
-                var localizedText = ((int[])__17[i].Reference)[0];
-                var __16 = _18[localizedText];
-                __16.RemoveAll(variable);
-            }
-            __17.Clear();
         }
 
         [RecursiveMethod]
@@ -268,11 +237,91 @@ namespace HoshinoLabs.ULocalization.Udon {
             if (_14[variable] != null) {
                 RefreshLocalized(variable);
             }
-            var __16 = _18[variable];
-            var __16_count = __16.Count;
-            for (var i = 0; i < __16_count; i++) {
-                RefreshVariable(__16[i].Int);
+            var __18 = _18[variable];
+            var __18_count = __18.Count;
+            for (var i = 0; i < __18_count; i++) {
+                RefreshVariable(__18[i].Int);
             }
+        }
+
+        public int NewVariable(string id) {
+            var _variable = _16;
+
+            var __16 = _16 + 1;
+
+            var __17 = new string[__16];
+            Array.Copy(_17, __17, _16);
+            __17[_variable] = id;
+            _17 = __17;
+            var __18 = new DataList[__16];
+            Array.Copy(_18, __18, _16);
+            __18[_variable] = new DataList();
+            _18 = __18;
+            var __19 = new object[__16];
+            Array.Copy(_19, __19, _16);
+            __19[_variable] = null;
+            _19 = __19;
+
+            _16 = __16;
+
+            return _variable;
+        }
+
+        public void AddVariable(int variablesGroup, string name, int variable) {
+            var __18 = _18[variable];
+            __18.Add(variablesGroup);
+            var __19 = (DataDictionary)_19[variablesGroup];
+            __19.Add(name, variable);
+        }
+
+        public bool RemoveVariable(int variablesGroup, string name) {
+            var __19 = (DataDictionary)_19[variablesGroup];
+            if (!__19.TryGetValue(name, out var _variable)) {
+                return false;
+            }
+            var r = __19.Remove(name);
+            var __18 = _18[_variable.Int];
+            __18.RemoveAll(variablesGroup);
+            return r;
+        }
+
+        public void AddVariable(int variablesGroup, int variable) {
+            var __18 = _18[variable];
+            __18.Add(variablesGroup);
+            var __19 = (DataList)_19[variablesGroup];
+            __19.Add(variable);
+        }
+
+        public void RemoveAtVariable(int variablesGroup, int index) {
+            var __19 = (DataList)_19[variablesGroup];
+            var variable = __19[index].Int;
+            __19.RemoveAt(index);
+            var __18 = _18[variable];
+            __18.RemoveAll(variablesGroup);
+        }
+
+        public void InsertVariable(int variablesGroup, int index, int variable) {
+            var __18 = _18[variable];
+            __18.Add(variablesGroup);
+            var __19 = (DataList)_19[variablesGroup];
+            __19.Insert(index, variable);
+        }
+
+        public void ClearVariable(int variablesGroup) {
+            var __19 = (DataList)_19[variablesGroup];
+            var __19_count = __19.Count;
+            for (var i = 0; i < __19_count; i++) {
+                var __18 = _18[__19[i].Int];
+                __18.RemoveAll(variablesGroup);
+            }
+            __19.Clear();
+        }
+
+        public void SetVariable(int variablesGroup, int index, int variable) {
+            var __19 = (int[])_19[variablesGroup];
+            _18[__19[index]].RemoveAll(variablesGroup);
+            _18[variable].Add(variablesGroup);
+            __19[index] = variable;
         }
 
         DataDictionary _r_cache0;
@@ -326,15 +375,8 @@ namespace HoshinoLabs.ULocalization.Udon {
                         case "__8a40d06f0f1ef4f691875d86a3c4c58c":
                         case "__c0eea7769cdfe536c00e9f21b4511726":
                         case "__a7d514cbdeb678df58989ae027cd00ea":
-                        case "__45e14183d1316ab8c4a4c59000a0cb64": {
-                                _v[1] = CloneLocalized((int)_v[1]);
-                                break;
-                            }
-                        case "__843847da481d19ec55c1ea6e32ddff8f": {
-                                _v[1] = CloneLocalized((int)_v[1]);
-                                _v[2] = CloneLocalized((int)_v[2]);
-                                break;
-                            }
+                        case "__45e14183d1316ab8c4a4c59000a0cb64":
+                        case "__843847da481d19ec55c1ea6e32ddff8f":
                         case "__461b2df608253952f317044024ef8027": {
                                 _v[1] = CloneLocalized((int)_v[1]);
                                 break;
@@ -487,16 +529,26 @@ namespace HoshinoLabs.ULocalization.Udon {
                         }
                         return _variable;
                     }
+                case "__843847da481d19ec55c1ea6e32ddff8f": {
+                        var __19 = (int[])((int[])_19[variable]).Clone();
+                        __19[0] = CloneLocalized(__19[0]);
+                        __19[1] = CloneLocalized(__19[1]);
+                        var _variable = CloneVariable(variable, __19);
+                        _18[__19[0]].Add(_variable);
+                        _18[__19[1]].Add(_variable);
+                        return _variable;
+                    }
                 case "__461b2df608253952f317044024ef8027": {
                         var __19 = ((DataList)_19[variable]).DeepClone();
                         var __19_count = __19.Count;
                         for (var i = 0; i < __19_count; i++) {
-                            var ___19 = (int[])((int[])__19[i].Reference).Clone();
-                            ___19[0] = CloneLocalized(___19[0]);
-                            ___19[1] = CloneLocalized(___19[1]);
-                            __19[i] = new DataToken(___19);
+                            __19[i] = CloneLocalized(__19[i].Int);
                         }
-                        return CloneVariable(variable, __19);
+                        var _variable = CloneVariable(variable, __19);
+                        for (var i = 0; i < __19_count; i++) {
+                            _18[__19[i].Int].Add(_variable);
+                        }
+                        return _variable;
                     }
                 case "__d3be8ac28dfa83b00c677fa0937010c8": {
                         var __19 = _19[variable];

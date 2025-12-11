@@ -16,7 +16,7 @@ namespace HoshinoLabs.ULocalization.Udon {
             var _self = (object[])(object)self;
             var _localization = (LocalizationShim)_self[0];
             var _variablesGroup = (int)_self[1];
-            var variables = (DataDictionary)_localization.GetVariable(_variablesGroup);
+            var variables = (DataDictionary)_localization.GetValue(_variablesGroup);
             if (!variables.TryGetValue(name, out var _variable)) {
                 value = default;
                 return false;
@@ -42,7 +42,7 @@ namespace HoshinoLabs.ULocalization.Udon {
             var _self = (object[])(object)self;
             var _localization = (LocalizationShim)_self[0];
             var _variablesGroup = (int)_self[1];
-            var variables = (DataDictionary)_localization.GetVariable(_variablesGroup);
+            var variables = (DataDictionary)_localization.GetValue(_variablesGroup);
             if (!variables.TryGetValue(name, out var _variable)) {
                 value = default;
                 return false;
@@ -121,7 +121,7 @@ namespace HoshinoLabs.ULocalization.Udon {
             var _self = (object[])(object)self;
             var _localization = (LocalizationShim)_self[0];
             var _variablesGroup = (int)_self[1];
-            var variables = (DataDictionary)_localization.GetVariable(_variablesGroup);
+            var variables = (DataDictionary)_localization.GetValue(_variablesGroup);
             return variables.ContainsKey(name);
         }
     }

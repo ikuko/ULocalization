@@ -8,7 +8,7 @@ namespace HoshinoLabs.ULocalization.Udon {
             var _self = (object[])(object)self;
             var _localization = (LocalizationShim)_self[0];
             var _variable = (int)_self[1];
-            return (string)_localization.GetVariable(_variable);
+            return (string)_localization.GetValue(_variable);
         }
 
         public static void SetValue(this StringVariable self, string value) {
@@ -19,7 +19,7 @@ namespace HoshinoLabs.ULocalization.Udon {
             var _self = (object[])(object)self;
             var _localization = (LocalizationShim)_self[0];
             var _variable = (int)_self[1];
-            _localization.SetVariable(_variable, value);
+            _localization.SetValue(_variable, value);
         }
     }
 }

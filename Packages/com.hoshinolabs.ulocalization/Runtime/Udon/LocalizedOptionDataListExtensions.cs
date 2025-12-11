@@ -8,15 +8,8 @@ namespace HoshinoLabs.ULocalization.Udon {
             var _self = (object[])(object)self;
             var _localization = (LocalizationShim)_self[0];
             var _localized = (int)_self[1];
-            if (option == null) {
-                _localization.AddVariable(_localized, -1, -1);
-            }
-            else {
-                var _option = (object[])(object)option;
-                var _localizedText = (int)_option[1];
-                var _localizedImage = (int)_option[2];
-                _localization.AddVariable(_localized, _localizedText, _localizedImage);
-            }
+            var _variable = (int)((object[])(object)option)[1];
+            _localization.AddVariable(_localized, _variable);
         }
 
         public static void Add(this LocalizedOptionDataList self, LocalizedString text) {
@@ -27,8 +20,10 @@ namespace HoshinoLabs.ULocalization.Udon {
             var _self = (object[])(object)self;
             var _localization = (LocalizationShim)_self[0];
             var _localized = (int)_self[1];
-            var _localizedText = text == null ? -1 : (int)((object[])(object)text)[1];
-            _localization.AddVariable(_localized, _localizedText, -1);
+            var _variable = _localization.NewLocalized("__843847da481d19ec55c1ea6e32ddff8f");
+            _localization.SetValue(_variable, new[] { -1, -1 });
+            _localization.SetVariable(_variable, 0, (int)((object[])(object)text)[1]);
+            _localization.AddVariable(_localized, _variable);
         }
 
         public static void Add(this LocalizedOptionDataList self, LocalizedSprite image) {
@@ -39,8 +34,10 @@ namespace HoshinoLabs.ULocalization.Udon {
             var _self = (object[])(object)self;
             var _localization = (LocalizationShim)_self[0];
             var _localized = (int)_self[1];
-            var _localizedImage = image == null ? -1 : (int)((object[])(object)image)[1];
-            _localization.AddVariable(_localized, -1, _localizedImage);
+            var _variable = _localization.NewLocalized("__843847da481d19ec55c1ea6e32ddff8f");
+            _localization.SetValue(_variable, new[] { -1, -1 });
+            _localization.SetVariable(_variable, 1, (int)((object[])(object)image)[1]);
+            _localization.AddVariable(_localized, _variable);
         }
 
         public static void Add(this LocalizedOptionDataList self, LocalizedString text, LocalizedSprite image) {
@@ -51,9 +48,11 @@ namespace HoshinoLabs.ULocalization.Udon {
             var _self = (object[])(object)self;
             var _localization = (LocalizationShim)_self[0];
             var _localized = (int)_self[1];
-            var _localizedText = text == null ? -1 : (int)((object[])(object)text)[1];
-            var _localizedImage = image == null ? -1 : (int)((object[])(object)image)[1];
-            _localization.AddVariable(_localized, _localizedText, _localizedImage);
+            var _variable = _localization.NewLocalized("__843847da481d19ec55c1ea6e32ddff8f");
+            _localization.SetValue(_variable, new[] { -1, -1 });
+            _localization.SetVariable(_variable, 0, (int)((object[])(object)text)[1]);
+            _localization.SetVariable(_variable, 1, (int)((object[])(object)image)[1]);
+            _localization.AddVariable(_localized, _variable);
         }
 
         public static void RemoveAt(this LocalizedOptionDataList self, int index) {
@@ -75,15 +74,8 @@ namespace HoshinoLabs.ULocalization.Udon {
             var _self = (object[])(object)self;
             var _localization = (LocalizationShim)_self[0];
             var _localized = (int)_self[1];
-            if (option == null) {
-                _localization.InsertVariable(_localized, index, -1, -1);
-            }
-            else {
-                var _option = (object[])(object)option;
-                var _localizedText = (int)_option[1];
-                var _localizedImage = (int)_option[2];
-                _localization.InsertVariable(_localized, index, _localizedText, _localizedImage);
-            }
+            var _variable = (int)((object[])(object)option)[1];
+            _localization.InsertVariable(_localized, index, _variable);
         }
 
         public static void Insert(this LocalizedOptionDataList self, int index, LocalizedString text) {
@@ -94,8 +86,10 @@ namespace HoshinoLabs.ULocalization.Udon {
             var _self = (object[])(object)self;
             var _localization = (LocalizationShim)_self[0];
             var _localized = (int)_self[1];
-            var _localizedText = text == null ? -1 : (int)((object[])(object)text)[1];
-            _localization.InsertVariable(_localized, index, _localizedText, -1);
+            var _variable = _localization.NewLocalized("__843847da481d19ec55c1ea6e32ddff8f");
+            _localization.SetValue(_variable, new[] { -1, -1 });
+            _localization.SetVariable(_variable, 0, (int)((object[])(object)text)[1]);
+            _localization.InsertVariable(_localized, index, _variable);
         }
 
         public static void Insert(this LocalizedOptionDataList self, int index, LocalizedSprite image) {
@@ -106,8 +100,10 @@ namespace HoshinoLabs.ULocalization.Udon {
             var _self = (object[])(object)self;
             var _localization = (LocalizationShim)_self[0];
             var _localized = (int)_self[1];
-            var _localizedImage = image == null ? -1 : (int)((object[])(object)image)[1];
-            _localization.InsertVariable(_localized, index, -1, _localizedImage);
+            var _variable = _localization.NewLocalized("__843847da481d19ec55c1ea6e32ddff8f");
+            _localization.SetValue(_variable, new[] { -1, -1 });
+            _localization.SetVariable(_variable, 1, (int)((object[])(object)image)[1]);
+            _localization.InsertVariable(_localized, index, _variable);
         }
 
         public static void Insert(this LocalizedOptionDataList self, int index, LocalizedString text, LocalizedSprite image) {
@@ -118,9 +114,11 @@ namespace HoshinoLabs.ULocalization.Udon {
             var _self = (object[])(object)self;
             var _localization = (LocalizationShim)_self[0];
             var _localized = (int)_self[1];
-            var _localizedText = text == null ? -1 : (int)((object[])(object)text)[1];
-            var _localizedImage = image == null ? -1 : (int)((object[])(object)image)[1];
-            _localization.InsertVariable(_localized, index, _localizedText, _localizedImage);
+            var _variable = _localization.NewLocalized("__843847da481d19ec55c1ea6e32ddff8f");
+            _localization.SetValue(_variable, new[] { -1, -1 });
+            _localization.SetVariable(_variable, 0, (int)((object[])(object)text)[1]);
+            _localization.SetVariable(_variable, 1, (int)((object[])(object)image)[1]);
+            _localization.InsertVariable(_localized, index, _variable);
         }
 
         public static void Clear(this LocalizedOptionDataList self) {
