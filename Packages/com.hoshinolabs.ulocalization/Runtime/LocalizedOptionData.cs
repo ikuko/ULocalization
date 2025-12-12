@@ -48,20 +48,39 @@ namespace HoshinoLabs.ULocalization {
         }
 
         public LocalizedOptionData() {
-
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.delayCall += RegisterChangeHandler;
+#else
+            RegisterChangeHandler();
+#endif
         }
 
         public LocalizedOptionData(LocalizedString text) {
             this.text = text;
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.delayCall += RegisterChangeHandler;
+#else
+            RegisterChangeHandler();
+#endif
         }
 
         public LocalizedOptionData(LocalizedSprite image) {
             this.image = image;
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.delayCall += RegisterChangeHandler;
+#else
+            RegisterChangeHandler();
+#endif
         }
 
         public LocalizedOptionData(LocalizedString text, LocalizedSprite image) {
             this.text = text;
             this.image = image;
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.delayCall += RegisterChangeHandler;
+#else
+            RegisterChangeHandler();
+#endif
         }
 
         protected override void ForceUpdate() {
