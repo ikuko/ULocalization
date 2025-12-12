@@ -294,6 +294,15 @@ namespace HoshinoLabs.ULocalization.Udon {
         static List<KeyValuePair<LocalizedReference, HashSet<LocalizedMonoBehaviour>>> BuildLocalizeds() {
             var localizeds = new KeyValuePair<LocalizedReference, HashSet<LocalizedMonoBehaviour>>[IID.GetAll().Count()];
             LocalizedCache.GetAll()
+                .Where(x => {
+                    switch (x.Key) {
+                        case ULocalization.LocalizedOptionData:
+                        case ULocalization.LocalizedOptionDataList: {
+                                return true;
+                            }
+                    }
+                    return !x.Key.IsEmpty;
+                })
                 .ToList()
                 .ForEach(x => {
                     if (x.Key.IsSupported()) {

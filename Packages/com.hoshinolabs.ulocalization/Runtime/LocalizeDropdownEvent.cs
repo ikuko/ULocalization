@@ -40,9 +40,12 @@ namespace HoshinoLabs.ULocalization {
 
             var translatedOptions = options
                 .Select(x => {
+                    if (x == null) {
+                        return new TMP_Dropdown.OptionData(null, null);
+                    }
                     var locale = LocalizationSettings.SelectedLocale ?? LocalizationSettings.ProjectLocale;
-                    var text = x.Text.IsEmpty ? null : LocalizationSettings.StringDatabase.GetLocalizedStringAsync(x.Text.TableReference, x.Text.TableEntryReference, x.Text.Arguments, locale, x.Text.FallbackState, x.Text.Count > 0 ? x.Text : null).WaitForCompletion();
-                    var image = x.Image.IsEmpty ? null : LocalizationSettings.AssetDatabase.GetLocalizedAsset<Sprite>(x.Image.TableReference, x.Image.TableEntryReference, locale);
+                    var text = x.Text == null || x.Text.IsEmpty ? null : LocalizationSettings.StringDatabase.GetLocalizedStringAsync(x.Text.TableReference, x.Text.TableEntryReference, x.Text.Arguments, locale, x.Text.FallbackState, x.Text.Count > 0 ? x.Text : null).WaitForCompletion();
+                    var image = x.Image == null || x.Image.IsEmpty ? null : LocalizationSettings.AssetDatabase.GetLocalizedAsset<Sprite>(x.Image.TableReference, x.Image.TableEntryReference, locale);
                     return new TMP_Dropdown.OptionData(text, image);
                 })
                 .ToArray();

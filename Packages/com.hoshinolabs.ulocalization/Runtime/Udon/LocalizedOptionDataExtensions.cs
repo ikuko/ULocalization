@@ -26,7 +26,7 @@ namespace HoshinoLabs.ULocalization.Udon {
             var _self = (object[])(object)self;
             var _localization = (LocalizationShim)_self[0];
             var _localized = (int)_self[1];
-            _localization.SetVariable(_localized, 0, (int)((object[])(object)text)[1]);
+            _localization.SetVariable(_localized, 0, text == null ? -1 : (int)((object[])(object)text)[1]);
         }
 
         public static LocalizedSprite GetImage(this LocalizedOptionData self) {
@@ -55,7 +55,7 @@ namespace HoshinoLabs.ULocalization.Udon {
             var _self = (object[])(object)self;
             var _localization = (LocalizationShim)_self[0];
             var _localized = (int)_self[1];
-            _localization.SetVariable(_localized, 1, (int)((object[])(object)image)[1]);
+            _localization.SetVariable(_localized, 1, image == null ? -1 : (int)((object[])(object)image)[1]);
         }
     }
 }

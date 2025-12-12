@@ -120,13 +120,17 @@ namespace HoshinoLabs.ULocalization {
 
         void RegisterChangeHandler() {
             foreach (var option in options) {
-                option.OptionChanged += UpdateOption;
+                if (option != null) {
+                    option.OptionChanged += UpdateOption;
+                }
             }
         }
 
         void ClearChangeHandler() {
             foreach (var option in options) {
-                option.OptionChanged -= UpdateOption;
+                if (option != null) {
+                    option.OptionChanged -= UpdateOption;
+                }
             }
         }
 

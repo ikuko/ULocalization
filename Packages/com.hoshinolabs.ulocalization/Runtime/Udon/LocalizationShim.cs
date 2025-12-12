@@ -159,11 +159,16 @@ namespace HoshinoLabs.ULocalization.Udon {
                 var __19_count = __19.Count;
                 var options = new TMPro.TMP_Dropdown.OptionData[__19_count];
                 for (var i = 0; i < __19_count; i++) {
-                    var ___19 = (int[])_19[__19[i].Int];
-                    var ___19_0 = ___19[0];
-                    var ___19_1 = ___19[1];
-                    var text = ___19_0 < 0 ? string.Empty : (string)GetLocalizedValue(___19_0);
-                    var image = ___19_1 < 0 ? null : (Sprite)GetLocalizedValue(___19_1);
+                    var ___19 = __19[i].Int;
+                    if (___19 < 0) {
+                        options[i] = new TMPro.TMP_Dropdown.OptionData(null, null);
+                        continue;
+                    }
+                    var ____19 = (int[])_19[___19];
+                    var ____19_0 = ____19[0];
+                    var ____19_1 = ____19[1];
+                    var text = ____19_0 < 0 ? null : (string)GetLocalizedValue(____19_0);
+                    var image = ____19_1 < 0 ? null : (Sprite)GetLocalizedValue(____19_1);
                     options[i] = new TMPro.TMP_Dropdown.OptionData(text, image);
                 }
                 _l_p = options;
@@ -286,8 +291,10 @@ namespace HoshinoLabs.ULocalization.Udon {
         }
 
         public void AddVariable(int variablesGroup, int variable) {
-            var __18 = _18[variable];
-            __18.Add(variablesGroup);
+            if (0 <= variable) {
+                var __18 = _18[variable];
+                __18.Add(variablesGroup);
+            }
             var __19 = (DataList)_19[variablesGroup];
             __19.Add(variable);
         }
@@ -319,8 +326,12 @@ namespace HoshinoLabs.ULocalization.Udon {
 
         public void SetVariable(int variablesGroup, int index, int variable) {
             var __19 = (int[])_19[variablesGroup];
-            _18[__19[index]].RemoveAll(variablesGroup);
-            _18[variable].Add(variablesGroup);
+            if (0 <= __19[index]) {
+                _18[__19[index]].RemoveAll(variablesGroup);
+            }
+            if (0 <= variable) {
+                _18[variable].Add(variablesGroup);
+            }
             __19[index] = variable;
         }
 
@@ -416,11 +427,16 @@ namespace HoshinoLabs.ULocalization.Udon {
             var _localized = CloneLocalized(_8[localizeEvent]);
             var _localizeEvent = _7;
 
+            if (0 <= _localized) {
+                _14[_localized].RemoveAll(localizeEvent);
+                _14[_localized].Add(_localizeEvent);
+            }
+
             var __7 = _localizeEvent + 1;
 
             var __8 = new int[__7];
             Array.Copy(_8, __8, _7);
-            __8[_localizeEvent] = _8[localizeEvent];
+            __8[_localizeEvent] = _localized;
             _8 = __8;
             var __9 = new int[__7];
             Array.Copy(_9, __9, _7);
@@ -463,10 +479,6 @@ namespace HoshinoLabs.ULocalization.Udon {
 
             _7 = __7;
 
-            _14[_localized].RemoveAll(localizeEvent);
-            _8[_localizeEvent] = _localized;
-            _14[_localized].Add(_localizeEvent);
-
             _r_cache0.Add(localizeEvent, _localizeEvent);
 
             return _localizeEvent;
@@ -493,6 +505,7 @@ namespace HoshinoLabs.ULocalization.Udon {
 
             var __14 = new DataList[__13];
             Array.Copy(_14, __14, _13);
+            var ___14 = _14[localized];
             __14[_localized] = _14[localized].DeepClone();
             _14 = __14;
             var __15 = new int[__13];
@@ -525,7 +538,9 @@ namespace HoshinoLabs.ULocalization.Udon {
                         for (var i = 0; i < __19_count; i++) {
                             var __19_k = __19_ks[i];
                             var __19_v = __19[__19_k];
-                            _18[__19_v.Int].Add(_variable);
+                            if (0 <= __19_v.Int) {
+                                _18[__19_v.Int].Add(_variable);
+                            }
                         }
                         return _variable;
                     }
@@ -534,8 +549,12 @@ namespace HoshinoLabs.ULocalization.Udon {
                         __19[0] = CloneLocalized(__19[0]);
                         __19[1] = CloneLocalized(__19[1]);
                         var _variable = CloneVariable(variable, __19);
-                        _18[__19[0]].Add(_variable);
-                        _18[__19[1]].Add(_variable);
+                        if (0 <= __19[0]) {
+                            _18[__19[0]].Add(_variable);
+                        }
+                        if (0 <= __19[1]) {
+                            _18[__19[1]].Add(_variable);
+                        }
                         return _variable;
                     }
                 case "__461b2df608253952f317044024ef8027": {
@@ -546,7 +565,9 @@ namespace HoshinoLabs.ULocalization.Udon {
                         }
                         var _variable = CloneVariable(variable, __19);
                         for (var i = 0; i < __19_count; i++) {
-                            _18[__19[i].Int].Add(_variable);
+                            if (0 <= __19[i].Int) {
+                                _18[__19[i].Int].Add(_variable);
+                            }
                         }
                         return _variable;
                     }
