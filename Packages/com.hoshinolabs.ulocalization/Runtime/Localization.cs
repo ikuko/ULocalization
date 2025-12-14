@@ -27,8 +27,12 @@ namespace HoshinoLabs.ULocalization {
 
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
         static void OnAfterSceneLoad() {
+            if (!LocalizationSettings.HasSettings) {
+                return;
+            }
+            var locale = LocalizationSettings.SelectedLocale ?? LocalizationSettings.ProjectLocale;
             var signal = new Signal<Localization>();
-            signal.Publish(LocalizationSettings.ProjectLocale.Identifier.Code);
+            signal.Publish(locale.Identifier.Code);
             LocalizationSettings.SelectedLocaleChanged += locale => {
                 signal.Publish(locale.Identifier.Code);
             };
