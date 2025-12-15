@@ -152,7 +152,8 @@ namespace HoshinoLabs.ULocalization.Udon {
                 .WithParameter("_22", cloneDetectorData._2)
                 .WithParameter("_23", cloneDetectorData._3)
                 .WithParameter("_24", cloneDetectorData._4)
-                .WithParameter("_25", cloneDetectorData._5);
+                .WithParameter("_25", cloneDetectorData._5)
+                .WithParameter("_26", cloneDetectorData._6);
             builder.Build()
                 .Resolve<Localization>();
         }
@@ -179,11 +180,12 @@ namespace HoshinoLabs.ULocalization.Udon {
             var _18 = Array.Empty<DataList>();
             var _19 = Array.Empty<object>();
             var _20 = Array.Empty<object[]>();
-            var _21 = Array.Empty<int[]>();
-            var _22 = Array.Empty<string>();
-            var _23 = Array.Empty<int>();
-            var _24 = Array.Empty<string[]>();
+            var _21 = Array.Empty<int>();
+            var _22 = Array.Empty<int[]>();
+            var _23 = Array.Empty<string>();
+            var _24 = Array.Empty<int>();
             var _25 = Array.Empty<string[]>();
+            var _26 = Array.Empty<string[]>();
 
             var builder = new ContainerBuilder();
             builder.RegisterComponentOnNewGameObject(
@@ -221,7 +223,8 @@ namespace HoshinoLabs.ULocalization.Udon {
                 .WithParameter("_22", _22)
                 .WithParameter("_23", _23)
                 .WithParameter("_24", _24)
-                .WithParameter("_25", _25);
+                .WithParameter("_25", _25)
+                .WithParameter("_26", _26);
             localization = builder.Build()
                 .Resolve<Localization>();
             return localization;
@@ -593,7 +596,7 @@ namespace HoshinoLabs.ULocalization.Udon {
             return default;
         }
 
-        static (object[][] _0, int[][] _1, string[] _2, int[] _3, string[][] _4, string[][] _5) BuildCloneDetectors(Container container, Scene scene, List<LocalizedMonoBehaviour> localizeEvents) {
+        static (object[][] _0, int[] _1, int[][] _2, string[] _3, int[] _4, string[][] _5, string[][] _6) BuildCloneDetectors(Container container, Scene scene, List<LocalizedMonoBehaviour> localizeEvents) {
             var markers = scene.GetRootGameObjects()
                 .SelectMany(x => x.GetComponentsInChildren(typeof(VRCPlayerObject), true))
                 .ToArray();
@@ -641,11 +644,12 @@ namespace HoshinoLabs.ULocalization.Udon {
 
             return (
                 _0: refs.Select(x => x.ToArray()).ToArray(),
-                _1: ids.ToArray(),
-                _2: infos.Select(x => x.Key.FullName).ToArray(),
-                _3: infos.Select(x => x.Value.Length).ToArray(),
-                _4: infos.Select(x => x.Value.Select(x => x.Name).ToArray()).ToArray(),
-                _5: infos.Select(x => x.Value.Select(x => $"__{x.FieldType.FullName.Replace(".", "").ComputeHashMD5()}").ToArray()).ToArray()
+                _1: ids.Select(x => x.Length).ToArray(),
+                _2: ids.ToArray(),
+                _3: infos.Select(x => x.Key.FullName).ToArray(),
+                _4: infos.Select(x => x.Value.Length).ToArray(),
+                _5: infos.Select(x => x.Value.Select(x => x.Name).ToArray()).ToArray(),
+                _6: infos.Select(x => x.Value.Select(x => $"__{x.FieldType.FullName.Replace(".", "").ComputeHashMD5()}").ToArray()).ToArray()
             );
         }
     }

@@ -56,15 +56,17 @@ namespace HoshinoLabs.ULocalization.Udon {
         [Inject, SerializeField, HideInInspector]
         object[][] _20;
         [Inject, SerializeField, HideInInspector]
-        int[][] _21;
+        int[] _21;
         [Inject, SerializeField, HideInInspector]
-        string[] _22;
+        int[][] _22;
         [Inject, SerializeField, HideInInspector]
-        int[] _23;
+        string[] _23;
         [Inject, SerializeField, HideInInspector]
-        string[][] _24;
+        int[] _24;
         [Inject, SerializeField, HideInInspector]
         string[][] _25;
+        [Inject, SerializeField, HideInInspector]
+        string[][] _26;
 
         [SerializeField, HideInInspector]
         Signal signal = new Signal<Localization>();
@@ -345,39 +347,47 @@ namespace HoshinoLabs.ULocalization.Udon {
             _r_cache1 = new DataDictionary();
             _r_refs0 = _20[prefab];
             _r_refs1 = refs;
-            var __19 = _21[prefab];
+            var __21 = _21[prefab];
+            var __22 = _22[prefab];
+            for (var i = 0; i < __21; i++) {
+                var ___22 = __22[i];
+                if (___22 < 0) {
+                    continue;
+                }
+                CloneLocalizeEvent(___22);
+            }
             var udons = go.GetComponentsInChildren<UdonBehaviour>(true);
             for (var i = 0; i < udons.Length; i++) {
                 var instance = udons[i];
 
 #if UNITY_EDITOR
                 if (instance.GetProgramVariableType(CompilerConstants.UsbTypeIDHeapKey) == null) {
-                    return;
+                    continue;
                 }
 #endif
                 var value = instance.GetProgramVariable(CompilerConstants.UsbTypeNameHeapKey);
                 if (value == null) {
-                    return;
+                    continue;
                 }
 
                 var id = (string)value;
-                var idx = Array.IndexOf(_22, id);
+                var idx = Array.IndexOf(_23, id);
                 if (idx < 0) {
-                    return;
+                    continue;
                 }
 
-                var __21 = _23[idx];
-                var __22 = _24[idx];
-                var __23 = _25[idx];
-                for (var j = 0; j < __21; j++) {
-                    var _v = (object[])instance.GetProgramVariable(__22[j]);
-                    switch (__23[j]) {
+                var __24 = _24[idx];
+                var __25 = _25[idx];
+                var __26 = _26[idx];
+                for (var j = 0; j < __24; j++) {
+                    var _v = (object[])instance.GetProgramVariable(__25[j]);
+                    switch (__26[j]) {
                         case "__34e35fe8fc0d5c82f904f6ad75d8a5f6":
                         case "__8d96e78ca3b3e1527053aa36651e286b":
                         case "__79d2bc6f06db2986192a496ab93261bf":
                         case "__b6e214ef954e55f0fec2f7458bb876e7":
                         case "__f812cfe152444a1eb84b0dc7d7a968c2": {
-                                if (Array.IndexOf(__19, (int)_v[1]) < 0) {
+                                if (Array.IndexOf(__22, (int)_v[1]) < 0) {
                                     continue;
                                 }
                                 _v[1] = CloneLocalizeEvent((int)_v[1]);
