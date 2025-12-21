@@ -33,6 +33,7 @@ namespace HoshinoLabs.ULocalization.Udon {
 
         public static FieldInfo[] GetLocalizationFields(this Type self) {
             return self.GetFields(BindingFlags.DeclaredOnly | BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic)
+                .Where(x => !string.IsNullOrEmpty(x.FieldType.Namespace))
                 .Where(x => x.FieldType.Namespace.StartsWith(typeof(Localization).Namespace))
                 .Concat(self.BaseType?.GetLocalizationFields() ?? Array.Empty<FieldInfo>())
                 .ToArray();
