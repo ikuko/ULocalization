@@ -11,14 +11,16 @@ namespace HoshinoLabs.ULocalization.Udon {
         Localization localization;
 
         [Inject, SerializeField, HideInInspector]
-        int _0;
+        GameObject _0;
         [Inject, SerializeField, HideInInspector]
-        object[] _1;
+        int _1;
+        [Inject, SerializeField, HideInInspector]
+        object[] _2;
 
         private void Start() {
             var _localization = (LocalizationShim)localization;
-            _localization.RenewPrefab(gameObject, _0, _1);
-            DestroyImmediate(this);
+            _localization.RenewPrefab(_0, _1, _2);
+            DestroyImmediate(gameObject);
         }
     }
 }

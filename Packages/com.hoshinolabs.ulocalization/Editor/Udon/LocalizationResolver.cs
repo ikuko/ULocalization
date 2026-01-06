@@ -16,6 +16,8 @@ using UnityEngine.Localization.Settings;
 using UnityEngine.SceneManagement;
 using VRC.SDK3.Components;
 using VRC.SDK3.Data;
+using VRC.SDKBase;
+using VRC.SDKBase.Network;
 
 namespace HoshinoLabs.ULocalization.Udon {
     internal sealed class LocalizationResolver : IBindingResolver {
@@ -636,10 +638,21 @@ namespace HoshinoLabs.ULocalization.Udon {
                         CloneDetectorUtility.ImplementationType,
                         Lifetime.Transient
                     )
-                        .UnderTransform(markers[i].transform)
-                        .WithParameter("_0", i)
-                        .WithParameter("_1", refs[i].ToArray());
+                        .UnderTransform(() => {
+                            var go = new GameObject($"{CloneDetectorUtility.ImplementationType.Name} [{markers[i].GetHashCode():x8}]");
+                            go.transform.SetParent(markers[i].transform, true);
+                            go.hideFlags = HideFlags.HideInHierarchy;
+                            return go.transform;
+                        })
+                        .WithParameter("_0", markers[i].gameObject)
+                        .WithParameter("_1", i)
+                        .WithParameter("_2", refs[i].ToArray());
                 });
+            }
+
+            var descriptor = VRC_SceneDescriptor.Instance;
+            if (descriptor != null) {
+                NetworkIDAssignment.ConfigureNetworkIDs(descriptor, out var _);
             }
 
             return (
