@@ -733,13 +733,13 @@ namespace HoshinoLabs.ULocalization.Udon {
 				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
 				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
 			},
-			[typeof(global::VRC.Udon.Common.Interfaces.IUdonEventReceiver)] = new Dictionary<string, string> {
+			[typeof(global::VRC.Udon.Common.Interfaces.IUdonBehaviour)] = new Dictionary<string, string> {
 				["get_InteractionText"] = "VRCUdonCommonInterfacesIUdonEventReceiver.__get_InteractionText__SystemString",
 				["set_InteractionText"] = "VRCUdonCommonInterfacesIUdonEventReceiver.__set_InteractionText__SystemString__SystemVoid",
 				["SendCustomEvent"] = "VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid",
 				["RequestSerialization"] = "VRCUdonCommonInterfacesIUdonEventReceiver.__RequestSerialization__SystemVoid",
 			},
-			[typeof(global::VRC.Udon.Common.Interfaces.IUdonBehaviour)] = new Dictionary<string, string> {
+			[typeof(global::VRC.Udon.Common.Interfaces.IUdonEventReceiver)] = new Dictionary<string, string> {
 				["get_InteractionText"] = "VRCUdonCommonInterfacesIUdonEventReceiver.__get_InteractionText__SystemString",
 				["set_InteractionText"] = "VRCUdonCommonInterfacesIUdonEventReceiver.__set_InteractionText__SystemString__SystemVoid",
 				["SendCustomEvent"] = "VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid",
@@ -1159,6 +1159,32 @@ namespace HoshinoLabs.ULocalization.Udon {
 				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
 				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
 			},
+			[typeof(global::VRC.SDK3.Dynamics.Contact.Components.VRCContactReceiver)] = new Dictionary<string, string> {
+				["ApplyConfigurationChanges"] = "VRCSDK3DynamicsContactComponentsVRCContactReceiver.__ApplyConfigurationChanges__SystemVoid",
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
+			},
+			[typeof(global::VRC.Dynamics.ContactReceiver)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
+			},
+			[typeof(global::VRC.Dynamics.ContactBase)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
+			},
+			[typeof(global::VRC.Dynamics.DynamicsComponent)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
+			},
+			[typeof(global::VRC.SDK3.Dynamics.Contact.Components.VRCContactSender)] = new Dictionary<string, string> {
+				["ApplyConfigurationChanges"] = "VRCSDK3DynamicsContactComponentsVRCContactSender.__ApplyConfigurationChanges__SystemVoid",
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
+			},
+			[typeof(global::VRC.Dynamics.ContactSender)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
+			},
 			[typeof(global::VRC.SDK3.Video.Components.Base.BaseVRCVideoPlayer)] = new Dictionary<string, string> {
 				["get_name"] = "VRCSDK3VideoComponentsBaseBaseVRCVideoPlayer.__get_name__SystemString",
 				["set_name"] = "VRCSDK3VideoComponentsBaseBaseVRCVideoPlayer.__set_name__SystemString__SystemVoid",
@@ -1184,18 +1210,39 @@ namespace HoshinoLabs.ULocalization.Udon {
 				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
 				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
 			},
+			[typeof(global::VRC.SDK3.Components.VRCEnablePersistence)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
+			},
+			[typeof(global::VRC.SDK3.Components.VRCPlayerObject)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
+			},
+			[typeof(global::VRC.SDK3.Network.VRCNetworkBehaviour)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
+			},
 			[typeof(global::VRC.SDK3.Components.VRCSpatialAudioSource)] = new Dictionary<string, string> {
 				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
 				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
+			},
+			[typeof(global::VRC.SDK3.Components.VRCCameraDollyAnimation)] = new Dictionary<string, string> {
+				["get_name"] = "VRCSDK3ComponentsVRCCameraDollyAnimation.__get_name__SystemString",
+				["set_name"] = "VRCSDK3ComponentsVRCCameraDollyAnimation.__set_name__SystemString__SystemVoid",
+				["Import"] = "VRCSDK3ComponentsVRCCameraDollyAnimation.__Import__SystemVoid",
+			},
+			[typeof(global::VRC.SDK3.Components.VRCCameraDollyPath)] = new Dictionary<string, string> {
+				["get_name"] = "VRCSDK3ComponentsVRCCameraDollyPath.__get_name__SystemString",
+				["set_name"] = "VRCSDK3ComponentsVRCCameraDollyPath.__set_name__SystemString__SystemVoid",
+			},
+			[typeof(global::VRC.SDK3.Components.VRCCameraDollyPathPoint)] = new Dictionary<string, string> {
+				["get_name"] = "VRCSDK3ComponentsVRCCameraDollyPathPoint.__get_name__SystemString",
+				["set_name"] = "VRCSDK3ComponentsVRCCameraDollyPathPoint.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::VRC.SDK3.Components.VRCObjectPool)] = new Dictionary<string, string> {
 				["get_name"] = "VRCSDK3ComponentsVRCObjectPool.__get_name__SystemString",
 				["set_name"] = "VRCSDK3ComponentsVRCObjectPool.__set_name__SystemString__SystemVoid",
 				["Shuffle"] = "VRCSDK3ComponentsVRCObjectPool.__Shuffle__SystemVoid",
-			},
-			[typeof(global::VRC.SDK3.Network.VRCNetworkBehaviour)] = new Dictionary<string, string> {
-				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
-				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::VRC.SDK3.Components.VRCVisualDamage)] = new Dictionary<string, string> {
 				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
@@ -1226,7 +1273,6 @@ namespace HoshinoLabs.ULocalization.Udon {
 			[typeof(global::VRC.SDK3.Components.VRCMirrorReflection)] = new Dictionary<string, string> {
 				["get_name"] = "VRCSDK3ComponentsVRCMirrorReflection.__get_name__SystemString",
 				["set_name"] = "VRCSDK3ComponentsVRCMirrorReflection.__set_name__SystemString__SystemVoid",
-				["OnWillRenderObject"] = "VRCSDK3ComponentsVRCMirrorReflection.__OnWillRenderObject__SystemVoid",
 			},
 			[typeof(global::VRC.SDK3.Components.VRCSceneDescriptor)] = new Dictionary<string, string> {
 				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
@@ -1241,6 +1287,108 @@ namespace HoshinoLabs.ULocalization.Udon {
 				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
 			},
 			[typeof(global::VRC.SDK3.Components.VRCUiShape)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
+			},
+			[typeof(global::VRC.SDK3.Dynamics.Constraint.Components.VRCAimConstraint)] = new Dictionary<string, string> {
+				["ActivateConstraint"] = "VRCSDK3DynamicsConstraintComponentsVRCAimConstraint.__ActivateConstraint__SystemVoid",
+				["ZeroConstraint"] = "VRCSDK3DynamicsConstraintComponentsVRCAimConstraint.__ZeroConstraint__SystemVoid",
+				["ApplyConfigurationChanges"] = "VRCSDK3DynamicsConstraintComponentsVRCAimConstraint.__ApplyConfigurationChanges__SystemVoid",
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
+			},
+			[typeof(global::VRC.Dynamics.ManagedTypes.VRCAimConstraintBase)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
+			},
+			[typeof(global::VRC.Dynamics.ManagedTypes.VRCWorldUpConstraintBase)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
+			},
+			[typeof(global::VRC.Dynamics.VRCConstraintBase)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
+			},
+			[typeof(global::VRC.SDK3.Dynamics.Constraint.Components.VRCLookAtConstraint)] = new Dictionary<string, string> {
+				["ActivateConstraint"] = "VRCSDK3DynamicsConstraintComponentsVRCLookAtConstraint.__ActivateConstraint__SystemVoid",
+				["ZeroConstraint"] = "VRCSDK3DynamicsConstraintComponentsVRCLookAtConstraint.__ZeroConstraint__SystemVoid",
+				["ApplyConfigurationChanges"] = "VRCSDK3DynamicsConstraintComponentsVRCLookAtConstraint.__ApplyConfigurationChanges__SystemVoid",
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
+			},
+			[typeof(global::VRC.Dynamics.ManagedTypes.VRCLookAtConstraintBase)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
+			},
+			[typeof(global::VRC.SDK3.Dynamics.Constraint.Components.VRCParentConstraint)] = new Dictionary<string, string> {
+				["ActivateConstraint"] = "VRCSDK3DynamicsConstraintComponentsVRCParentConstraint.__ActivateConstraint__SystemVoid",
+				["ZeroConstraint"] = "VRCSDK3DynamicsConstraintComponentsVRCParentConstraint.__ZeroConstraint__SystemVoid",
+				["ApplyConfigurationChanges"] = "VRCSDK3DynamicsConstraintComponentsVRCParentConstraint.__ApplyConfigurationChanges__SystemVoid",
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
+			},
+			[typeof(global::VRC.Dynamics.ManagedTypes.VRCParentConstraintBase)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
+			},
+			[typeof(global::VRC.SDK3.Dynamics.Constraint.Components.VRCPositionConstraint)] = new Dictionary<string, string> {
+				["ActivateConstraint"] = "VRCSDK3DynamicsConstraintComponentsVRCPositionConstraint.__ActivateConstraint__SystemVoid",
+				["ZeroConstraint"] = "VRCSDK3DynamicsConstraintComponentsVRCPositionConstraint.__ZeroConstraint__SystemVoid",
+				["ApplyConfigurationChanges"] = "VRCSDK3DynamicsConstraintComponentsVRCPositionConstraint.__ApplyConfigurationChanges__SystemVoid",
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
+			},
+			[typeof(global::VRC.Dynamics.ManagedTypes.VRCPositionConstraintBase)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
+			},
+			[typeof(global::VRC.SDK3.Dynamics.Constraint.Components.VRCRotationConstraint)] = new Dictionary<string, string> {
+				["ActivateConstraint"] = "VRCSDK3DynamicsConstraintComponentsVRCRotationConstraint.__ActivateConstraint__SystemVoid",
+				["ZeroConstraint"] = "VRCSDK3DynamicsConstraintComponentsVRCRotationConstraint.__ZeroConstraint__SystemVoid",
+				["ApplyConfigurationChanges"] = "VRCSDK3DynamicsConstraintComponentsVRCRotationConstraint.__ApplyConfigurationChanges__SystemVoid",
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
+			},
+			[typeof(global::VRC.Dynamics.ManagedTypes.VRCRotationConstraintBase)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
+			},
+			[typeof(global::VRC.SDK3.Dynamics.Constraint.Components.VRCScaleConstraint)] = new Dictionary<string, string> {
+				["ActivateConstraint"] = "VRCSDK3DynamicsConstraintComponentsVRCScaleConstraint.__ActivateConstraint__SystemVoid",
+				["ZeroConstraint"] = "VRCSDK3DynamicsConstraintComponentsVRCScaleConstraint.__ZeroConstraint__SystemVoid",
+				["ApplyConfigurationChanges"] = "VRCSDK3DynamicsConstraintComponentsVRCScaleConstraint.__ApplyConfigurationChanges__SystemVoid",
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
+			},
+			[typeof(global::VRC.Dynamics.ManagedTypes.VRCScaleConstraintBase)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
+			},
+			[typeof(global::VRC.SDK3.Dynamics.PhysBone.Components.VRCPhysBone)] = new Dictionary<string, string> {
+				["ApplyConfigurationChanges"] = "VRCSDK3DynamicsPhysBoneComponentsVRCPhysBone.__ApplyConfigurationChanges__SystemVoid",
+				["ReleaseGrabs"] = "VRCSDK3DynamicsPhysBoneComponentsVRCPhysBone.__ReleaseGrabs__SystemVoid",
+				["ReleasePoses"] = "VRCSDK3DynamicsPhysBoneComponentsVRCPhysBone.__ReleasePoses__SystemVoid",
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
+			},
+			[typeof(global::VRC.Dynamics.VRCPhysBoneBase)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
+			},
+			[typeof(global::VRC.SDK3.Dynamics.PhysBone.Components.VRCPhysBoneCollider)] = new Dictionary<string, string> {
+				["ApplyConfigurationChanges"] = "VRCSDK3DynamicsPhysBoneComponentsVRCPhysBoneCollider.__ApplyConfigurationChanges__SystemVoid",
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
+			},
+			[typeof(global::VRC.Dynamics.VRCPhysBoneColliderBase)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
+			},
+			[typeof(global::VRC.SDK3.Dynamics.PhysBone.Components.VRCPhysBoneRoot)] = new Dictionary<string, string> {
+				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
+				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
+			},
+			[typeof(global::VRC.Dynamics.PhysBoneRoot)] = new Dictionary<string, string> {
 				["get_name"] = "UnityEngineComponent.__get_name__SystemString",
 				["set_name"] = "UnityEngineComponent.__set_name__SystemString__SystemVoid",
 			},

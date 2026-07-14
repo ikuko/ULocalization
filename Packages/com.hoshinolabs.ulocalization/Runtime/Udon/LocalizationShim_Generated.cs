@@ -500,6 +500,8 @@ namespace HoshinoLabs.ULocalization.Udon {
 		public void __87d8b511913cfc112e00a7d718f1cb78() => ((global::Cinemachine.CinemachineVirtualCamera)_l_t).name = (global::System.String)_l_p;
 		public void __50af5f0f6495415e6b9d1a7a7d41b64b() => ((global::Cinemachine.CinemachineVirtualCamera)_l_t).name = (global::System.String)_l_a;
 		public void __51462db8611e5c5502a7ef06938d48d8() => ((global::Cinemachine.CinemachineVirtualCamera)_l_t).MoveToTopOfPrioritySubqueue();
+		public void __cb88a086ab984f17fd4830e8029020e8() => ((global::VRC.SDK3.Dynamics.Contact.Components.VRCContactReceiver)_l_t).ApplyConfigurationChanges();
+		public void __582fbd370d002ace0f355d04bb490c84() => ((global::VRC.SDK3.Dynamics.Contact.Components.VRCContactSender)_l_t).ApplyConfigurationChanges();
 		public void __8f3004524299ba2396a305a138013558() => ((global::VRC.SDK3.Video.Components.Base.BaseVRCVideoPlayer)_l_t).name = (global::System.String)_l_p;
 		public void __410e2ec75680cf1361cc2000380e4f11() => ((global::VRC.SDK3.Video.Components.Base.BaseVRCVideoPlayer)_l_t).name = (global::System.String)_l_a;
 		public void __a185a7e39fedcd7c12f459e458aee891() => ((global::VRC.SDK3.Video.Components.Base.BaseVRCVideoPlayer)_l_t).Play();
@@ -507,6 +509,13 @@ namespace HoshinoLabs.ULocalization.Udon {
 		public void __0264cb1e6fc286aee7771de2fbd0ec31() => ((global::VRC.SDK3.Video.Components.Base.BaseVRCVideoPlayer)_l_t).Stop();
 		public void __580dda3a3a8d9ebf58451548ea09b3de() => ((global::VRC.SDK3.Midi.VRCMidiPlayer)_l_t).Play();
 		public void __3631364d91944e049e251eb011a703ef() => ((global::VRC.SDK3.Midi.VRCMidiPlayer)_l_t).Stop();
+		public void __187f0c772f321396eb813bd99f37026b() => ((global::VRC.SDK3.Components.VRCCameraDollyAnimation)_l_t).name = (global::System.String)_l_p;
+		public void __ec836cb087c9e37aba300e64a0b90712() => ((global::VRC.SDK3.Components.VRCCameraDollyAnimation)_l_t).name = (global::System.String)_l_a;
+		public void __377f2f151543337d4c5d49a52cc08c56() => ((global::VRC.SDK3.Components.VRCCameraDollyAnimation)_l_t).Import();
+		public void __e518fef942a737063c74e841dfcd9497() => ((global::VRC.SDK3.Components.VRCCameraDollyPath)_l_t).name = (global::System.String)_l_p;
+		public void __37f9450b51df4dcd424a6fc8c63d68c8() => ((global::VRC.SDK3.Components.VRCCameraDollyPath)_l_t).name = (global::System.String)_l_a;
+		public void __53d55a73da4dbf431781d7423821f61f() => ((global::VRC.SDK3.Components.VRCCameraDollyPathPoint)_l_t).name = (global::System.String)_l_p;
+		public void __16014225fdcb949b857a5931d112e56c() => ((global::VRC.SDK3.Components.VRCCameraDollyPathPoint)_l_t).name = (global::System.String)_l_a;
 		public void __322c1307b08ad102164858d18b5dd779() => ((global::VRC.SDK3.Components.VRCObjectPool)_l_t).name = (global::System.String)_l_p;
 		public void __7bb2b07ae72e3205db2a02136c37ba0b() => ((global::VRC.SDK3.Components.VRCObjectPool)_l_t).name = (global::System.String)_l_a;
 		public void __0c4e0f05769d73597e979ce16b61fbca() => ((global::VRC.SDK3.Components.VRCObjectPool)_l_t).Shuffle();
@@ -527,8 +536,29 @@ namespace HoshinoLabs.ULocalization.Udon {
 		public void __f883032f16e206db7b994f577def0b83() => ((global::VRC.SDK3.Components.VRCPortalMarker)_l_t).RefreshPortal();
 		public void __b2d23ce30455b3a993577a8fa28d38f2() => ((global::VRC.SDK3.Components.VRCMirrorReflection)_l_t).name = (global::System.String)_l_p;
 		public void __228d5efa3bbbcfdc6ac3083fcffb6b3d() => ((global::VRC.SDK3.Components.VRCMirrorReflection)_l_t).name = (global::System.String)_l_a;
-		public void __76626b8506a7c11bc64b7f23d47fe838() => ((global::VRC.SDK3.Components.VRCMirrorReflection)_l_t).OnWillRenderObject();
 		public void __202168915345947e3d14379ec1d88a99() => ((global::VRC.SDK3.Components.VRCStation)_l_t).name = (global::System.String)_l_p;
 		public void __87a371f68cb0cfa53fcc57ef0b91d2e5() => ((global::VRC.SDK3.Components.VRCStation)_l_t).name = (global::System.String)_l_a;
+		public void __9ad73a6e07b1e4e5e67681ec5ceedaa5() => ((global::VRC.SDK3.Dynamics.Constraint.Components.VRCAimConstraint)_l_t).ActivateConstraint();
+		public void __f3d49cd1735df14f265c1ec98dcb1039() => ((global::VRC.SDK3.Dynamics.Constraint.Components.VRCAimConstraint)_l_t).ZeroConstraint();
+		public void __d6235c4f659ff98cb7b7498aca0c6293() => ((global::VRC.SDK3.Dynamics.Constraint.Components.VRCAimConstraint)_l_t).ApplyConfigurationChanges();
+		public void __8291e09ce0ea6b3d792cf9a88471854c() => ((global::VRC.SDK3.Dynamics.Constraint.Components.VRCLookAtConstraint)_l_t).ActivateConstraint();
+		public void __4590899eaa4cfa33711d71f1eadc7522() => ((global::VRC.SDK3.Dynamics.Constraint.Components.VRCLookAtConstraint)_l_t).ZeroConstraint();
+		public void __ddf2bce23cf16918cd40caf35a45e436() => ((global::VRC.SDK3.Dynamics.Constraint.Components.VRCLookAtConstraint)_l_t).ApplyConfigurationChanges();
+		public void __b8cc63e50d98a50f187ab7a6b3ce0802() => ((global::VRC.SDK3.Dynamics.Constraint.Components.VRCParentConstraint)_l_t).ActivateConstraint();
+		public void __cef5b76e7a5f765a50a5618382ea2df6() => ((global::VRC.SDK3.Dynamics.Constraint.Components.VRCParentConstraint)_l_t).ZeroConstraint();
+		public void __36c484a7ad549345ce9d295e6b86f78a() => ((global::VRC.SDK3.Dynamics.Constraint.Components.VRCParentConstraint)_l_t).ApplyConfigurationChanges();
+		public void __8fb9100b88b7616c71faf9fe7423946a() => ((global::VRC.SDK3.Dynamics.Constraint.Components.VRCPositionConstraint)_l_t).ActivateConstraint();
+		public void __390f8a05ef842bfb44c4a3d71eb40d23() => ((global::VRC.SDK3.Dynamics.Constraint.Components.VRCPositionConstraint)_l_t).ZeroConstraint();
+		public void __cbca3dfc1b5d249eb658082ead0125ee() => ((global::VRC.SDK3.Dynamics.Constraint.Components.VRCPositionConstraint)_l_t).ApplyConfigurationChanges();
+		public void __f5ba1588aeaf1f29d761b73ebe7eb586() => ((global::VRC.SDK3.Dynamics.Constraint.Components.VRCRotationConstraint)_l_t).ActivateConstraint();
+		public void __2607f53f689ab8a1d99e627e4021f2a2() => ((global::VRC.SDK3.Dynamics.Constraint.Components.VRCRotationConstraint)_l_t).ZeroConstraint();
+		public void __6d3425204d33bb0b1143f73d3ac54438() => ((global::VRC.SDK3.Dynamics.Constraint.Components.VRCRotationConstraint)_l_t).ApplyConfigurationChanges();
+		public void __2ae4fd54410fd9dc7dbac417932c1922() => ((global::VRC.SDK3.Dynamics.Constraint.Components.VRCScaleConstraint)_l_t).ActivateConstraint();
+		public void __1bea5a8811515abc754229b69dffa3db() => ((global::VRC.SDK3.Dynamics.Constraint.Components.VRCScaleConstraint)_l_t).ZeroConstraint();
+		public void __bd86a4b69f77692017ba7977ce237805() => ((global::VRC.SDK3.Dynamics.Constraint.Components.VRCScaleConstraint)_l_t).ApplyConfigurationChanges();
+		public void __3175ef5b779f05222f0ae171f940edea() => ((global::VRC.SDK3.Dynamics.PhysBone.Components.VRCPhysBone)_l_t).ApplyConfigurationChanges();
+		public void __deabf0a1f7e16dea6909b02bcc8b57e7() => ((global::VRC.SDK3.Dynamics.PhysBone.Components.VRCPhysBone)_l_t).ReleaseGrabs();
+		public void __55bab32d797343faeb3f0268e96d15be() => ((global::VRC.SDK3.Dynamics.PhysBone.Components.VRCPhysBone)_l_t).ReleasePoses();
+		public void __4f92fd737e28b7dad504552239d0e0c5() => ((global::VRC.SDK3.Dynamics.PhysBone.Components.VRCPhysBoneCollider)_l_t).ApplyConfigurationChanges();
 	}
 }
